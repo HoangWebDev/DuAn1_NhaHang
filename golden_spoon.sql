@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 09, 2023 at 01:37 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 11, 2023 lúc 02:09 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `duan1`
+-- Cơ sở dữ liệu: `golden_spoon`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Cấu trúc bảng cho bảng `booking`
 --
 
 CREATE TABLE `booking` (
@@ -39,7 +39,7 @@ CREATE TABLE `booking` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailbooking`
+-- Cấu trúc bảng cho bảng `detailbooking`
 --
 
 CREATE TABLE `detailbooking` (
@@ -53,7 +53,7 @@ CREATE TABLE `detailbooking` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food`
+-- Cấu trúc bảng cho bảng `food`
 --
 
 CREATE TABLE `food` (
@@ -66,7 +66,7 @@ CREATE TABLE `food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `food`
+-- Đang đổ dữ liệu cho bảng `food`
 --
 
 INSERT INTO `food` (`ID_Food`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `Describe`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `food` (`ID_Food`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImag
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_food`
+-- Cấu trúc bảng cho bảng `type_food`
 --
 
 CREATE TABLE `type_food` (
@@ -109,7 +109,7 @@ CREATE TABLE `type_food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `type_food`
+-- Đang đổ dữ liệu cho bảng `type_food`
 --
 
 INSERT INTO `type_food` (`ID_LoaiMonAn`, `TenLoai`, `HinhAnh`) VALUES
@@ -120,7 +120,7 @@ INSERT INTO `type_food` (`ID_LoaiMonAn`, `TenLoai`, `HinhAnh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -134,18 +134,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `booking`
+-- Chỉ mục cho bảng `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`ID_Booking`),
   ADD KEY `fk_booking_user` (`ID_User`);
 
 --
--- Indexes for table `detailbooking`
+-- Chỉ mục cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
   ADD PRIMARY KEY (`ID_DetailBooking`),
@@ -153,77 +153,77 @@ ALTER TABLE `detailbooking`
   ADD KEY `fk_detailbooking_food` (`ID_Food`);
 
 --
--- Indexes for table `food`
+-- Chỉ mục cho bảng `food`
 --
 ALTER TABLE `food`
   ADD PRIMARY KEY (`ID_Food`),
   ADD KEY `fk_monan_loaimonan` (`ID_TypeFood`);
 
 --
--- Indexes for table `type_food`
+-- Chỉ mục cho bảng `type_food`
 --
 ALTER TABLE `type_food`
   ADD PRIMARY KEY (`ID_LoaiMonAn`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID_User`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `booking`
+-- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
   MODIFY `ID_Booking` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `detailbooking`
+-- AUTO_INCREMENT cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
   MODIFY `ID_DetailBooking` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `food`
+-- AUTO_INCREMENT cho bảng `food`
 --
 ALTER TABLE `food`
   MODIFY `ID_Food` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `type_food`
+-- AUTO_INCREMENT cho bảng `type_food`
 --
 ALTER TABLE `type_food`
   MODIFY `ID_LoaiMonAn` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
   MODIFY `ID_User` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `booking`
+-- Các ràng buộc cho bảng `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID_User`);
 
 --
--- Constraints for table `detailbooking`
+-- Các ràng buộc cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
   ADD CONSTRAINT `fk_detailbooking_booking` FOREIGN KEY (`ID_Booking`) REFERENCES `booking` (`ID_Booking`),
   ADD CONSTRAINT `fk_detailbooking_food` FOREIGN KEY (`ID_Food`) REFERENCES `food` (`ID_Food`);
 
 --
--- Constraints for table `food`
+-- Các ràng buộc cho bảng `food`
 --
 ALTER TABLE `food`
   ADD CONSTRAINT `fk_monan_loaimonan` FOREIGN KEY (`ID_TypeFood`) REFERENCES `type_food` (`ID_LoaiMonAn`);
