@@ -41,8 +41,8 @@ require_once 'pdo.php';
 //  * @return array mảng loại truy vấn được
 //  * @throws PDOException lỗi truy vấn
 //  */
-function get_danhmuc(){
-    $sql = "SELECT * FROM danhmuc ORDER BY id ASC";
+function get_type_food(){
+    $sql = "SELECT * FROM type_food ORDER BY ID_TypeFood ASC";
     return pdo_query($sql);
 }
 function showdm($a) {
