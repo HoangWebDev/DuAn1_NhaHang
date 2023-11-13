@@ -1,4 +1,7 @@
 <?php 
+session_start();
+ob_start();
+if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
     include_once "public/header.php";
     if(isset($_GET['pg'])&&($_GET['pg']!="")){
         switch ($_GET["pg"]) {
@@ -25,4 +28,7 @@
         include_once "public/main.php";
     }
     include_once "public/footer.php";
+}else{
+    header("location:login.php");
+}
 ?>

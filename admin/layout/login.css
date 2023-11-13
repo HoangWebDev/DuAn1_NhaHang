@@ -1,0 +1,220 @@
+:root {
+  --color-bg: #777777;
+  --color-oranged: orangered;
+  --color-lineal: linear-gradient(120deg, #5645bb, #5c47bd, #ae69dd);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(240deg, #eab3f7 30%, #ff991c 70%);
+}
+body a {
+  text-decoration: none;
+}
+#wrap-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 70px auto 0;
+  /* min-height: 100vh; */
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#form-login {
+  max-width: 500px;
+  background-color: transparent;
+  margin-top: 30px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 5px #525151;
+  position: relative;
+}
+.close_login {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+}
+#form-login h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 10px 10px 20px 10px;
+}
+.form-group .title {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.form-group .input:focus {
+  border-color: orangered;
+}
+.form-group {
+  text-align: left;
+  color: black;
+}
+.form-group .input {
+  width: 400px;
+  border: none;
+  border-bottom: 1px solid var(--color-bg);
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  /* border-radius: 10px; */
+}
+.form-group .box-group {
+  position: relative;
+}
+.form-group .box-group ion-icon {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(-50%, -50%);
+}
+.form-group .box-group ion-icon:hover {
+  cursor: pointer;
+}
+.form-group .label {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-size: 12px;
+  color: var(--color-bg);
+  transition: all 0.5s ease;
+}
+
+.form-group .input:not(:placeholder-shown) + .label,
+.input:focus + .label {
+  top: -10px;
+  scale: 0.9;
+  padding: 0 5px;
+  color: var(--color-oranged);
+  background-color: transparent;
+}
+.input:hover,
+.input:focus {
+  border-bottom: 1px solid var(--color-oranged);
+}
+.input:hover + .label {
+  color: var(--color-oranged);
+  /* border-color: var(--color-oranged); */
+}
+
+.checkbox{
+  width: 12px !important;
+  height: 12px;
+}
+
+.register {
+  font-size: 15px;
+}
+.register a {
+  font-size: 15px;
+  color: #2b68e1;
+  transition: 0.2s linear;
+  padding-bottom: 1px;
+}
+.register a:hover {
+  color: var(--color-oranged);
+  border-bottom: 1px solid var(--color-oranged);
+}
+.button {
+  display: inline-block;
+  width: 200px;
+  min-height: 45px;
+  font-size: 20px;
+  color: #ffffff;
+  /* margin: 20px auto; */
+  border-radius: 10px;
+  border: none;
+  background-image: var(--color-lineal);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+.button:hover {
+  filter: brightness(1.2);
+  color: rgb(255, 255, 255);
+}
+.or {
+  text-align: center;
+  margin: 10px auto;
+  position: relative;
+}
+.or::after {
+  content: "";
+  width: 45%;
+  height: 1px;
+  background-color: var(--color-bg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.or::before {
+  content: "";
+  width: 45%;
+  height: 1px;
+  background-color: var(--color-bg);
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.or span {
+  padding: 10px;
+  /* background-color: #fff; */
+  z-index: 3;
+  position: relative;
+  color: var(--color-bg);
+}
+.socical > a {
+  text-decoration: none;
+}
+.social {
+  padding: 10px 20px;
+}
+.social > ion-icon {
+  width: 20px;
+  height: 20px;
+}
+.err {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: red;
+}
+
+/* Responsive */
+/* Mobile: Responsive */
+@media only screen and (max-width: 739px) {
+  #form-login h1 {
+    font-size: 25px;
+  }
+  .form-group .input {
+    width: 300px;
+  }
+}
+
+/* Tablet: Responsive */
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  body {
+    height: 100%;
+  }
+  #form-login h1 {
+    font-size: 20px;
+  }
+  .form-group .input {
+    width: 280px;
+  }
+}
+
+/* PC: Responsive */
+@media only screen and (min-width: 1024px) {
+}

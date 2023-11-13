@@ -28,9 +28,32 @@ function khach_hang_select_all(){
     return pdo_query($sql);
 }
 
-function khach_hang_select_by_id($ma_kh){
-    $sql = "SELECT * FROM khach_hang WHERE ma_kh=?";
-    return pdo_query_one($sql, $ma_kh);
+function checkusername($username, $password)
+{
+    $sql = "SELECT * FROM user WHERE Username='" . $username . "' AND Password='" . $password . "'";
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        $rows = $stmt->fetchAll();
+        if(count($rows) > 0)
+            return $rows[0]['Role'];
+        else
+            return 0;
+        
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}
+
+function khach_hang_select_by_id($id){
+    $sql = "SELECT * FROM user WHERE ID_User=?";
+    return pdo_query_one($sql, $id);
 }
 
 function khach_hang_exist($ma_kh){
@@ -38,9 +61,9 @@ function khach_hang_exist($ma_kh){
     return pdo_query_value($sql, $ma_kh) > 0;
 }
 
-function khach_hang_select_by_role($vai_tro){
-    $sql = "SELECT * FROM khach_hang WHERE vai_tro=?";
-    return pdo_query($sql, $vai_tro);
+function khach_hang_select_by_role($role){
+    $sql = "SELECT * FROM user WHERE Role=?";
+    return pdo_query($sql, $role);
 }
 
 function khach_hang_change_password($ma_kh, $mat_khau_moi){
