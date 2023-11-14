@@ -62,7 +62,7 @@ a{
 }
 
 img{
-    display: block;
+    /* display: block; */
     width: 100%;
     object-fit: cover;
 }
@@ -477,7 +477,8 @@ main .recent-orders a{
 }
 
 .right-section .user-profile img{
-    width: 11rem;
+    /* display: block; */
+    width: 8rem;
     height: auto;
     margin-bottom: 0.8rem;
     border-radius: 50%;

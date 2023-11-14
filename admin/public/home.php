@@ -78,27 +78,9 @@
                     </div>
                     ';
                 }
-                ?>
-                    <!-- <div class="user">
-                        <img src="layout/images/profile-2.jpg">
-                        <h2>Jack</h2>
-                        <p>54 Min Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="layout/images/profile-3.jpg">
-                        <h2>Amir</h2>
-                        <p>3 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="layout/images/profile-4.jpg">
-                        <h2>Ember</h2>
-                        <p>6 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="layout/images/profile-1.jpg">
-                        <h2>More</h2>
-                        <p>New User</p>
-                    </div> -->
+                ?><?php
+                    
+                    ?>
                 </div>
             </div>
             <!-- End of New Users Section -->
@@ -158,8 +140,10 @@
             <div class="user-profile">
                 <div class="logo">
                     <img src="layout/images/logo.png">
-                    <h2>Restaurant</h2>
-                    <p>Nhà Hàng Cao Cấp</p>
+                    <h2>Golden Spoon</h2>
+                    <p>58 Thảo Điền, Hồ Chí Minh, VN</p>
+                    <p>+84 899384048</p>
+                    <p>restaurant@gmail.com</p>
                 </div>
             </div>
 
@@ -181,7 +165,7 @@
                         <div class="info">
                             <h3>Thứ 2 - Thứ 7</h3>
                             <small class="text_muted">
-                                09:00 AM - 10:00 PM
+                                09:00 AM - 22:00 PM
                             </small>
                         </div>
                         <span class="material-icons-sharp">
@@ -200,7 +184,7 @@
                         <div class="info">
                             <h3>Chủ Nhật</h3>
                             <small class="text_muted">
-                                10:00 AM - 11:00 PM
+                                10:00 AM - 23:00 PM
                             </small>
                         </div>
                         <span class="material-icons-sharp">
