@@ -60,7 +60,37 @@
                         <a href="index.php?pg=about" class="nav-item nav-link">Giới Thiệu</a>
                         <a href="index.php?pg=menu" class="nav-item nav-link">Thực Đơn</a>
                         <a href="index.php?pg=contact" class="nav-item nav-link">Liên Hệ</a>
+                        <?php if( !isset($_SESSION['user']) ): ?>
+                        <li class="nav-item">
                         <a href="index.php?pg=login" class="nav-item nav-link">Đăng Nhập</a>
+                    </li>
+                    <?php else: ?>
+                        <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Xin chào,  <?=$_SESSION['user']['FullName']?>
+                        </a>
+                        <ul class="dropdown-menu end-0" style="left:auto">
+                            <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li> -->
+
+                            <?php if($_SESSION['user']['Role']>=1):?>
+                                <li>
+                                <!-- <hr class="dropdown-divider"> -->
+                            </li>
+                            <li><a class="dropdown-item text-warning" href="admin">Admin</a></li>
+                            <?php endif; ?>
+                            
+
+                            
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="?mod=user&pg=logout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <?php endif;?>    
+
                     </div>
                     <a href="#" class="btn btn-primary py-2 px-4 me-4" data-bs-toggle="modal" data-bs-target="#cartModal">
                         <i class="fas fa-shopping-cart fa-lg"></i>

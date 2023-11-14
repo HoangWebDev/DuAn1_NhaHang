@@ -2,14 +2,27 @@
   <div id="custom-login" class="py-5 mt-5">
 
     <div class="container" id="container-custom-login">
+  <?php if(isset($_SESSION['thongbao'])): ?>
+    <div class="alert alert-success" role="alert">
+      <?=$_SESSION['thongbao']?>
+  </div>
+  <?php endif; unset($_SESSION['thongbao']); ?>
+
+  <?php if(isset($_SESSION['loi'])): ?>
+    <div class="alert alert-danger" role="alert">
+      <?=$_SESSION['loi']?>
+  </div>
+  <?php endif; unset($_SESSION['loi']); ?>
 
       <div class="form-container register-container">
-        <form action="#">
+        <form action="" method="post">
           <h1>Đăng Ký</h1>
-          <input type="text" placeholder="Name">
-          <input type="email" placeholder="Email">
-          <input type="password" placeholder="Password">
-          <button>Đăng Ký</button>
+          
+          <input type="text" placeholder="Phone" name="PhoneNumber" id="PhoneNumber"> 
+          <input type="text" placeholder="Name" name="Username" id="Username">
+          <input type="password" placeholder="Password" name="Password" id="Password">
+          <!-- <a href="index.php?pg=dangky">Đăng Ký</a> -->
+          <button type="submit" name="submit" value="submit" >Đăng Ký</button> 
           <span>Đăng ký với</span>
           <div class="social-container">
             <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
@@ -18,11 +31,15 @@
           </div>
         </form>
       </div>
-
+      <?php if( isset($_SESSION['loi'])): ?>
+                    <div class="alert alert-danger" role="alert">
+                    <?=$_SESSION['loi']?>
+                    </div>      
+                <?php endif; unset($_SESSION['loi'])?>
       <div class="form-container login-container">
         <form method="post" action="">
           <h1>Đăng Nhập</h1>
-          <input type="text" placeholder="Email" name="user" >
+          <input type="text" placeholder="Username" name="user" >
           <input type="password" placeholder="Password" name="pass" >
           <div class="content">
             <div class="checkbox">
@@ -33,7 +50,7 @@
               <a href="#">Quên mật khẩu?</a>
             </div>
           </div>
-          <button>Đăng Nhập</button>
+          <button type="submit">Đăng Nhập</button>
           <span>Đăng nhập với</span>
           <div class="social-container">
             <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
