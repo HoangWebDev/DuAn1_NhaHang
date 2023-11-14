@@ -64,3 +64,20 @@ function khach_hang_change_password($ma_kh, $mat_khau_moi){
     $sql = "UPDATE khach_hang SET mat_khau=? WHERE ma_kh=?";
     pdo_execute($sql, $mat_khau_moi, $ma_kh);
 }
+
+function user_login($user, $pass){
+    return pdo_query_one("SELECT * FROM user Where Username=? AND Password=?", $user, $pass);
+}
+
+function user_getAll(){
+    return pdo_query("SELECT * FROM user");
+}
+
+function user_checkPhoneNumber($PhoneNumber){
+    return pdo_query_one("SELECT * FROM user WHERE PhoneNumber=?,$PhoneNumber");
+}
+
+function user_add($PhoneNumber, $Username, $Password){
+    pdo_execute("INSERT INTO user(`PhoneNumber`,`Username`,`Password`) VALUE(?,?,?)", $PhoneNumber, $Username, $Password);
+    
+}
