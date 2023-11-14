@@ -23,8 +23,8 @@ require_once 'pdo.php';
 //     }
 // }
 
-function get_all_food($limit){
-    $sql = "SELECT * FROM food WHERE 1 ORDER BY ID_Food DESC LIMIT ".$limit;
+function get_food_3($limit){
+    $sql = "SELECT * FROM food WHERE ID_TypeFood = 3 ORDER BY ID_Food DESC LIMIT ".$limit;
     return pdo_query($sql);
 }
 function showsp($a) {
@@ -34,28 +34,26 @@ function showsp($a) {
         $html_show.='<div class="col-lg-6">
                         <div class="d-flex align-items-center">
                             <img class="flex-shrink-0 img-fluid rounded" src="layout/assets/img/menu-1.jpg" alt="" style="width: 80px;">
-                            <div class="w-100 d-flex flex-column text-start ps-4">
+                            <div class="w-100 d-flex flex-column text-start ps-4 justify-content-between">
                                 <h5 class="d-flex justify-content-between">
-                                    <span>Chicken Burger</span>
+                                    <span class="mt-2">'.$FoodName.'</span>
                                 </h5>
                                 <h5 class="d-flex justify-content-between">
-                                    <span class="text-primary">$115</span>
+                                    <span class="text-primary">'.$FoodPrice.' VNĐ</span>
                                 </h5>
                             </div>
                             <form action="" method="post">
-                                <input type="hidden" name="id" value="">
-                                <input type="hidden" name="name" value="">
-                                <input type="hidden" name="img" value="">
-                                <input type="hidden" name="price" value="">
-                                <input type="hidden" name="number" value="1">
-                                <input class="shopping btn btn-primary w-2 py-2" type="submit" name="btnaddcart" value="Book">
-                            </form>
+                                    <input type="hidden" name="name" value="">
+                                    <input type="hidden" name="img" value="">
+                                    <input type="hidden" name="price" value="">
+                                    <input type="hidden" name="sl" value="">
+                                    <button class="btn btn-primary py-2" type="submit" name="addcart" style="width: 100px;"><i class="fas fa-cart-plus fa-lg"></i></button>
+                                </form>
                         </div>
                     </div>';
     }
     return $html_show;
 }
-
 
 
 // function hang_hoa_select_by_id($ma_hh){

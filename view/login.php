@@ -1,18 +1,5 @@
-<div class="container-xxl py-5 bg-dark hero-header mb-5">
-  <div class="container text-center my-5 pt-5 pb-4">
-    <h1 class="display-3 text-white mb-3 animated slideInDown">Đăng Nhập</h1>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb justify-content-center text-uppercase">
-        <li class="breadcrumb-item"><a href="index.php">Trang Chủ</a></li>
-        <li class="breadcrumb-item text-white active" aria-current="page">Đăng Nhập</li>
-      </ol>
-    </nav>
-  </div>
-</div>
-</div>
-<!-- login -->
-<div class="container-xxl">
-  <div id="custom-login">
+<div class="container-xxl py-5 bg-dark hero-header">
+  <div id="custom-login" class="py-5 mt-5">
 
     <div class="container" id="container-custom-login">
 
@@ -76,3 +63,6 @@
     </div>
   </div>
 </div>
+
+</div>
+<!-- login -->

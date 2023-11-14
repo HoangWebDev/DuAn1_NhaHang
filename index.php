@@ -3,13 +3,11 @@
     include_once "dao/food.php";
 
 
-    $get_all_food = get_all_food(6);
-
-
     include_once "view/header.php";
     if(isset($_GET['pg'])&&($_GET['pg']!="")){
         switch ($_GET["pg"]) {
             case 'menu':
+                $food_3 = get_food_3(8);
                 include_once "view/menu.php";
                 break;
             case 'about':
@@ -30,12 +28,12 @@
                 break;
 
             default:
-            $get_all_food = get_all_food(6);
+            $food_3 = get_food_3(8);
             include_once "view/home.php";
                 break;
         }
     }else {
-        $get_all_food = get_all_food(6);
+        $food_3 = get_food_3(8);
         include_once "view/home.php";
     }
     include_once "view/footer.php";
