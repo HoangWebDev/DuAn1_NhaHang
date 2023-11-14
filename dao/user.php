@@ -50,24 +50,6 @@ function check_admin($username, $password)
     }
 }
 
-function user_login($username, $password){
-    $sql = "SELECT * FROM user WHERE Username='" . $username . "' AND Password='" . $password . "'";
-    
-    try{
-        $conn = pdo_get_connection();
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row;
-    }
-    catch(PDOException $e){
-        throw $e;
-    }
-    finally{
-        unset($conn);
-    }
-}
-
 function khach_hang_select_by_id($id){
     $sql = "SELECT * FROM user WHERE ID_User=?";
     return pdo_query_one($sql, $id);

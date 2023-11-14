@@ -11,22 +11,17 @@
 </div>
 </div>
 <!-- login -->
-<?php
-if (isset($tb) && ($tb != "")) {
-  echo $tb;
-}
-?>
 <div class="container-xxl">
   <div id="custom-login">
 
     <div class="container" id="container-custom-login">
 
-      <!-- <div class="form-container register-container">
-        <form action="#" method="$_POST">
+      <div class="form-container register-container">
+        <form action="#">
           <h1>Đăng Ký</h1>
-          <input type="email" name="email" placeholder="Email">
-          <input type="text" name="username" placeholder="Username">
-          <input type="password" name="password" placeholder="Password">
+          <input type="text" placeholder="Name">
+          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Password">
           <button>Đăng Ký</button>
           <span>Đăng ký với</span>
           <div class="social-container">
@@ -35,13 +30,13 @@ if (isset($tb) && ($tb != "")) {
             <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
           </div>
         </form>
-      </div> -->
+      </div>
 
       <div class="form-container login-container">
-        <form action="index.php?pg=login_user" method="$_POST">
+        <form action="#">
           <h1>Đăng Nhập</h1>
-          <input type="text" name="username" placeholder="Username">
-          <input type="text" name="password" placeholder="Password">
+          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Password">
           <div class="content">
             <div class="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox">
@@ -51,7 +46,7 @@ if (isset($tb) && ($tb != "")) {
               <a href="#">Quên mật khẩu?</a>
             </div>
           </div>
-          <input type="submit" name="btnlogin" value="Đăng Nhập">
+          <button>Đăng Nhập</button>
           <span>Đăng nhập với</span>
           <div class="social-container">
             <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>

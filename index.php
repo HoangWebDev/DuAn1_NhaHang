@@ -24,27 +24,10 @@
             case 'service':
                 include_once "view/service.php";
                 break;
-            case 'login_user':
-                if(isset($_POST['btnlogin']) && ($_POST['btnlogin']) && $_POST['username'] != "" && $_POST['password'] != "") {
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $login = user_login($username, $password);
-                    if(is_array($login)){
-                        $_SESSION['user'] = $login;
-                        header("location: index.php");
-                    }else{
-                        $tb = "Tài khoản hoặc mật khẩu không đúng!";
-                        header("location: login.php");
-                        break;
-                    }
-                }
+            case 'login':
+                # code...
                 include_once "view/login.php";
                 break;
-
-                case 'login':
-                    # code...
-                    include_once "view/login.php";
-                    break;
 
             default:
             $get_all_food = get_all_food(6);
