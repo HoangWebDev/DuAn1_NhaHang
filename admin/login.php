@@ -33,7 +33,7 @@ if (isset($_POST['submit']) && ($_POST['submit'])) {
     <div id="wrap-container">
         <div id="form-login">
             <h1>Đăng Nhập</h1>
-            <form>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <div class="form-group">
                     <label for="text" class="title">Username:</label> <br>
                     <div class="box-group">

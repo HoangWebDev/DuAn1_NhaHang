@@ -477,3 +477,41 @@
     padding-right: 0;
     border-right: none;
 }
+
+
+.modal.right .modal-dialog {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 33.33%; /* Chiều ngang chiếm 1/3 màn hình */
+    margin: 0;
+}
+
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung quá dài */
+    pointer-events: auto; /* Cho phép sự kiện điều khiển từ trang bên dưới */
+}
+.modal-header h3 {
+    font-weight: 700;
+    color: #FEA116;
+    font-family: 'Pacifico', cursive;
+}
+
+/* Thiết lập transition hiệu ứng */
+.modal.right .modal-dialog,
+.modal.right .modal-content {
+    transition: transform 0.3s ease-out;
+}
+
+/* Hiệu ứng khi modal mở và đóng */
+.modal.right.show .modal-dialog {
+    transform: translateX(0);
+}
+
+/* Hiệu ứng khi modal mở và đóng */
+.modal.right.hide .modal-dialog {
+    transform: translateX(100%);
+}
+

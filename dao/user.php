@@ -31,17 +31,16 @@ function khach_hang_select_all(){
 function checkusername($username, $password)
 {
     $sql = "SELECT * FROM user WHERE Username='" . $username . "' AND Password='" . $password . "'";
-    $sql_args = array_slice(func_get_args(), 1);
     try{
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
-        $stmt->execute($sql_args);
+        $stmt->execute();
         $rows = $stmt->fetchAll();
-        if(count($rows) > 0)
+        if (count($rows) > 0) {
             return $rows[0]['Role'];
-        else
+        }else{
             return 0;
-        
+        }
     }
     catch(PDOException $e){
         throw $e;

@@ -20,6 +20,12 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'service':
                 include_once "public/service.php";
                 break;
+            
+            /* Thoát admin */
+            case 'exit':
+                if (isset($_SESSION['Role'])) unset($_SESSION['Role']);
+                    header('Location: login.php');
+                break;
             default:
             include_once "public/main.php";
                 break;

@@ -68,7 +68,7 @@
                     </span>
                     <h3>Thêm</h3>
                 </a>
-                <a href="#">
+                <a href="index.php?pg=exit">
                     <span class="material-icons-sharp">
                         logout
                     </span>
