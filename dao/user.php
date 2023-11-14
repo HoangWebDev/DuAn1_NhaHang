@@ -23,8 +23,8 @@ function khach_hang_delete($ma_kh){
     }
 }
 
-function khach_hang_select_all(){
-    $sql = "SELECT * FROM khach_hang";
+function getall_user(){
+    $sql = "SELECT * FROM user";
     return pdo_query($sql);
 }
 

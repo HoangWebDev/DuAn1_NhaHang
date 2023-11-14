@@ -67,7 +67,19 @@
             <div class="new-users">
                 <h2>Tài Khoản Mới</h2>
                 <div class="user-list">
+                <?php
+                foreach ($getall_user as $item) {
+                    extract($item);
+                    echo'
                     <div class="user">
+                        <img src="layout/images/profile-2.jpg">
+                        <h2>'.$FullName.'</h2>
+                        <p>'.$Username.'</p>
+                    </div>
+                    ';
+                }
+                ?>
+                    <!-- <div class="user">
                         <img src="layout/images/profile-2.jpg">
                         <h2>Jack</h2>
                         <p>54 Min Ago</p>
@@ -86,7 +98,7 @@
                         <img src="layout/images/profile-1.jpg">
                         <h2>More</h2>
                         <p>New User</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- End of New Users Section -->

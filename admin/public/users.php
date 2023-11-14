@@ -2,23 +2,41 @@
  <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Các Đơn Gần Đây</h2>
+        <h2>Tài Khoản</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Tên Khóa Học</th>
-                    <th>Mã Khóa Học</th>
-                    <th>Phương Thức</th>
-                    <th>Trạng Thái</th>
+                    <th>Họ và tên</th>
+                    <th>Tên tài khoản</th>
+                    <th>Mật khẩu</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Email</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <td>Hoàng</td>
+                <?php
+                foreach ($getall_user as $item) {
+                    extract($item);
+                    echo'
+                    <tr>
+                    <td>'.$FullName.'</td>
+                    <td>'.$Username.'</td>
+                    <td>'.$Password.'</td>
+                    <td>'.$PhoneNumber.'</td>
+                    <td>'.$Address.'</td>
+                    <td>'.$Email.'</td>
+                    <td class="primary">Details</td>
+                    </tr>
+                    ';
+                }
+                ?>
+                <!-- <td>Hoàng</td>
                 <td>12</td>
                 <td>Ha Noi</td>
                 <td>Single</td>
-                <td class="primary">Details</td>
+                <td class="primary">Details</td> -->
             </tbody>
         </table>
         <a href="#">Show All</a>
