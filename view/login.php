@@ -20,10 +20,10 @@
       </div>
 
       <div class="form-container login-container">
-        <form action="#">
+        <form method="post" action="">
           <h1>Đăng Nhập</h1>
-          <input type="email" placeholder="Email">
-          <input type="password" placeholder="Password">
+          <input type="text" placeholder="Email" name="user" >
+          <input type="password" placeholder="Password" name="pass" >
           <div class="content">
             <div class="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox">
