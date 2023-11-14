@@ -3,7 +3,7 @@
 
 :root{
     --color-primary: #6C9BCF;
-    --color-danger: #FF0060;
+    --color-danger: #FEA116 ;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
     --color-white: #fff;
@@ -168,7 +168,8 @@ aside .sidebar:hover{
 aside .sidebar a{
     display: flex;
     align-items: center;
-    color: var(--color-info-dark);
+    /* color: var(--color-info-dark); */
+    color: var(--color-primary);
     height: 3.7rem;
     gap: 1rem;
     position: relative;
@@ -186,7 +187,7 @@ aside .sidebar a:last-child{
     bottom: 2rem;
     width: 100%;
 }
-
+/* 
 aside .sidebar a.active{
     width: 100%;
     color: var(--color-primary);
@@ -204,10 +205,10 @@ aside .sidebar a.active::before{
 aside .sidebar a.active span{
     color: var(--color-primary);
     margin-left: calc(1rem - 3px);
-}
+} */
 
 aside .sidebar a:hover{
-    color: var(--color-primary);
+    color: var(--color-danger);
 }
 
 aside .sidebar a:hover span{

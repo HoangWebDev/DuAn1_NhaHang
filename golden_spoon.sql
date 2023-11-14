@@ -103,16 +103,16 @@ INSERT INTO `food` (`ID_Food`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImag
 --
 
 CREATE TABLE `type_food` (
-  `ID_LoaiMonAn` int(10) NOT NULL,
-  `TenLoai` varchar(100) NOT NULL,
-  `HinhAnh` varchar(200) NOT NULL
+  `ID_TypeFood` int(10) NOT NULL,
+  `Name_TypeFood` varchar(100) NOT NULL,
+  `Img_TypeFood` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `type_food`
 --
 
-INSERT INTO `type_food` (`ID_LoaiMonAn`, `TenLoai`, `HinhAnh`) VALUES
+INSERT INTO `type_food` (`ID_TypeFood`, `Name_TypeFood`, `Img_TypeFood`) VALUES
 (1, 'Đồ Uống', ''),
 (2, 'Khai Vị', ''),
 (3, 'Món Chính', '');

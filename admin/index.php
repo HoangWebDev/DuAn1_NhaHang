@@ -22,6 +22,9 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'service':
                 include_once "public/service.php";
                 break;
+            case 'users':
+                include_once "public/users.php";
+                break;
             
             /* Thoát admin */
             case 'exit':

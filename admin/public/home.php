@@ -104,7 +104,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody class="tbody"></tbody>
                 </table>
                 <a href="#">Show All</a>
             </div>

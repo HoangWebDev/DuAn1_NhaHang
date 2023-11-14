@@ -13,13 +13,13 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" class="active">
+                <a href="index.php">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Quản Lý</h3>
                 </a>
-                <a href="#">
+                <a href="index.php?pg=users">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
@@ -68,7 +68,7 @@
                     </span>
                     <h3>Thêm</h3>
                 </a>
-                <a href="index.php?pg=exit">
+                <a href="index.php?pg=exit" class="logout">
                     <span class="material-icons-sharp">
                         logout
                     </span>
