@@ -2,6 +2,8 @@
 session_start();
 ob_start();
 require_once '../dao/user.php';
+require_once '../dao/food.php';
+require_once '../dao/category.php';
 require_once 'public/header.php';
 require_once 'public/nav.php';
 
@@ -21,8 +23,10 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'contact':
                 include_once "public/contact.php";
                 break;
-            case 'service':
-                include_once "public/service.php";
+            case 'food':
+                $getall_typefood = get_type_food();
+                $getall_food = getall_food();
+                include_once "public/food.php";
                 break;
             case 'users':
                 $getall_user = getall_user();

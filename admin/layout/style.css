@@ -17,7 +17,7 @@
     --border-radius-1: 0.4rem;
     --border-radius-2: 1.2rem;
 
-    --card-padding: 1.8rem;
+    --card-padding: 1rem;
     --padding-1: 1.2rem;
 
     --box-shadow: 0 2rem 3rem var(--color-light);
@@ -41,7 +41,7 @@ body{
     width: 100vw;
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-    font-size: 0.88rem;
+    font-size: .95rem;
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
@@ -60,12 +60,12 @@ img{
 
 h1{
     font-weight: 800;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 h2{
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 h3{
@@ -110,7 +110,7 @@ b{
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 12rem auto 23rem;
+    grid-template-columns: 12rem auto 15rem;
 }
 
 aside{
@@ -251,7 +251,6 @@ main .analyse > div .status{
 }
 
 main .analyse h3{
-    margin-left: 0.6rem;
     font-size: 1rem;
 }
 
@@ -365,6 +364,10 @@ main table tbody td{
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+}
+
+main table tbody td > img{
+    width: 30% !important;
 }
 
 main table tbody tr:last-child td{

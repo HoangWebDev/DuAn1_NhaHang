@@ -25,11 +25,11 @@
                     </span>
                     <h3>Tài Khoản</h3>
                 </a>
-                <a href="#">
+                <a href="index.php?pg=food">
                     <span class="material-icons-sharp">
-                        receipt_long
+                        restaurant
                     </span>
-                    <h3>History</h3>
+                    <h3>Món Ăn</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">

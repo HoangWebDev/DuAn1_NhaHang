@@ -23,6 +23,13 @@ require_once 'pdo.php';
 //     }
 // }
 
+/* Lấy tất cả món ăn show lên admin */
+function getall_food(){
+    $sql = "SELECT * FROM food ORDER BY ID_Food DESC";
+    return pdo_query($sql);
+}
+
+/* Get food khai vị */
 function get_food_3($limit){
     $sql = "SELECT * FROM food WHERE ID_TypeFood = 3 ORDER BY ID_Food DESC LIMIT ".$limit;
     return pdo_query($sql);
