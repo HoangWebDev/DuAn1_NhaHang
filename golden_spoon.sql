@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 11, 2023 lúc 02:09 PM
+-- Thời gian đã tạo: Th10 14, 2023 lúc 06:43 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -130,8 +130,17 @@ CREATE TABLE `user` (
   `Password` varchar(100) NOT NULL,
   `PhoneNumber` int(10) NOT NULL DEFAULT 0,
   `Address` varchar(200) NOT NULL,
-  `Email` varchar(100) NOT NULL
+  `Email` varchar(100) NOT NULL,
+  `Role` tinyint(2) NOT NULL DEFAULT 0 COMMENT '1. Admin\r\n2. Khách Hàng'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`ID_User`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Address`, `Email`, `Role`) VALUES
+(1, 'Golden Spoon', 'admin', '123456', 0, '', '', 1),
+(2, 'User1', 'user1', '123', 0, '', '', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -203,7 +212,7 @@ ALTER TABLE `type_food`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_User` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_User` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

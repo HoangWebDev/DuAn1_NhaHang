@@ -6,7 +6,7 @@ include "../dao/user.php";
 if (isset($_POST['submit']) && ($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $Role = checkusername($username, $password);
+    $Role = check_admin($username, $password);
     $_SESSION['Role'] = $Role;
     if ($Role == 1) {
         header('location: index.php');

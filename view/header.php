@@ -1,3 +1,13 @@
+<?php
+session_start();
+ob_start();
+if(isset($_SESSION['user']) && ($_SESSION['user']) != "") {
+    extract($_SESSION['user']);
+    $showuser = '<a href="index.php?pg=user_infor" class="nav-item nav-link">'.$FullName.'</a>';
+}else {
+    $showuser = '<a href="index.php?pg=login" class="nav-item nav-link">Đăng Nhập</a>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +70,7 @@
                         <a href="index.php?pg=about" class="nav-item nav-link">Giới Thiệu</a>
                         <a href="index.php?pg=menu" class="nav-item nav-link">Thực Đơn</a>
                         <a href="index.php?pg=contact" class="nav-item nav-link">Liên Hệ</a>
-                        <a href="index.php?pg=login" class="nav-item nav-link">Đăng Nhập</a>
+                        <?= $showuser?>
                     </div>
                     <a href="#" class="btn btn-primary py-2 px-4 me-4" data-bs-toggle="modal" data-bs-target="#cartModal">
                         <i class="fas fa-shopping-cart fa-lg"></i>

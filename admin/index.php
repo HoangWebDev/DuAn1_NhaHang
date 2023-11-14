@@ -1,6 +1,8 @@
 <?php 
 session_start();
 ob_start();
+require_once 'public/header.php';
+require_once 'public/nav.php';
 if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
     include_once "public/header.php";
     if(isset($_GET['pg'])&&($_GET['pg']!="")){
@@ -27,11 +29,11 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                     header('Location: login.php');
                 break;
             default:
-            include_once "public/main.php";
+            include_once "public/home.php";
                 break;
         }
     }else {
-        include_once "public/main.php";
+        include_once "public/home.php";
     }
     include_once "public/footer.php";
 }else{
