@@ -3,7 +3,7 @@
     <!-- Recent Orders Table -->
     <div class="recent-orders">
         <h2>Tài Khoản</h2>
-        <table>
+        <table id="table_id" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th scope="col">Tên món ăn</th>
