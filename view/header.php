@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +45,6 @@
         </div>
         <!-- Spinner End -->
 
-
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -68,7 +68,7 @@
                         <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Xin chào,  <?=$_SESSION['user']['FullName']?>
+                            Tài Khoản ,<?=$_SESSION['user']['FullName']?>
                         </a>
                         <ul class="dropdown-menu end-0" style="left:auto">
                             <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>

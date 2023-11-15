@@ -73,11 +73,10 @@ function user_getAll(){
     return pdo_query("SELECT * FROM user");
 }
 
-function user_checkPhoneNumber($PhoneNumber){
-    return pdo_query_one("SELECT * FROM user WHERE PhoneNumber=?,$PhoneNumber");
+function user_checkPhoneNumber($Username){
+    return pdo_query_one("SELECT * FROM user WHERE Username=?,$Username");
 }
 
 function user_add($PhoneNumber, $Username, $Password){
     pdo_execute("INSERT INTO user(`PhoneNumber`,`Username`,`Password`) VALUE(?,?,?)", $PhoneNumber, $Username, $Password);
-    
 }
