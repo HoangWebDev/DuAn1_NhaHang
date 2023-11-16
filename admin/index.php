@@ -23,13 +23,33 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'contact':
                 include_once "public/contact.php";
                 break;
+            case 'addtype':
+
+                include_once "public/addtypefood.php";
+                break;
+            case 'addtypefoodam':
+                if (isset($_POST['btnadd'])) {
+                    $Name_TypeFood = $_POST['NameTypeFood'];
+                    insert_typefood($Name_TypeFood);
+                }
+                $getall_typefood = getall_type_food();
+                include_once "public/typefood.php";
+                break;
+            case 'deltype':
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $id = $_GET['id'];
+                    delete_typefood($id);
+                }
+                $getall_typefood = getall_type_food();
+                include_once "public/typefood.php";
+                break;
             case 'add':
-                $typefood_all = getall_type_food();
+                $getall_typefood = getall_type_food();
                 include_once "public/addfood.php";
                 break;
             case 'addfoodadmin':
                 if (isset($_POST['btnadd'])) {
-                    $ID = $_GET['ID_TypeFood'];
+                    $ID_TypeFood = $_POST['ID_TypeFood'];
                     $FoodName = $_POST['FoodName'];
                     $FoodPrice = $_POST['FoodPrice'];
                     $FileImage = $_FILES['FoodImage']['name'];
@@ -40,19 +60,21 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                         move_uploaded_file($_FILES["FoodImage"]["tmp_name"], $target_file);
                       } 
                       //Gọi hàm insert
-                      insert_food($ID, $FoodName, $FoodPrice, $FileImage, $Describe);
+                      insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe);
                       $tb = "Thêm thành công";
-                    //   header('Location: index.php?pg=food');
-                }
-                $typefood_all = getall_type_food();
-                // $getall_food = getall_food();
-                // var_dump($typefood_all);
-                include_once "public/food.php";
+                    }
+                    $getall_typefood = getall_type_food();
+                    // include_once "public/food.php";
+                      header('Location: index.php?pg=food');
                 break;
             case 'food':
                 $getall_typefood = getall_type_food();
                 $getall_food = getall_food();
                 include_once "public/food.php";
+                break;
+            case 'typefood':
+                $getall_typefood = getall_type_food();
+                include_once "public/typefood.php";
                 break;
             case 'users':
                 $getall_user = getall_user();

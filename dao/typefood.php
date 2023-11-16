@@ -6,10 +6,10 @@ require_once 'pdo.php';
 //  * @param String $ten_loai là tên loại
 //  * @throws PDOException lỗi thêm mới
 //  */
-// function loai_insert($ten_loai){
-//     $sql = "INSERT INTO loai(ten_loai) VALUES(?)";
-//     pdo_execute($sql, $ten_loai);
-// }
+function insert_typefood($Name_TypeFood){
+    $sql = "INSERT INTO type_food (Name_TypeFood) VALUES(?)";
+    pdo_execute($sql, $Name_TypeFood);
+}
 // /**
 //  * Cập nhật tên loại
 //  * @param int $ma_loai là mã loại cần cập nhật
@@ -25,33 +25,25 @@ require_once 'pdo.php';
 //  * @param mix $ma_loai là mã loại hoặc mảng mã loại
 //  * @throws PDOException lỗi xóa
 //  */
-// function loai_delete($ma_loai){
-//     $sql = "DELETE FROM loai WHERE ma_loai=?";
-//     if(is_array($ma_loai)){
-//         foreach ($ma_loai as $ma) {
-//             pdo_execute($sql, $ma);
-//         }
-//     }
-//     else{
-//         pdo_execute($sql, $ma_loai);
-//     }
-// }
+function delete_typefood($ID){
+    $sql = "DELETE FROM type_food WHERE ID=?";
+    if(is_array($ID)){
+        foreach ($ID as $ma) {
+            pdo_execute($sql, $ma);
+        }
+    }
+    else{
+        pdo_execute($sql, $ID);
+    }
+}
 // /**
 //  * Truy vấn tất cả các loại
 //  * @return array mảng loại truy vấn được
 //  * @throws PDOException lỗi truy vấn
 //  */
 function getall_type_food(){
-    $sql = "SELECT * FROM type_food ORDER BY ID_TypeFood ASC";
+    $sql = "SELECT * FROM type_food ORDER BY ID ASC";
     return pdo_query($sql);
-}
-function showdm($a) {
-    $html_show = '';
-    foreach ($a as $value) {
-        extract($value);
-        $html_show.='';
-    }
-    return $html_show;
 }
 // /**
 //  * Truy vấn một loại theo mã

@@ -25,17 +25,17 @@
                     </span>
                     <h3>Tài Khoản</h3>
                 </a>
+                <a href="index.php?pg=typefood">
+                    <span class="material-icons-sharp">
+                        restaurant_menu
+                    </span>
+                    <h3>Loại Món Ăn</h3>
+                </a>
                 <a href="index.php?pg=food">
                     <span class="material-icons-sharp">
                         restaurant
                     </span>
                     <h3>Món Ăn</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        insights
-                    </span>
-                    <h3>Phân Tích</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">

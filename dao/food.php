@@ -1,11 +1,6 @@
 <?php
 require_once 'pdo.php';
 
-//Add món ăn mới
-function insert_food($ID, $FoodName, $FoodPrice, $FileImage, $Describe){
-    $sql = "INSERT INTO food(ID_TypeFood, FoodName, FoodPrice, FoodImage, Describe) VALUES ('$ID', '$FoodName', '$FoodPrice', '$FileImage', '$Describe')";
-    pdo_execute($sql);
-}
 
 // function hang_hoa_update($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $ngay_nhap, $mo_ta){
 //     $sql = "UPDATE hang_hoa SET ten_hh=?,don_gia=?,giam_gia=?,hinh=?,ma_loai=?,dac_biet=?,so_luot_xem=?,ngay_nhap=?,mo_ta=? WHERE ma_hh=?";
@@ -85,6 +80,13 @@ function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $Image
     //echo $sql;
     return pdo_execute($sql);
 }
+
+function insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe)
+{
+    $sql = "INSERT INTO food (ID_TypeFood, FoodName, FoodPrice, FoodImage, Describe) VALUES(?,?,?,?,?)";
+    pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe);
+}
+
 
 // function hang_hoa_select_by_id($ma_hh){
 //     $sql = "SELECT * FROM hang_hoa WHERE ma_hh=?";

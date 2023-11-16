@@ -1,48 +1,40 @@
-<?php
-$select_html = "";
-foreach ($getall_typefood as $item) {
-    extract($item);
-    $select_html .= "<option value='" . $ID . "'>" . $Name_TypeFood . "</option>";
-}
-?>
-<!-- Main Content -->
-<main>
+ <!-- Main Content -->
+ <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Thêm Món Ăn</h2>
-        <div class="form_update__food">
-            <form action="index.php?pg=addfoodadmin" method="post" enctype="multipart/form-data">
-                <div class="group_input">
-                    <label for="topic-name">Loại Món Ăn</label>
-                        <select name="ID_TypeFood">
-                            <?= $select_html ?>
-                        </select>
-                </div>
-                <div class="group_input">
-                    <label for="FoodName">Tên Món Ăn</label><hr>
-                    <input type="text" placeholder="Food Name" name="FoodName">
-                </div>
-                <div class="group_input">
-                    <label for="FoodPrice">Giá Món Ăn</label><hr>
-                    <input type="text" placeholder="Food Price" name="FoodPrice">
-                </div>
-                <div class="group_input">
-                    <label for="Describe">Mô Tả</label><hr>
-                    <textarea placeholder="Describe" name="Describe" cols="30" rows="10"></textarea>
-                </div>
-                <div class="group_input">
-                    <label for="FoodImage">Hình Ảnh</label><hr>
-                    <input type="file" placeholder="Food Image" name="FoodImage">
-                </div>
-                <div class="group_btn">
-                    <button type="submit" class="btn" name="btnadd">Thêm</button>
-                    <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
-                </div>
-            </form>
-            <?php
-            if(isset($tb) && ($tb) != "") echo $tb;
-            ?>
-        </div>  
+        <h2>Quản Lý Loại Món Ăn</h2>
+        <a href="index.php?pg=addtype" class="addfood">Thêm Loại Món Ăn</a>
+        <table id="table_id" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên món ăn</th>
+                    <th scope="col">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($getall_typefood as $item) {
+                    extract($item);
+                        $edit = "<a href='index.php?pg=edittype&id=" . $ID . "'>Sửa</a>";
+                        $del = "<a href='index.php?pg=deltype&id=" . $ID . "'>Xóa</a>";
+                    echo'
+                    <tr>
+                        <td>'.$ID.'</td>
+                        <td>'.$Name_TypeFood.'</td>
+                        <td>'.$edit.' - '.$del.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
+                <!-- <td>Hoàng</td>
+                <td>12</td>
+                <td>Ha Noi</td>
+                <td>Single</td>
+                <td class="primary">Details</td> -->
+            </tbody>
+        </table>
+        <a href="#">Show All</a>
     </div>
     <!-- End of Recent Orders -->
 </main>
