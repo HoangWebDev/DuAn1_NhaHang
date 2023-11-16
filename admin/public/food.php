@@ -2,10 +2,12 @@
  <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Tài Khoản</h2>
+        <h2>Quản Lý Món Ăn</h2>
+        <a href="index.php?pg=add" class="addfood">Thêm Món Ăn</a>
         <table id="table_id" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th scope="col">STT</th>
                     <th scope="col">Tên món ăn</th>
                     <th scope="col">Giá</th>
                     <th scope="col">Hình ảnh</th>
@@ -17,14 +19,17 @@
                 <?php
                 foreach ($getall_food as $item) {
                     extract($item);
-                    if($FoodImage != "") $FoodImage = '../uploads/'.$FoodImage;
+                        if($FoodImage != "") $FoodImage = '../uploads/'.$FoodImage;
+                        $edit = "<a href='index.php?pg=foodupdateform&id=" . $ID . "'>Sửa</a>";
+                        $del = "<a href='index.php?page=delproduct&id=" . $ID . "'>Xóa</a>";
                     echo'
                     <tr>
-                    <td>'.$FoodName.'</td>
-                    <td>'.$FoodPrice.'</td>
-                    <td><img src="'.$FoodImage.'" alt=""></td>
-                    <td>'.$Describe.'</td>
-                    <td class="primary">Details</td>
+                        <td>'.$ID.'</td>
+                        <td>'.$FoodName.'</td>
+                        <td>'.$FoodPrice.'</td>
+                        <td><img src="'.$FoodImage.'" alt=""></td>
+                        <td>'.$Describe.'</td>
+                        <td>'.$edit.' - '.$del.'</td>
                     </tr>
                     ';
                 }

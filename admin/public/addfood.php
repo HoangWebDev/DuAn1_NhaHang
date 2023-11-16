@@ -1,45 +1,48 @@
- <!-- Main Content -->
- <main>
+<?php
+$select_html = "";
+foreach ($typefood_all as $item) {
+    extract($item);
+    $select_html .= "<option value='" . $ID_TypeFood . "'>" . $Name_TypeFood . "</option>";
+}
+?>
+<!-- Main Content -->
+<main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Quản Lý Tài Khoản</h2>
-        <table  id="table_id" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Họ và tên</th>
-                    <th>Tên tài khoản</th>
-                    <th>Mật khẩu</th>
-                    <th>Số điện thoại</th>
-                    <th>Địa chỉ</th>
-                    <th>Email</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($getall_user as $item) {
-                    extract($item);
-                    echo'
-                    <tr>
-                    <td>'.$FullName.'</td>
-                    <td>'.$Username.'</td>
-                    <td>'.$Password.'</td>
-                    <td>'.$PhoneNumber.'</td>
-                    <td>'.$Address.'</td>
-                    <td>'.$Email.'</td>
-                    <td class="primary">Details</td>
-                    </tr>
-                    ';
-                }
-                ?>
-                <!-- <td>Hoàng</td>
-                <td>12</td>
-                <td>Ha Noi</td>
-                <td>Single</td>
-                <td class="primary">Details</td> -->
-            </tbody>
-        </table>
-        <a href="#">Show All</a>
+        <h2>Thêm Món Ăn</h2>
+        <div class="form_update__food">
+            <form action="index.php?pg=addfoodadmin" method="post" enctype="multipart/form-data">
+                <div class="group_input">
+                    <label for="topic-name">Loại Món Ăn</label>
+                        <select name="id_typefood">
+                            <?= $select_html ?>
+                        </select>
+                </div>
+                <div class="group_input">
+                    <label for="FoodName">Tên Món Ăn</label><hr>
+                    <input type="text" placeholder="Food Name" name="FoodName">
+                </div>
+                <div class="group_input">
+                    <label for="FoodPrice">Giá Món Ăn</label><hr>
+                    <input type="text" placeholder="Food Price" name="FoodPrice">
+                </div>
+                <div class="group_input">
+                    <label for="Describe">Mô Tả</label><hr>
+                    <textarea placeholder="Describe" name="Describe" cols="30" rows="10"></textarea>
+                </div>
+                <div class="group_input">
+                    <label for="FoodImage">Hình Ảnh</label><hr>
+                    <input type="file" placeholder="Food Image" name="FoodImage">
+                </div>
+                <div class="group_btn">
+                    <button type="submit" class="btn" name="btnadd">Thêm</button>
+                    <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
+                </div>
+            </form>
+            <?php
+            if(isset($tb) && ($tb) != "") echo $tb;
+            ?>
+        </div>  
     </div>
     <!-- End of Recent Orders -->
 </main>

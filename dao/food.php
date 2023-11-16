@@ -1,10 +1,11 @@
 <?php
 require_once 'pdo.php';
 
-// function hang_hoa_insert($ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $ngay_nhap, $mo_ta){
-//     $sql = "INSERT INTO hang_hoa(ten_hh, don_gia, giam_gia, hinh, ma_loai, dac_biet, so_luot_xem, ngay_nhap, mo_ta) VALUES (?,?,?,?,?,?,?,?,?)";
-//     pdo_execute($sql, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet==1, $so_luot_xem, $ngay_nhap, $mo_ta);
-// }
+//Add món ăn mới
+function insert_food($ID, $FoodName, $FoodPrice, $FileImage, $Describe){
+    $sql = "INSERT INTO food(ID_TypeFood, FoodName, FoodPrice, FoodImage, Describe) VALUES ('$ID', '$FoodName', '$FoodPrice', '$FileImage', '$Describe')";
+    pdo_execute($sql);
+}
 
 // function hang_hoa_update($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $ngay_nhap, $mo_ta){
 //     $sql = "UPDATE hang_hoa SET ten_hh=?,don_gia=?,giam_gia=?,hinh=?,ma_loai=?,dac_biet=?,so_luot_xem=?,ngay_nhap=?,mo_ta=? WHERE ma_hh=?";
@@ -24,14 +25,18 @@ require_once 'pdo.php';
 // }
 
 /* Lấy tất cả món ăn show lên admin */
+function get_foodone($id){
+    $sql = "SELECT * FROM food WHERE ID =".$id;
+    return pdo_query_one($sql);
+}
 function getall_food(){
-    $sql = "SELECT * FROM food ORDER BY ID_Food DESC";
+    $sql = "SELECT * FROM food ORDER BY ID DESC";
     return pdo_query($sql);
 }
 
 /* Get food khai vị */
 function get_food_3($limit){
-    $sql = "SELECT * FROM food WHERE ID_TypeFood = 3 ORDER BY ID_Food DESC LIMIT ".$limit;
+    $sql = "SELECT * FROM food WHERE ID_TypeFood = 3 ORDER BY ID DESC LIMIT ".$limit;
     return pdo_query($sql);
 }
 function showsp($a) {
@@ -40,7 +45,7 @@ function showsp($a) {
         extract($value);
         $html_show.='<div class="col-lg-6">
                         <div class="d-flex align-items-center">
-                            <img class="flex-shrink-0 img-fluid rounded" src="layout/assets/img/menu-1.jpg" alt="" style="width: 80px;">
+                            <img class="flex-shrink-0 img-fluid rounded" src="uploads/'.$FoodImage.'" alt="" style="width: 80px;">
                             <div class="w-100 d-flex flex-column text-start ps-4 justify-content-between">
                                 <h5 class="d-flex justify-content-between">
                                     <span class="mt-2">'.$FoodName.'</span>
@@ -62,6 +67,24 @@ function showsp($a) {
     return $html_show;
 }
 
+//Update sử lý file hình
+function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $ImageNew)
+{
+    // if ($ImageNew != "") {
+    //     $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', Describe='$Describe', FoodImage='$ImageNew' WHERE ID_Food=" . $ID_Food;
+    // } else {
+    //     $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', Describe='$Describe' WHERE ID_Food=" . $ID_Food;
+    // }
+    if($ImageNew != ""){
+        $sql = "UPDATE food SET ID_TypeFood=?, FoodName=?, FoodPrice=?, Describe=?, FoodImage=? WHERE ID=?";
+        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $ImageNew, $ID);
+    }else{
+        $sql = "UPDATE food SET ID_TypeFood=?, FoodName=?, FoodPrice=?, Describe=? WHERE ID=?";
+        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $ID);
+    }
+    //echo $sql;
+    return pdo_execute($sql);
+}
 
 // function hang_hoa_select_by_id($ma_hh){
 //     $sql = "SELECT * FROM hang_hoa WHERE ma_hh=?";

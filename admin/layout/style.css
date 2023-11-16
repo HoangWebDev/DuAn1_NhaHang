@@ -400,7 +400,84 @@ main .recent-orders a{
     display: block;
     margin: 1rem auto;
     margin-right: 1rem;
-    color: var(--color-primary);
+    color: var(--color-danger);
+}
+
+main .recent-orders a:hover{
+    color: red;
+}
+
+main .recent-orders > .addfood{
+    border-radius: 20px;
+    border: 1px solid #FEA116;
+    background-color: #FEA116;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 10px;
+    padding: 12px 80px;
+    letter-spacing: 1px;
+    transition: 0.3s ease-in-out;
+}
+
+main .recent-orders > .addfood:hover{
+    letter-spacing: 2px;
+}
+
+main .recent-orders form{
+    margin: 2rem 5rem;
+}
+
+main .recent-orders form .group_input{
+    margin: 1rem;
+}
+
+main .recent-orders form .group_input label{
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-bottom: 1px solid var(--color-danger);
+}
+
+main .recent-orders form .group_input input, 
+main .recent-orders form .group_input select{
+    background-color: #eee;
+    border-radius: 10px;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;  
+    margin: 1rem 0;
+}
+
+main .recent-orders form .group_input img{
+    width: 20% !important;
+}
+
+main .recent-orders form .group_btn{
+    display: flex;
+    justify-content: space-around;
+}
+
+main .recent-orders form .group_btn .btn{
+    border-radius: 20px;
+    border: 1px solid #FEA116;
+    background-color: #FEA116;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 10px;
+    padding: 12px 80px;
+    letter-spacing: 1px;
+    transition: 0.3s ease-in-out;
+}
+main .recent-orders form .group_btn .btntp{
+    background-color: rgba(225, 225, 225, 0.2);
+    border: 2px solid #000000;
+    color: #000000;
+}
+
+main .recent-orders form .group_btn .btn:hover{
+    letter-spacing: 2px;
 }
 
 .right-section{
