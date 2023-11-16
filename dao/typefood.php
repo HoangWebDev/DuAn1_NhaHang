@@ -16,10 +16,10 @@ function insert_typefood($Name_TypeFood){
 //  * @param String $ten_loai là tên loại mới
 //  * @throws PDOException lỗi cập nhật
 //  */
-// function loai_update($ma_loai, $ten_loai){
-//     $sql = "UPDATE loai SET ten_loai=? WHERE ma_loai=?";
-//     pdo_execute($sql, $ten_loai, $ma_loai);
-// }
+function update_typefood($ID, $Name_TypeFood){
+    $sql = "UPDATE type_food SET Name_TypeFood='".$Name_TypeFood."' WHERE ID=".$ID;
+    pdo_execute($sql);
+}
 // /**
 //  * Xóa một hoặc nhiều loại
 //  * @param mix $ma_loai là mã loại hoặc mảng mã loại
@@ -44,6 +44,11 @@ function delete_typefood($ID){
 function getall_type_food(){
     $sql = "SELECT * FROM type_food ORDER BY ID ASC";
     return pdo_query($sql);
+}
+
+function getone_type_food($ID){
+    $sql = "SELECT * FROM type_food WHERE ID =".$ID;
+    return pdo_query_one($sql);
 }
 // /**
 //  * Truy vấn một loại theo mã

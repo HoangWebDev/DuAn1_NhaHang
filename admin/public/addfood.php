@@ -40,7 +40,7 @@ foreach ($getall_typefood as $item) {
                 </div>
             </form>
             <?php
-            if(isset($tb) && ($tb) != "") echo $tb;
+                if(isset($tb) && ($tb) != "") echo $tb;
             ?>
         </div>  
     </div>

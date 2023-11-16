@@ -83,8 +83,7 @@ function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $Image
 
 function insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe)
 {
-    $sql = "INSERT INTO food (ID_TypeFood, FoodName, FoodPrice, FoodImage, Describe) VALUES(?,?,?,?,?)";
-    pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe);
+    pdo_execute("INSERT INTO food(ID_TypeFood, FoodName, FoodPrice, FoodImage, Describe) VALUES(?,?,?,?,?)", $ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe);
 }
 
 

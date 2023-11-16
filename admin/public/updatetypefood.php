@@ -1,22 +1,23 @@
+<?php
+    extract($getone_typefood);
+?>
 <!-- Main Content -->
 <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
         <h2>Thêm Loại Món Ăn</h2>
         <div class="form_update__food">
-            <form action="index.php?pg=addtypefoodam" method="post" enctype="multipart/form-data">
+            <form action="index.php?pg=updateformtypefood" method="post" enctype="multipart/form-data">
                 <div class="group_input">
                     <label for="NameTypeFood">Tên Loại Món Ăn</label><hr>
-                    <input type="text" placeholder="Name Type Food" name="NameTypeFood">
+                    <input type="text" placeholder="Name Type Food" value="<?= $Name_TypeFood ?>" name="Name_TypeFood">
                 </div>
                 <div class="group_btn">
-                    <button type="submit" class="btn" name="btnadd">Thêm</button>
+                    <input type="hidden" name="ID" value="<?= $ID ?>">
+                    <button type="submit" class="btn" name="btnupdate">Cập Nhật</button>
                     <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                 </div>
             </form>
-            <?php
-            if(isset($tb) && ($tb) != "") echo $tb;
-            ?>
         </div>  
     </div>
     <!-- End of Recent Orders -->

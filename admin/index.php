@@ -27,6 +27,17 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
 
                 include_once "public/addtypefood.php";
                 break;
+
+        /* TyoeFood: 
+        Add
+        Edit
+        Delete
+        */
+        case 'typefood':
+            $getall_typefood = getall_type_food();
+            include_once "public/typefood.php";
+            break;
+
             case 'addtypefoodam':
                 if (isset($_POST['btnadd'])) {
                     $Name_TypeFood = $_POST['NameTypeFood'];
@@ -43,6 +54,36 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                 $getall_typefood = getall_type_food();
                 include_once "public/typefood.php";
                 break;
+
+            case 'edittype':
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $id = $_GET['id'];
+                    $getone_typefood = getone_type_food($id);
+                    require_once('public/updatetypefood.php');
+                } else {
+                    require_once('public/404.php');
+                }
+                break;
+
+            case 'updateformtypefood':
+                if (isset($_POST['btnupdate'])) {
+                    $ID = $_POST['ID'];
+                    $Name_TypeFood = $_POST['Name_TypeFood'];
+                    update_typefood($ID, $Name_TypeFood);
+                }
+                $getall_typefood = getall_type_food();
+                require_once('public/typefood.php');
+                break;
+
+
+        /* End Type Food */
+
+        /* Food:
+        Add
+        Edit
+        Delete
+        */
+
             case 'add':
                 $getall_typefood = getall_type_food();
                 include_once "public/addfood.php";
@@ -64,23 +105,23 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                       $tb = "Thêm thành công";
                     }
                     $getall_typefood = getall_type_food();
-                    // include_once "public/food.php";
-                      header('Location: index.php?pg=food');
+                    include_once "public/food.php";
+                    //   header('Location: index.php?pg=food');
                 break;
             case 'food':
                 $getall_typefood = getall_type_food();
                 $getall_food = getall_food();
                 include_once "public/food.php";
                 break;
-            case 'typefood':
-                $getall_typefood = getall_type_food();
-                include_once "public/typefood.php";
-                break;
+                    
+        /* End Food */
+
             case 'users':
                 $getall_user = getall_user();
                 include_once "public/users.php";
                 break;
-            
+
+
             /* Thoát admin */
             case 'exit':
                 if (isset($_SESSION['Role'])) unset($_SESSION['Role']);
