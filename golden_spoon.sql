@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 14, 2023 lúc 06:43 AM
+-- Thời gian đã tạo: Th10 16, 2023 lúc 05:41 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `booking` (
-  `ID_Booking` int(10) NOT NULL,
+  `ID` int(10) NOT NULL,
   `ID_User` int(10) NOT NULL,
   `TableNumber` int(10) NOT NULL DEFAULT 0,
   `Seats` int(10) NOT NULL DEFAULT 0,
@@ -43,7 +43,7 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `detailbooking` (
-  `ID_DetailBooking` int(10) NOT NULL,
+  `ID` int(10) NOT NULL,
   `ID_Booking` int(10) NOT NULL,
   `ID_Food` int(10) NOT NULL,
   `NumberDishes` int(10) NOT NULL DEFAULT 0,
@@ -57,7 +57,7 @@ CREATE TABLE `detailbooking` (
 --
 
 CREATE TABLE `food` (
-  `ID_Food` int(10) NOT NULL,
+  `ID` int(10) NOT NULL,
   `ID_TypeFood` int(10) NOT NULL,
   `FoodName` varchar(100) NOT NULL,
   `FoodPrice` double(10,3) NOT NULL DEFAULT 0.000,
@@ -69,7 +69,7 @@ CREATE TABLE `food` (
 -- Đang đổ dữ liệu cho bảng `food`
 --
 
-INSERT INTO `food` (`ID_Food`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `Describe`) VALUES
+INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `Describe`) VALUES
 (1, 1, 'HENNESSY VSOP RED DRAGON ', 1800000.000, 'drink1.jpg', 'Kể từ năm 1765, Maison Hennessy đã hoàn thiện nghệ thuật làm rượu cognac, một truyền thống được duy trì qua tám thế hệ bậc thầy pha chế rượu cognac. Di sản của sự cởi mở về văn hóa đã giúp Maison Henn'),
 (2, 1, 'Camus V.S.O.P', 2100000.000, 'drink2.jpg', 'Camus vsop - Món quà tặng độc đáo, sang trọng cho dịp lễ, tết\r\n\r\nChỉ còn vài tháng nữa các dịp Lễ Tết sẽ xuất hiện rất nhiều, vấn đề mua gì để biếu sếp, biếu bố mẹ và gia đình vợ luôn được nh'),
 (3, 1, 'RÉMY MARTIN 1738 ', 2400000.000, 'drink3.jpg', 'Rémy Martin 1738 Limited Editon 2023 là một phiên bản kỉ niệm đặc biệt. Phiên bản này được trình làng năm 1738. Đây là thời điểm mà vua Louis ban cho nhà chưng nhất Remy đặc ân được mở rộng vườn nho c'),
@@ -87,14 +87,14 @@ INSERT INTO `food` (`ID_Food`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImag
 (15, 2, 'Đậu que chiên', 300000.000, 'khaivi6.jpg', 'Hương vị chua ngọt lạ miệng'),
 (16, 2, 'Nộm sứa', 300000.000, 'khaivi7.jpg', 'Hương vị chua ngọt lạ miệng'),
 (17, 2, 'Nộm củ quả', 300000.000, 'khaivi8.jpg', 'Hương vị chua ngọt lạ miệng'),
-(18, 3, 'Ba chỉ bò Mỹ', 500000.000, 'mon1.jpg', 'Hương vị chua ngọt lạ miệng'),
-(19, 3, 'Bẹ sữa heo', 500000.000, 'mon2.jpg', 'Hương vị chua ngọt lạ miệng'),
-(20, 3, 'Cá lăng nướng muối ớt', 500000.000, 'mon3.jpg', 'Hương vị chua ngọt lạ miệng'),
-(21, 3, 'Gan ngỗng áp chão', 500000.000, 'mon4.jpg', 'Hương vị chua ngọt lạ miệng'),
-(22, 3, 'Cá tuyết áp chảo', 500000.000, 'mon5.jpg', 'Hương vị chua ngọt lạ miệng'),
-(23, 3, 'Nem thịt cua', 500000.000, 'mon6.jpg', 'Hương vị chua ngọt lạ miệng'),
-(24, 3, 'Hào nướng bơ tỏi', 500000.000, 'mon7.jpg', 'Hương vị chua ngọt lạ miệng'),
-(25, 3, 'Tôm hùm sốt bơ', 500000.000, 'mon8.jpg', 'Hương vị chua ngọt lạ miệng');
+(18, 3, 'Ba chỉ bò Mỹ', 500000.000, 'food1.jpg', 'Hương vị chua ngọt lạ miệng'),
+(19, 3, 'Bẹ sữa heo', 500000.000, 'food2.jpg', 'Hương vị chua ngọt lạ miệng'),
+(20, 3, 'Cá lăng nướng muối ớt', 500000.000, 'food3.jpg', 'Hương vị chua ngọt lạ miệng'),
+(21, 3, 'Gan ngỗng áp chão', 500000.000, 'food4.jpg', 'Hương vị chua ngọt lạ miệng'),
+(22, 3, 'Cá tuyết áp chảo', 500000.000, 'food5.jpg', 'Hương vị chua ngọt lạ miệng'),
+(23, 3, 'Nem thịt cua', 500000.000, 'food6.jpg', 'Hương vị chua ngọt lạ miệng'),
+(24, 3, 'Hào nướng bơ tỏi', 500000.000, 'food7.jpg', 'Hương vị chua ngọt lạ miệng'),
+(25, 3, 'Tôm hùm sốt bơ', 500000.000, 'food8.jpg', 'Hương vị chua ngọt lạ miệng');
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ INSERT INTO `food` (`ID_Food`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImag
 --
 
 CREATE TABLE `type_food` (
-  `ID_TypeFood` int(10) NOT NULL,
+  `ID` int(10) NOT NULL,
   `Name_TypeFood` varchar(100) NOT NULL,
   `Img_TypeFood` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -112,7 +112,7 @@ CREATE TABLE `type_food` (
 -- Đang đổ dữ liệu cho bảng `type_food`
 --
 
-INSERT INTO `type_food` (`ID_TypeFood`, `Name_TypeFood`, `Img_TypeFood`) VALUES
+INSERT INTO `type_food` (`ID`, `Name_TypeFood`, `Img_TypeFood`) VALUES
 (1, 'Đồ Uống', ''),
 (2, 'Khai Vị', ''),
 (3, 'Món Chính', '');
@@ -124,7 +124,7 @@ INSERT INTO `type_food` (`ID_TypeFood`, `Name_TypeFood`, `Img_TypeFood`) VALUES
 --
 
 CREATE TABLE `user` (
-  `ID_User` int(10) NOT NULL,
+  `ID` int(10) NOT NULL,
   `FullName` varchar(200) NOT NULL,
   `Username` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`ID_User`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Address`, `Email`, `Role`) VALUES
+INSERT INTO `user` (`ID`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Address`, `Email`, `Role`) VALUES
 (1, 'Golden Spoon', 'admin', '123456', 0, '', '', 1),
 (2, 'User1', 'user1', '123', 0, '', '', 0);
 
@@ -150,14 +150,14 @@ INSERT INTO `user` (`ID_User`, `FullName`, `Username`, `Password`, `PhoneNumber`
 -- Chỉ mục cho bảng `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`ID_Booking`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_booking_user` (`ID_User`);
 
 --
 -- Chỉ mục cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
-  ADD PRIMARY KEY (`ID_DetailBooking`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_detailbooking_booking` (`ID_Booking`),
   ADD KEY `fk_detailbooking_food` (`ID_Food`);
 
@@ -165,20 +165,20 @@ ALTER TABLE `detailbooking`
 -- Chỉ mục cho bảng `food`
 --
 ALTER TABLE `food`
-  ADD PRIMARY KEY (`ID_Food`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_monan_loaimonan` (`ID_TypeFood`);
 
 --
 -- Chỉ mục cho bảng `type_food`
 --
 ALTER TABLE `type_food`
-  ADD PRIMARY KEY (`ID_LoaiMonAn`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID_User`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -188,31 +188,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID_Booking` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
-  MODIFY `ID_DetailBooking` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `food`
 --
 ALTER TABLE `food`
-  MODIFY `ID_Food` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `type_food`
 --
 ALTER TABLE `type_food`
-  MODIFY `ID_LoaiMonAn` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_User` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -222,20 +222,20 @@ ALTER TABLE `user`
 -- Các ràng buộc cho bảng `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID_User`);
+  ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID`);
 
 --
 -- Các ràng buộc cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
-  ADD CONSTRAINT `fk_detailbooking_booking` FOREIGN KEY (`ID_Booking`) REFERENCES `booking` (`ID_Booking`),
-  ADD CONSTRAINT `fk_detailbooking_food` FOREIGN KEY (`ID_Food`) REFERENCES `food` (`ID_Food`);
+  ADD CONSTRAINT `fk_detailbooking_booking` FOREIGN KEY (`ID_Booking`) REFERENCES `booking` (`ID`),
+  ADD CONSTRAINT `fk_detailbooking_food` FOREIGN KEY (`ID_Food`) REFERENCES `food` (`ID`);
 
 --
 -- Các ràng buộc cho bảng `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `fk_monan_loaimonan` FOREIGN KEY (`ID_TypeFood`) REFERENCES `type_food` (`ID_LoaiMonAn`);
+  ADD CONSTRAINT `fk_food_typefood` FOREIGN KEY (`ID_TypeFood`) REFERENCES `type_food` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
