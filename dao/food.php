@@ -20,7 +20,7 @@ function delete_food($ID){
 }
 
 /* Lấy tất cả món ăn show lên admin */
-function get_foodone($id){
+function getone_food($id){
     $sql = "SELECT * FROM food WHERE ID =".$id;
     return pdo_query_one($sql);
 }
@@ -63,21 +63,13 @@ function showsp($a) {
 }
 
 //Update sử lý file hình
-function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $ImageNew)
+function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $FileImage)
 {
-    // if ($ImageNew != "") {
-    //     $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', Describe='$Describe', FoodImage='$ImageNew' WHERE ID_Food=" . $ID_Food;
-    // } else {
-    //     $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', Describe='$Describe' WHERE ID_Food=" . $ID_Food;
-    // }
-    if($ImageNew != ""){
-        $sql = "UPDATE food SET ID_TypeFood=?, FoodName=?, FoodPrice=?, Describe=?, FoodImage=? WHERE ID=?";
-        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $ImageNew, $ID);
-    }else{
-        $sql = "UPDATE food SET ID_TypeFood=?, FoodName=?, FoodPrice=?, Describe=? WHERE ID=?";
-        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $ID);
+    if ($FileImage != "") {
+        $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', FoodDescribe='$FoodDescribe', FoodImage='$FileImage' WHERE ID=" . $ID;
+    } else {
+        $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', FoodDescribe='$FoodDescribe' WHERE ID=" . $ID;
     }
-    //echo $sql;
     return pdo_execute($sql);
 }
 

@@ -1,47 +1,64 @@
- <!-- Main Content -->
- <main>
+<?php
+extract($getone_food);
+if($FoodImage != ""){
+    $FoodImage = '../uploads/'.$FoodImage;
+    if(file_exists($FoodImage)){
+        $FoodImageNew = "<br><img src='".$FoodImage."' width='120px'>";
+    }else{
+        $FoodImageNew = "";
+    }
+}
+$Name = $FoodName;
+$ID_Food = $ID;
+$Image = $FoodImage;
+$select_html = "";
+foreach ($getall_typefood as $item) {
+    extract($item);
+    if($ID == $ID_TypeFood){
+        $slc = "selected";
+    }else{
+        $slc = "";
+    }
+    $select_html .= "<option value='".$ID."' ".$slc.">".$Name_TypeFood."</option>";
+}
+?>
+<!-- Main Content -->
+<main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Quản Lý Món Ăn</h2>
-        <a href="index.php?pg=add" class="addfood">Thêm Món Ăn</a>
-        <table id="table_id" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th scope="col">STT</th>
-                    <th scope="col">Tên món ăn</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Mô tả</th>
-                    <th scope="col">Thao tác</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($getall_food as $item) {
-                    extract($item);
-                        if($FoodImage != "") $FoodImage = '../uploads/'.$FoodImage;
-                        $edit = "<a href='index.php?pg=editfood&id=" . $ID . "'>Sửa</a>";
-                        $del = "<a href='index.php?pg=delfood&id=" . $ID . "'>Xóa</a>";
-                    echo'
-                    <tr>
-                        <td>'.$ID.'</td>
-                        <td>'.$FoodName.'</td>
-                        <td>'.$FoodPrice.'</td>
-                        <td><img src="'.$FoodImage.'" alt=""></td>
-                        <td>'.$FoodDescribe.'</td>
-                        <td>'.$edit.' - '.$del.'</td>
-                    </tr>
-                    ';
-                }
-                ?>
-                <!-- <td>Hoàng</td>
-                <td>12</td>
-                <td>Ha Noi</td>
-                <td>Single</td>
-                <td class="primary">Details</td> -->
-            </tbody>
-        </table>
-        <a href="#">Show All</a>
+        <h2>Thêm Món Ăn</h2>
+        <div class="form_update__food">
+            <form action="index.php?pg=updatefood" method="post" enctype="multipart/form-data">
+                <div class="group_input">
+                    <label for="topic-name">Loại Món Ăn</label>
+                        <select name="ID_TypeFood">
+                            <?= $select_html ?>
+                        </select>
+                </div>
+                <div class="group_input">
+                    <label for="FoodName">Tên Món Ăn</label><hr>
+                    <input type="text" placeholder="Food Name" name="FoodName" value="<?= $Name ?>">
+                </div>
+                <div class="group_input">
+                    <label for="FoodPrice">Giá Món Ăn</label><hr>
+                    <input type="text" placeholder="Food Price" name="FoodPrice" value="<?= $FoodPrice ?>">
+                </div>
+                <div class="group_input">
+                    <label for="Describe">Mô Tả</label><hr>
+                    <textarea placeholder="Describe" name="FoodDescribe" cols="30" rows="10" ><?= $FoodDescribe ?></textarea>
+                </div>
+                <div class="group_input">
+                    <label for="FoodImage">Hình Ảnh</label><hr>
+                    <input type="file" placeholder="Food Image" name="FoodImage"><?= $FoodImageNew?>
+                </div>
+                <div class="group_btn">
+                    <input type="hidden" name="ID" value="<?= $ID_Food ?>">
+                    <input type="hidden" name="Image" value="<?= $Image ?>">
+                    <button type="submit" class="btn" name="btnupdate">Cập Nhật</button>
+                    <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
+                </div>
+            </form>
+        </div>  
     </div>
     <!-- End of Recent Orders -->
 </main>

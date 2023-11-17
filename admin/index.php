@@ -60,13 +60,13 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                 if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     $id = $_GET['id'];
                     $getone_typefood = getone_type_food($id);
-                    require_once('public/updatetypefood.php');
+                    require_once('public/updateformtypefood.php');
                 } else {
                     require_once('public/404.php');
                 }
                 break;
 
-            case 'updateformtypefood':
+            case 'updatetypefood':
                 if (isset($_POST['btnupdate'])) {
                     $ID = $_POST['ID'];
                     $Name_TypeFood = $_POST['Name_TypeFood'];
@@ -130,13 +130,41 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
 
                 case 'editfood':
                     if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                        
+                        $ID = $_GET['id'];
+                        $getone_food = getone_food($ID);
+                        $getall_typefood = getall_type_food();
+                        require_once('public/updateformfood.php');
+                    }else{
+                        include_once "public/home.php";
                     }
-                    $getall_typefood = getall_type_food();
-                    $getall_food = getall_food();
-                    include_once "public/editfood.php";
                     break;
 
+                case 'updatefood':
+                    if (isset($_POST['btnupdate'])) {
+                        $ID = $_POST['ID'];
+                        $ID_TypeFood = $_POST['ID_TypeFood'];
+                        $FoodName = $_POST['FoodName'];
+                        $FoodPrice = $_POST['FoodPrice'];
+                        $FoodDescribe = $_POST['FoodDescribe'];
+                        //Lấy hình
+                        $FileImage = $_FILES['FoodImage']['name'];
+                        if ($FileImage != "") {
+                            $target_dir = "../uploads/";
+                            $target_file = $target_dir . basename($_FILES["FoodImage"]["name"]);
+                            move_uploaded_file($_FILES["FoodImage"]["tmp_name"], $target_file);
+                            //Xóa hình đã có
+                            $Image_Food = "../uploads/" . $_POST["Image"];
+                            if (file_exists($Image_Food)) {
+                                unlink($Image_Food);
+                            }
+                        }
+                        //Cập nhật lên database
+                        update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $FileImage);
+                    }
+                    // $getall_typefood = getall_type_food();
+                    $getall_food = getall_food();
+                    include_once "public/food.php";
+                    break;
         /* End Food */
 
             case 'users':

@@ -7,7 +7,7 @@
     <div class="recent-orders">
         <h2>Thêm Loại Món Ăn</h2>
         <div class="form_update__food">
-            <form action="index.php?pg=updateformtypefood" method="post" enctype="multipart/form-data">
+            <form action="index.php?pg=updatetypefood" method="post" enctype="multipart/form-data">
                 <div class="group_input">
                     <label for="NameTypeFood">Tên Loại Món Ăn</label><hr>
                     <input type="text" placeholder="Name Type Food" value="<?= $Name_TypeFood ?>" name="Name_TypeFood">
