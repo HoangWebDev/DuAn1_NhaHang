@@ -7,17 +7,17 @@ require_once 'pdo.php';
 //     pdo_execute($sql, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet==1, $so_luot_xem, $ngay_nhap, $mo_ta, $ma_hh);
 // }
 
-// function hang_hoa_delete($ma_hh){
-//     $sql = "DELETE FROM hang_hoa WHERE  ma_hh=?";
-//     if(is_array($ma_hh)){
-//         foreach ($ma_hh as $ma) {
-//             pdo_execute($sql, $ma);
-//         }
-//     }
-//     else{
-//         pdo_execute($sql, $ma_hh);
-//     }
-// }
+function delete_food($ID){
+    $sql = "DELETE FROM hang_hoa WHERE  ID=?";
+    if(is_array($ID)){
+        foreach ($ID as $ma) {
+            pdo_execute($sql, $ma);
+        }
+    }
+    else{
+        pdo_execute($sql, $ID);
+    }
+}
 
 /* Lấy tất cả món ăn show lên admin */
 function get_foodone($id){
