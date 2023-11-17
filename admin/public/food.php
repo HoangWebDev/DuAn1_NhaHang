@@ -21,7 +21,7 @@
                     extract($item);
                         if($FoodImage != "") $FoodImage = '../uploads/'.$FoodImage;
                         $edit = "<a href='index.php?pg=foodupdateform&id=" . $ID . "'>Sửa</a>";
-                        $del = "<a href='index.php?page=delproduct&id=" . $ID . "'>Xóa</a>";
+                        $del = "<a href='index.php?pg=delfood&id=" . $ID . "'>Xóa</a>";
                     echo'
                     <tr>
                         <td>'.$ID.'</td>

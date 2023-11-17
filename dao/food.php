@@ -8,7 +8,7 @@ require_once 'pdo.php';
 // }
 
 function delete_food($ID){
-    $sql = "DELETE FROM hang_hoa WHERE  ID=?";
+    $sql = "DELETE FROM food WHERE  ID=?";
     if(is_array($ID)){
         foreach ($ID as $ma) {
             pdo_execute($sql, $ma);

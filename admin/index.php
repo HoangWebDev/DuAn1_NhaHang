@@ -46,6 +46,7 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                 $getall_typefood = getall_type_food();
                 include_once "public/typefood.php";
                 break;
+
             case 'deltype':
                 if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     $id = $_GET['id'];
@@ -74,7 +75,7 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                 $getall_typefood = getall_type_food();
                 require_once('public/typefood.php');
                 break;
-
+            
 
         /* End Type Food */
 
@@ -84,10 +85,17 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
         Delete
         */
 
+        case 'food':
+            $getall_typefood = getall_type_food();
+            $getall_food = getall_food();
+            include_once "public/food.php";
+            break;
+
             case 'add':
                 $getall_typefood = getall_type_food();
                 include_once "public/addfood.php";
                 break;
+
             case 'addfoodadmin':
                 if (isset($_POST['btnadd'])) {
                     $ID_TypeFood = $_POST['ID_TypeFood'];
@@ -109,12 +117,26 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                     include_once "public/food.php";
                     //   header('Location: index.php?pg=food');
                 break;
-            case 'food':
-                $getall_typefood = getall_type_food();
-                $getall_food = getall_food();
-                include_once "public/food.php";
-                break;
-                    
+            
+                case 'delfood':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                        $ID = $_GET['id'];
+                        delete_food($ID);
+                    }   
+                    // $getall_typefood = getall_type_food();
+                    $getall_food = getall_food();
+                    include_once "public/food.php";
+                    break; 
+
+                case 'editfood':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                        
+                    }
+                    $getall_typefood = getall_type_food();
+                    $getall_food = getall_food();
+                    include_once "public/editfood.php";
+                    break;
+
         /* End Food */
 
             case 'users':
