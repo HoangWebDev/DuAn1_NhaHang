@@ -63,7 +63,7 @@ function showsp($a) {
 }
 
 //Update sử lý file hình
-function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $ImageNew)
+function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $ImageNew)
 {
     // if ($ImageNew != "") {
     //     $sql = "UPDATE food SET ID_TypeFood='$ID_TypeFood', FoodName='$FoodName', FoodPrice='$FoodPrice', Describe='$Describe', FoodImage='$ImageNew' WHERE ID_Food=" . $ID_Food;
@@ -72,18 +72,19 @@ function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $Image
     // }
     if($ImageNew != ""){
         $sql = "UPDATE food SET ID_TypeFood=?, FoodName=?, FoodPrice=?, Describe=?, FoodImage=? WHERE ID=?";
-        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $ImageNew, $ID);
+        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $ImageNew, $ID);
     }else{
         $sql = "UPDATE food SET ID_TypeFood=?, FoodName=?, FoodPrice=?, Describe=? WHERE ID=?";
-        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $Describe, $ID);
+        pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $ID);
     }
     //echo $sql;
     return pdo_execute($sql);
 }
 
-function insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe)
+function insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $FoodDescribe)
 {
-    pdo_execute("INSERT INTO food(ID_TypeFood, FoodName, FoodPrice, FoodImage, Describe) VALUES(?,?,?,?,?)", $ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe);
+    $sql = "INSERT INTO food(ID_TypeFood, FoodName, FoodPrice, FoodImage, FoodDescribe) VALUES(?, ?, ?, ?, ?)";
+    pdo_execute($sql, $ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $FoodDescribe);
 }
 
 

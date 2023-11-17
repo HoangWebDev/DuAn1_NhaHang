@@ -28,7 +28,7 @@
                         <td>'.$FoodName.'</td>
                         <td>'.$FoodPrice.'</td>
                         <td><img src="'.$FoodImage.'" alt=""></td>
-                        <td>'.$Describe.'</td>
+                        <td>'.$FoodDescribe.'</td>
                         <td>'.$edit.' - '.$del.'</td>
                     </tr>
                     ';

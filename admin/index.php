@@ -94,17 +94,18 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                     $FoodName = $_POST['FoodName'];
                     $FoodPrice = $_POST['FoodPrice'];
                     $FileImage = $_FILES['FoodImage']['name'];
-                    $Describe = $_POST['Describe'];
+                    $FoodDescribe = $_POST['FoodDescribe'];
                     if ($FileImage != "") {
                         $target_dir = "../uploads/";
                         $target_file = $target_dir . basename($_FILES["FoodImage"]["name"]);
                         move_uploaded_file($_FILES["FoodImage"]["tmp_name"], $target_file);
                       } 
                       //Gọi hàm insert
-                      insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $Describe);
+                      insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $FoodDescribe);
                       $tb = "Thêm thành công";
                     }
                     $getall_typefood = getall_type_food();
+                    $getall_food = getall_food();
                     include_once "public/food.php";
                     //   header('Location: index.php?pg=food');
                 break;

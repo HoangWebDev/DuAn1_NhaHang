@@ -28,7 +28,7 @@ foreach ($getall_typefood as $item) {
                 </div>
                 <div class="group_input">
                     <label for="Describe">Mô Tả</label><hr>
-                    <textarea placeholder="Describe" name="Describe" cols="30" rows="10"></textarea>
+                    <textarea placeholder="Describe" name="FoodDescribe" cols="30" rows="10"></textarea>
                 </div>
                 <div class="group_input">
                     <label for="FoodImage">Hình Ảnh</label><hr>
