@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 05:41 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 01:58 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -62,15 +62,15 @@ CREATE TABLE `food` (
   `FoodName` varchar(100) NOT NULL,
   `FoodPrice` double(10,3) NOT NULL DEFAULT 0.000,
   `FoodImage` varchar(200) NOT NULL,
-  `Describe` varchar(200) NOT NULL
+  `FoodDescribe` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `food`
 --
 
-INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `Describe`) VALUES
-(1, 1, 'HENNESSY VSOP RED DRAGON ', 1800000.000, 'drink1.jpg', 'Kể từ năm 1765, Maison Hennessy đã hoàn thiện nghệ thuật làm rượu cognac, một truyền thống được duy trì qua tám thế hệ bậc thầy pha chế rượu cognac. Di sản của sự cởi mở về văn hóa đã giúp Maison Henn'),
+INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `FoodDescribe`) VALUES
+(1, 1, 'HENNESSY VSOP RED DRAGON ', 2800000.000, 'drink1.jpg', 'Kể từ năm 1765, Maison Hennessy đã hoàn thiện nghệ thuật làm rượu cognac, một truyền thống được duy trì qua tám thế hệ bậc thầy pha chế rượu cognac. Di sản của sự cởi mở về văn hóa đã giúp Maison Henn'),
 (2, 1, 'Camus V.S.O.P', 2100000.000, 'drink2.jpg', 'Camus vsop - Món quà tặng độc đáo, sang trọng cho dịp lễ, tết\r\n\r\nChỉ còn vài tháng nữa các dịp Lễ Tết sẽ xuất hiện rất nhiều, vấn đề mua gì để biếu sếp, biếu bố mẹ và gia đình vợ luôn được nh'),
 (3, 1, 'RÉMY MARTIN 1738 ', 2400000.000, 'drink3.jpg', 'Rémy Martin 1738 Limited Editon 2023 là một phiên bản kỉ niệm đặc biệt. Phiên bản này được trình làng năm 1738. Đây là thời điểm mà vua Louis ban cho nhà chưng nhất Remy đặc ân được mở rộng vườn nho c'),
 (4, 1, 'Chabot Armagnac Gold Goose Extra', 6400000.000, 'drink4.jpg', 'Armagnac là loại Brandy cao tuổi nhất ở Pháp. Theo các tài liệu còn lưu lại thì Armagnac được chưng cất từ đầu thế kỷ 15, là sản phẩm của vùng Tây-Nam nước Pháp. Nó sở hữu xuất xứ khác nhau theo 3 vùn'),
@@ -80,8 +80,7 @@ INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `
 (8, 1, 'Baron Otard XO Cognac', 3200000.000, 'drink7.jpg', 'Bài giới thiệu trước đây về rượu cognac hàng đầu của Otard\'s Extra 1795, một sự pha trộn chủ yếu của rượu Grande Champagne có độ tuổi từ 30 đến 50 năm.'),
 (9, 1, 'Bisquit & Dubouche XO', 2200000.000, 'drink6.jpg', 'Một hương vị mượt mà và xa hoa dành cho những người yêu thích rượu cognac thực sự. Được chế tạo bằng cách sử dụng chủ yếu loại rượu eaux-de-vie tốt nhất từ nhà nghiền Grande và Petite Champagne. Tận h'),
 (10, 2, 'Súp hải sản', 100000.000, 'khaivi1.jpg', 'Một hương vị đậm đà'),
-(11, 2, 'Sushi hải sản', 200000.000, 'khaivi2.jpg', 'Cá hồi tươi sống'),
-(12, 2, 'Salad trộn', 200000.000, 'khaivi3.jpg', 'Hương vị chua ngọt lạ miệng'),
+(11, 2, 'Sushi hải sản', 200000.000, 'specials-1.png', 'Cá hồi tươi sống'),
 (13, 2, 'Salad mấm cải', 200000.000, 'khaivi4.jpg', 'Hương vị chua ngọt lạ miệng'),
 (14, 2, 'Mực ống', 300000.000, 'khaivi5.jpg', 'Hương vị chua ngọt lạ miệng'),
 (15, 2, 'Đậu que chiên', 300000.000, 'khaivi6.jpg', 'Hương vị chua ngọt lạ miệng'),
@@ -92,9 +91,10 @@ INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `
 (20, 3, 'Cá lăng nướng muối ớt', 500000.000, 'food3.jpg', 'Hương vị chua ngọt lạ miệng'),
 (21, 3, 'Gan ngỗng áp chão', 500000.000, 'food4.jpg', 'Hương vị chua ngọt lạ miệng'),
 (22, 3, 'Cá tuyết áp chảo', 500000.000, 'food5.jpg', 'Hương vị chua ngọt lạ miệng'),
-(23, 3, 'Nem thịt cua', 500000.000, 'food6.jpg', 'Hương vị chua ngọt lạ miệng'),
+(23, 3, 'Mì Ý Đậu Hủ', 500000.000, 'food6.jpg', 'Hương vị chua ngọt lạ miệng'),
 (24, 3, 'Hào nướng bơ tỏi', 500000.000, 'food7.jpg', 'Hương vị chua ngọt lạ miệng'),
-(25, 3, 'Tôm hùm sốt bơ', 500000.000, 'food8.jpg', 'Hương vị chua ngọt lạ miệng');
+(25, 3, 'Tôm hùm sốt bơ', 500000.000, 'food8.jpg', 'Hương vị chua ngọt lạ miệng'),
+(26, 2, 'Salad Trộn', 2000000.000, 'caesar.jpg', 'Hương Vị Tuyệt Vời');
 
 -- --------------------------------------------------------
 
@@ -200,7 +200,7 @@ ALTER TABLE `detailbooking`
 -- AUTO_INCREMENT cho bảng `food`
 --
 ALTER TABLE `food`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `type_food`
