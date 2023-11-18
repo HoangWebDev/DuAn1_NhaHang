@@ -1,3 +1,4 @@
+
 <div class="container-xxl py-5 bg-dark hero-header">
   <div id="custom-login" class="py-5 mt-5">
 
@@ -15,14 +16,21 @@
   <?php endif; unset($_SESSION['loi']); ?>
 
       <div class="form-container register-container">
-        <form action="" method="post">
+        <form action="index.php?pg=login" method="post">
           <h1>Đăng Ký</h1>
           
           <input type="text" placeholder="Phone" name="PhoneNumber" id="PhoneNumber"> 
           <input type="text" placeholder="Name" name="Username" id="Username">
           <input type="password" placeholder="Password" name="Password" id="Password">
           <!-- <a href="index.php?pg=dangky">Đăng Ký</a> -->
-          <button type="submit" name="submit" value="submit" >Đăng Ký</button> 
+          <!-- <button type="submit" name="submit" value="submit" >Đăng Ký</button>  -->
+          <input type="submit" name="submit" value="Đăng ký" >
+          <?php
+            if (isset($tb) && $tb != "") {
+              echo "<font color='red'>"  .$tb. "</font>";
+            }
+            ?>
+          <!-- <a href="index.php?pg=dangky">Đăng ký</a> -->
           <span>Đăng ký với</span>
           <div class="social-container">
             <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
@@ -30,14 +38,9 @@
             <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
           </div>
         </form>
-      </div>
-      <?php if( isset($_SESSION['loi'])): ?>
-                    <div class="alert alert-danger" role="alert">
-                    <?=$_SESSION['loi']?>
-                    </div>      
-                <?php endif; unset($_SESSION['loi'])?>
+      </div>      
       <div class="form-container login-container">
-        <form method="post" action="">
+        <form method="post" action="index.php?pg=login">
           <h1>Đăng Nhập</h1>
           <input type="text" placeholder="Username" name="user" >
           <input type="password" placeholder="Password" name="pass" >
@@ -51,6 +54,11 @@
             </div>
           </div>
           <button type="submit">Đăng Nhập</button>
+          <?php 
+      if(isset($txt_erro)&&($txt_erro!="")){
+        echo "<font color='red'>"  .$txt_erro. "</font>";
+      }
+      ?>
           <span>Đăng nhập với</span>
           <div class="social-container">
             <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
@@ -59,6 +67,8 @@
           </div>
         </form>
       </div>
+      
+      
 
       <div class="overlay-container">
         <div class="overlay">
@@ -72,6 +82,7 @@
             <h1 class="title">Đăng Ký Ngay</h1>
             <p>Nếu bạn chưa có tài khoản, hãy đăng ký với chúng tôi!</p>
             <button class="ghost" id="register">Đăng Ký
+           
             </button>
           </div>
         </div>
