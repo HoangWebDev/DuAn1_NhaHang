@@ -395,6 +395,11 @@ main table tbody tr:last-child td{
     border: none;
 }
 
+main .recent-orders table tbody .unblock > a{
+    display: inline-block;
+    margin: .5rem;
+}
+
 main .recent-orders a{
     text-align: center;
     display: block;
@@ -403,11 +408,8 @@ main .recent-orders a{
     color: var(--color-danger);
 }
 
-main .recent-orders a:hover{
-    color: red;
-}
-
 main .recent-orders > .addfood{
+    cursor: pointer;
     border-radius: 20px;
     border: 1px solid #FEA116;
     background-color: #FEA116;

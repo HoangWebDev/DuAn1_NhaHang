@@ -14,9 +14,6 @@
                     <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                 </div>
             </form>
-            <?php
-            if(isset($tb) && ($tb) != "") echo $tb;
-            ?>
         </div>  
     </div>
     <!-- End of Recent Orders -->

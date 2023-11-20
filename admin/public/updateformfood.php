@@ -26,7 +26,7 @@ foreach ($getall_typefood as $item) {
 <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Thêm Món Ăn</h2>
+        <h2>Cập Nhật Món Ăn</h2>
         <div class="form_update__food">
             <form action="index.php?pg=updatefood" method="post" enctype="multipart/form-data">
                 <div class="group_input">

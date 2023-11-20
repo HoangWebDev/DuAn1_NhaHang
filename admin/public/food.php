@@ -29,7 +29,7 @@
                         <td>'.$FoodPrice.'</td>
                         <td><img src="'.$FoodImage.'" alt=""></td>
                         <td>'.$FoodDescribe.'</td>
-                        <td>'.$edit.' - '.$del.'</td>
+                        <td class="unblock">'.$edit.''.$del.'</td>
                     </tr>
                     ';
                 }
@@ -41,6 +41,9 @@
                 <td class="primary">Details</td> -->
             </tbody>
         </table>
+        <?php
+                if(isset($tb) && ($tb) != "") echo "<h3 style='color:red'>" . $tb . "</h3>";
+                ?>
         <a href="#">Show All</a>
     </div>
     <!-- End of Recent Orders -->
@@ -57,8 +60,7 @@
                 </button>
                 <div class="profile">
                     <div class="info">
-                        <p>Chào, <b>Hoang</b></p>
-                        <small class="text-muted">Admin</small>
+                        <p>Chào, <b>Admin</b></p>
                     </div>
                     <div class="profile-photo">
                         <img src="layout/images/profile-1.jpg">

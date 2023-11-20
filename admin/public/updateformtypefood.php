@@ -5,7 +5,7 @@
 <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Thêm Loại Món Ăn</h2>
+        <h2>Cập Nhật Loại Món Ăn</h2>
         <div class="form_update__food">
             <form action="index.php?pg=updatetypefood" method="post" enctype="multipart/form-data">
                 <div class="group_input">

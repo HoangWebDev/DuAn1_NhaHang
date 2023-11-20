@@ -23,10 +23,6 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'contact':
                 include_once "public/contact.php";
                 break;
-            case 'addtype':
-
-                include_once "public/addtypefood.php";
-                break;
 
         /* TyoeFood: 
         Add
@@ -37,6 +33,11 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             $getall_typefood = getall_type_food();
             include_once "public/typefood.php";
             break;
+
+            case 'addtype':
+
+                include_once "public/addtypefood.php";
+                break;
 
             case 'addtypefoodam':
                 if (isset($_POST['btnadd'])) {
@@ -107,7 +108,7 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                         $target_dir = "../uploads/";
                         $target_file = $target_dir . basename($_FILES["FoodImage"]["name"]);
                         move_uploaded_file($_FILES["FoodImage"]["tmp_name"], $target_file);
-                      } 
+                      }
                       //Gọi hàm insert
                       insert_food($ID_TypeFood, $FoodName, $FoodPrice, $FileImage, $FoodDescribe);
                       $tb = "Thêm thành công";
@@ -167,11 +168,74 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                     break;
         /* End Food */
 
+        /* User:
+        Add
+        Edit
+        Delete      
+        */
             case 'users':
                 $getall_user = getall_user();
                 include_once "public/users.php";
                 break;
 
+                case 'adduser':
+                    
+                    include_once "public/adduser.php";
+                    break;
+
+                case 'adduseradmin':
+                    if (isset($_POST['btnadd'])) {
+                        $FullName = $_POST['FullName'];
+                        $Username = $_POST['Username'];
+                        $Password = $_POST['Password'];
+                        $PhoneNumber = $_POST['PhoneNumber'];
+                        $Address = $_POST['Address'];
+                        $Email = $_POST['Email'];
+                        $Role = $_POST['Role'];
+                        insert_user($FullName, $Username, $Password, $PhoneNumber, $Address, $Email, $Role);
+                        $tb = "Thêm thành công";
+                    }
+
+                    $getall_user = getall_user();
+                    include_once "public/users.php";
+                    break;
+                
+                case 'edituser':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                        $ID = $_GET['id'];
+                        $getone_user = getone_user($ID);
+                        require_once('public/updateformuser.php');
+                    }else{
+                        include_once "public/home.php";
+                    }
+                    break;
+
+                case 'updateuser':
+                    if (isset($_POST['btnupdate'])) {
+                        $ID = $_POST['ID'];
+                        $FullName = $_POST['FullName'];
+                        $Username = $_POST['Username'];
+                        $Password = $_POST['Password'];
+                        $PhoneNumber = $_POST['PhoneNumber'];
+                        $Address = $_POST['Address'];
+                        $Email = $_POST['Email'];
+                        $Role = $_POST['Role'];
+                        update_user($ID, $FullName, $Username, $Password, $PhoneNumber, $Address, $Email, $Role);
+                    }
+                    $getall_user = getall_user();
+                    include_once "public/users.php";
+                    break;
+
+                case 'deluser':
+                    if(isset($_GET['id']) && ($_GET['id'] > 0)){
+                        $ID = $_GET['id'];
+                        delete_user($ID);
+                    }
+                    $getall_user = getall_user();
+                    include_once "public/users.php";
+                    break;
+
+        /* End User */
 
             /* Thoát admin */
             case 'exit':

@@ -1,28 +1,32 @@
 <?php
 require_once 'pdo.php';
 
-function khach_hang_insert($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro){
-    $sql = "INSERT INTO khach_hang(ma_kh, mat_khau, ho_ten, email, hinh, kich_hoat, vai_tro) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    pdo_execute($sql, $ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat==1, $vai_tro==1);
+function insert_user($FullName, $Username, $Password, $PhoneNumber, $Address, $Email, $Role){
+    $sql = "INSERT INTO user (FullName,Username,Password,PhoneNumber,Address,Email,Role) VALUES(?,?,?,?,?,?,?)";
+    pdo_execute($sql, $FullName, $Username, $Password, $PhoneNumber, $Address, $Email, $Role);
 }
 
-function khach_hang_update($ma_kh, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat, $vai_tro){
-    $sql = "UPDATE khach_hang SET mat_khau=?,ho_ten=?,email=?,hinh=?,kich_hoat=?,vai_tro=? WHERE ma_kh=?";
-    pdo_execute($sql, $mat_khau, $ho_ten, $email, $hinh, $kich_hoat==1, $vai_tro==1, $ma_kh);
+function update_user($ID, $FullName, $Username, $Password, $PhoneNumber, $Address, $Email, $Role){
+    $sql = "UPDATE user SET FullName=?,Username=?,Password=?,PhoneNumber=?,Address=?,Email=?,Role=? WHERE ID=?";
+    pdo_execute($sql, $FullName, $Username, $Password, $PhoneNumber, $Address, $Email, $Role, $ID);
 }
 
-function khach_hang_delete($ma_kh){
-    $sql = "DELETE FROM khach_hang  WHERE ma_kh=?";
-    if(is_array($ma_kh)){
-        foreach ($ma_kh as $ma) {
+function delete_user($ID){
+    $sql = "DELETE FROM user  WHERE ID=?";
+    if(is_array($ID)){
+        foreach ($ID as $ma) {
             pdo_execute($sql, $ma);
         }
     }
     else{
-        pdo_execute($sql, $ma_kh);
+        pdo_execute($sql, $ID);
     }
 }
 
+function getone_user($ID){
+    $sql = "SELECT * FROM user WHERE ID=?";
+    return pdo_query_one($sql, $ID);
+}
 function getall_user(){
     $sql = "SELECT * FROM user";
     return pdo_query($sql);
