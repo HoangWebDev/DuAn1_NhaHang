@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 01:58 PM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 01:58 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -30,11 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `booking` (
   `ID` int(10) NOT NULL,
   `ID_User` int(10) NOT NULL,
-  `TableNumber` int(10) NOT NULL DEFAULT 0,
-  `Seats` int(10) NOT NULL DEFAULT 0,
-  `Image` varchar(200) NOT NULL,
-  `Guests` int(10) NOT NULL DEFAULT 0
+  `TableNumber` int(10) NOT NULL DEFAULT 0 COMMENT 'Số bàn',
+  `Seats` int(10) NOT NULL DEFAULT 0 COMMENT 'Số ghế',
+  `DateTime` datetime NOT NULL,
+  `Guests` int(10) NOT NULL DEFAULT 0 COMMENT 'Số lượng khách',
+  `Deposit` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Tiền cọc'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `booking`
+--
+
+INSERT INTO `booking` (`ID`, `ID_User`, `TableNumber`, `Seats`, `DateTime`, `Guests`, `Deposit`) VALUES
+(1, 5, 5, 10, '0000-00-00 00:00:00', 50, 0.000);
 
 -- --------------------------------------------------------
 
@@ -46,8 +54,9 @@ CREATE TABLE `detailbooking` (
   `ID` int(10) NOT NULL,
   `ID_Booking` int(10) NOT NULL,
   `ID_Food` int(10) NOT NULL,
-  `NumberDishes` int(10) NOT NULL DEFAULT 0,
-  `PriceDishes` double(10,3) NOT NULL DEFAULT 0.000
+  `NumberDishes` int(10) NOT NULL DEFAULT 0 COMMENT 'Số lượng món ăn',
+  `PriceDishes` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Giá món ăn',
+  `DateTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -139,8 +148,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Address`, `Email`, `Role`) VALUES
-(1, 'Golden Spoon', 'admin', '123456', 0, '', '', 1),
-(2, 'User1', 'user1', '123', 0, '', '', 0);
+(4, 'Golden Spoon', 'admin', '123456', 911367894, 'CVPM.Quan Trung, Q.12, TP.Hồ Chí Minh', 'goldenspoon@gmail.com', 1),
+(5, 'User1', 'user1', '123', 0, '', '', 0),
+(6, 'HTCPT', 'user3', '789', 9097508, 'Huyện Cành Lá, Xã Cành Cây', 'thichvacham@gmail.com', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -188,7 +198,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `detailbooking`
@@ -212,7 +222,7 @@ ALTER TABLE `type_food`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
