@@ -118,8 +118,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Chào, <b>Hoang</b></p>
-                        <small class="text-muted">Admin</small>
+                        <p>Chào, <b>Admin</b></p>
                     </div>
                     <div class="profile-photo">
                         <img src="layout/images/profile-1.jpg">

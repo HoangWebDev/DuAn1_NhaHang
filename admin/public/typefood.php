@@ -2,40 +2,36 @@
  <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Quản Lý Tài Khoản</h2>
-        <a href="index.php?pg=adduser" class="addfood">Thêm Tài Khoản</a>
-        <table  id="table_id" class="display" style="width:100%">
+        <h2>Quản Lý Loại Món Ăn</h2>
+        <a href="index.php?pg=addtype" class="addfood">Thêm Loại Món Ăn</a>
+        <table id="table_id" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Họ và tên</th>
-                    <th>Tên tài khoản</th>
-                    <th>Mật khẩu</th>
-                    <th>Số điện thoại</th>
-                    <th>Địa chỉ</th>
-                    <th>Email</th>
-                    <th>Thao tác</th>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên món ăn</th>
+                    <th scope="col">Thao tác</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($getall_user as $item) {
+                foreach ($getall_typefood as $item) {
                     extract($item);
-                        $edit = "<a href='index.php?pg=edituser&id=" . $ID . "'>Sửa</a>";
-                        $del = "<a href='index.php?pg=deluser&id=" . $ID . "'>Xóa</a>";
+                        $edit = "<a href='index.php?pg=edittype&id=" . $ID . "'>Sửa</a>";
+                        $del = "<a href='index.php?pg=deltype&id=" . $ID . "'>Xóa</a>";
                     echo'
                     <tr>
-                    <td>'.$FullName.'</td>
-                    <td>'.$Username.'</td>
-                    <td>'.$Password.'</td>
-                    <td>'.$PhoneNumber.'</td>
-                    <td>'.$Address.'</td>
-                    <td>'.$Email.'</td>
-                    <td class="unblock">'.$edit.' - '.$del.'</td>
+                        <td>'.$ID.'</td>
+                        <td>'.$Name_TypeFood.'</td>
+                        <td class="unblock">'.$edit.' - '.$del.'</td>
                     </tr>
                     ';
                 }
                 ?>
-                
+                <!-- <td>Hoàng</td>
+                <td>12</td>
+                <td>Ha Noi</td>
+                <td>Single</td>
+                <td class="primary">Details</td> -->
             </tbody>
         </table>
         <?php
@@ -44,9 +40,6 @@
         <a href="#">Show All</a>
     </div>
     <!-- End of Recent Orders -->
-
-  
-
 </main>
 <!-- End of Main Content -->
 
@@ -138,5 +131,3 @@
             </div>
 
         </div>
-        <!-- End of Right Section -->
-

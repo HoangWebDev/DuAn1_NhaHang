@@ -48,7 +48,7 @@
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-4 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
                     <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>GoldenSpoon</h1>
                 </a>
@@ -74,16 +74,12 @@
                         <ul class="dropdown-menu end-0" style="left:auto">
                             <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
                             <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li> -->
-
                             <?php if($_SESSION['user']['Role']>=1):?>
                                 <li>
                                 <!-- <hr class="dropdown-divider"> -->
                             </li>
                             <li><a class="dropdown-item text-warning" href="admin">Admin</a></li>
                             <?php endif; ?>
-                            
-
-                            
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -91,12 +87,10 @@
                         </ul>
                     </li>
                     <?php endif;?>    
-
                     </div>
                     <a href="#" class="btn btn-primary py-2 px-4 me-4" data-bs-toggle="modal" data-bs-target="#cartModal">
                         <i class="fas fa-shopping-cart fa-lg"></i>
                     </a>
-
                     <a href="index.php?pg=booking" class="btn btn-primary py-2 px-4">Đặt Bàn Ngay</a>
                 </div>
             </nav>

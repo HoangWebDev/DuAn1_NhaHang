@@ -2,10 +2,12 @@
  <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Tài Khoản</h2>
-        <table>
+        <h2>Quản Lý Món Ăn</h2>
+        <a href="index.php?pg=add" class="addfood">Thêm Món Ăn</a>
+        <table id="table_id" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th scope="col">STT</th>
                     <th scope="col">Tên món ăn</th>
                     <th scope="col">Giá</th>
                     <th scope="col">Hình ảnh</th>
@@ -17,14 +19,17 @@
                 <?php
                 foreach ($getall_food as $item) {
                     extract($item);
-                    if($FoodImage != "") $FoodImage = '../uploads/'.$FoodImage;
+                        if($FoodImage != "") $FoodImage = '../uploads/'.$FoodImage;
+                        $edit = "<a href='index.php?pg=editfood&id=" . $ID . "'>Sửa</a>";
+                        $del = "<a href='index.php?pg=delfood&id=" . $ID . "'>Xóa</a>";
                     echo'
                     <tr>
-                    <td>'.$FoodName.'</td>
-                    <td>'.$FoodPrice.'</td>
-                    <td><img src="'.$FoodImage.'" alt=""></td>
-                    <td>'.$Describe.'</td>
-                    <td class="primary">Details</td>
+                        <td>'.$ID.'</td>
+                        <td>'.$FoodName.'</td>
+                        <td>'.$FoodPrice.'</td>
+                        <td><img src="'.$FoodImage.'" alt=""></td>
+                        <td>'.$FoodDescribe.'</td>
+                        <td class="unblock">'.$edit.''.$del.'</td>
                     </tr>
                     ';
                 }
@@ -36,6 +41,9 @@
                 <td class="primary">Details</td> -->
             </tbody>
         </table>
+        <?php
+                if(isset($tb) && ($tb) != "") echo "<h3 style='color:red'>" . $tb . "</h3>";
+                ?>
         <a href="#">Show All</a>
     </div>
     <!-- End of Recent Orders -->
@@ -52,8 +60,7 @@
                 </button>
                 <div class="profile">
                     <div class="info">
-                        <p>Chào, <b>Hoang</b></p>
-                        <small class="text-muted">Admin</small>
+                        <p>Chào, <b>Admin</b></p>
                     </div>
                     <div class="profile-photo">
                         <img src="layout/images/profile-1.jpg">

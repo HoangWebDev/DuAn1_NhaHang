@@ -25,17 +25,23 @@
                     </span>
                     <h3>Tài Khoản</h3>
                 </a>
+                <a href="index.php?pg=typefood">
+                    <span class="material-icons-sharp">
+                        restaurant_menu
+                    </span>
+                    <h3>Loại Món Ăn</h3>
+                </a>
                 <a href="index.php?pg=food">
                     <span class="material-icons-sharp">
                         restaurant
                     </span>
                     <h3>Món Ăn</h3>
                 </a>
-                <a href="#">
+                <a href="index.php?pg=statistic">
                     <span class="material-icons-sharp">
-                        insights
+                        signal_cellular_alt
                     </span>
-                    <h3>Phân Tích</h3>
+                    <h3>Thống Kê</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -43,12 +49,6 @@
                     </span>
                     <h3>Tin Nhắn</h3>
                     <span class="message-count">27</span>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        inventory
-                    </span>
-                    <h3>Doanh Thu</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
