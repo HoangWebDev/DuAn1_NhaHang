@@ -3,17 +3,6 @@
   <div id="custom-login" class="py-5 mt-5">
 
     <div class="container" id="container-custom-login">
-  <?php if(isset($_SESSION['thongbao'])): ?>
-    <div class="alert alert-success" role="alert">
-      <?=$_SESSION['thongbao']?>
-  </div>
-  <?php endif; unset($_SESSION['thongbao']); ?>
-
-  <?php if(isset($_SESSION['loi'])): ?>
-    <div class="alert alert-danger" role="alert">
-      <?=$_SESSION['loi']?>
-  </div>
-  <?php endif; unset($_SESSION['loi']); ?>
 
       <div class="form-container register-container">
         <form action="index.php?pg=login" method="post">
@@ -29,7 +18,12 @@
             if (isset($tb) && $tb != "") {
               echo "<font color='red'>"  .$tb. "</font>";
             }
+            if(isset($loi)&& $loi != ""){
+              echo "<font color='red'>"  .$loi. "</font>";
+            }
+
             ?>
+
           <!-- <a href="index.php?pg=dangky">Đăng ký</a> -->
           <span>Đăng ký với</span>
           <div class="social-container">
