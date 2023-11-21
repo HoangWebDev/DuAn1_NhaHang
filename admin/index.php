@@ -4,6 +4,7 @@ ob_start();
 require_once '../dao/user.php';
 require_once '../dao/food.php';
 require_once '../dao/typefood.php';
+require_once '../dao/statistical.php';
 require_once 'public/header.php';
 require_once 'public/nav.php';
 
@@ -236,6 +237,13 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                     break;
 
         /* End User */
+
+        /* Statistic (Thống Kê) */
+                    case 'statistic':
+                        $getall_statistic = getall_statistic();
+                        include_once "public/statistic.php";
+                        break;
+        /* End Statistic */
 
             /* Thoát admin */
             case 'exit':

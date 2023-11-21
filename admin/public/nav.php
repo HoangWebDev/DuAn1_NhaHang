@@ -37,18 +37,18 @@
                     </span>
                     <h3>Món Ăn</h3>
                 </a>
+                <a href="index.php?pg=statistic">
+                    <span class="material-icons-sharp">
+                        signal_cellular_alt
+                    </span>
+                    <h3>Thống Kê</h3>
+                </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         mail_outline
                     </span>
                     <h3>Tin Nhắn</h3>
                     <span class="message-count">27</span>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        inventory
-                    </span>
-                    <h3>Doanh Thu</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
