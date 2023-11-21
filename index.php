@@ -43,6 +43,7 @@
                 $PhoneNumber=$_POST['PhoneNumber']; 
                 $Username=$_POST['Username'];
                 $Password=$_POST['Password'];
+<<<<<<< HEAD
                 
                 $kq = user_add($PhoneNumber, $Username, $Password);
                 $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 
@@ -64,12 +65,25 @@
             //     //hiển thị dử liệu
             //     include_once "view/dangky.php";
             //     break;
+=======
+                $ketqua = user_add($PhoneNumber, $Username, $Password);
+                
+                
+                    $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 
+                    include_once "view/login.php";
+
+                
+                
+        }
+
+            include_once "view/login.php";
+            break;
+>>>>>>> Phu
             case 'logout':
                 unset($_SESSION['user']);
                 header('Location:index.php');
-                
-    
                 break;
+<<<<<<< HEAD
             // case 'dangky':
             //     if(isset($_POST['submit'])){
             //         $PhoneNumber=$_POST['PhoneNumber']; 
@@ -88,9 +102,11 @@
             // include_once "view/dangky.php";
             // break;
 
+=======
+>>>>>>> Phu
             default:
             $food_3 = get_food_3(8);
-            include_once "view/home.php";
+                    include_once "view/home.php";
                 break;
             }
             }else {
