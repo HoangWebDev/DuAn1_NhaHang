@@ -18,7 +18,16 @@
             if (isset($tb) && $tb != "") {
               echo "<font color='red'>"  .$tb. "</font>";
             }
+<<<<<<< HEAD
             ?>
+=======
+            if(isset($loi)&& $loi != ""){
+              echo "<font color='red'>"  .$loi. "</font>";
+            }
+
+            ?>
+
+>>>>>>> Phu
           <!-- <a href="index.php?pg=dangky">Đăng ký</a> -->
           <span>Đăng ký với</span>
           <div class="social-container">
