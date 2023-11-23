@@ -39,16 +39,16 @@
                 </a>
                 <a href="index.php?pg=statistic">
                     <span class="material-icons-sharp">
-                        signal_cellular_alt
-                    </span>
-                    <h3>Thống Kê</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
                         mail_outline
                     </span>
-                    <h3>Tin Nhắn</h3>
-                    <span class="message-count">27</span>
+                    <h3>Thống kê</h3>
+                    <span class="message-count">28</span>
+                </a>
+                <a href="index.php?pg=quanlibill">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h3>Quản lí hóa đơn</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">

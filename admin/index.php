@@ -5,6 +5,7 @@ require_once '../dao/user.php';
 require_once '../dao/food.php';
 require_once '../dao/typefood.php';
 require_once '../dao/statistical.php';
+require_once '../dao/quanlibill.php';
 require_once 'public/header.php';
 require_once 'public/nav.php';
 
@@ -244,6 +245,31 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                         include_once "public/statistic.php";
                         break;
         /* End Statistic */
+        // Quản lý hóa đơn
+                    case 'quanlibill':
+
+                        $getall_qlbill = getall_qlbill();
+                        include_once "public/quanlibill.php";
+                        break;
+        // Xóa hóa đơn
+                        case 'delqlbill':
+                            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                                $id = $_GET['id'];
+                                delete_qlbill($id);
+                            }
+                            $getall_qlbill= getall_qlbill();
+                            include_once "public/quanlibill.php";
+                            break;
+        // Chi tiết hóa đơn
+                        case 'detailbooking':
+                            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                                $ID = $_GET['id'];
+                                // $getone_qlbill = getone_qlbill($id);
+                            }
+                            $getall_detailbooking = getall_detailbooking($ID);
+                            include_once "public/detailbooking.php";
+                            break;
+        // End hóa đơn
 
             /* Thoát admin */
             case 'exit':
