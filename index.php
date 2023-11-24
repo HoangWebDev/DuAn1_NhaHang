@@ -39,16 +39,37 @@
                  include_once "view/login.php";
             }
             }
+            
             if(isset($_POST['submit'])){
                 $PhoneNumber=$_POST['PhoneNumber']; 
                 $Username=$_POST['Username'];
                 $Password=$_POST['Password'];
+                $check = user_checkPhoneNumber($PhoneNumber);
+                if($check)
+                    $tb = "Số điện thoại <strong>'$PhoneNumber'</strong> đá đăng ký";
+                else {
                 $ketqua = user_add($PhoneNumber, $Username, $Password);
+                
                     $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 
                     include_once "view/login.php";  
+                }
                }
             include_once "view/login.php";
             break;
+
+            case 'user_info':
+                if(isset($_POST['edit'])&&($_POST['edit'])){
+                    $PhoneNumber=$_POST['PhoneNumber']; 
+                    $Username=$_POST['Username'];
+                    $Password=$_POST['Password'];
+                    $ID=$_POST['id'];
+                    // $_SESSION['user'] = $kq;
+                    user_update($PhoneNumber, $Username, $Password,$ID );
+                    header('Location:index.php?pg=user_info');  
+                }
+                include_once "view/user_info.php"; 
+                break;
+
             case 'logout':
                 unset($_SESSION['user']);
                 header('Location:index.php');
