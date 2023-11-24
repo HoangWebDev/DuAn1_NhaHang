@@ -44,7 +44,16 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'addtypefoodam':
                 if (isset($_POST['btnadd'])) {
                     $Name_TypeFood = $_POST['NameTypeFood'];
-                    insert_typefood($Name_TypeFood);
+                    // insert_typefood($Name_TypeFood);
+                    if (empty($Name_TypeFood)) {
+                        $tb = "Vui lóng điền đầy đủ thông tin";
+                        include_once "public/addtypefood.php";
+                    }else if((strlen($Name_TypeFood)) < 3){
+                        $tb = "Tên loại món ăn phải nhiều hơn 5 ký tự";
+                        include_once "public/addtypefood.php";
+                    }else{
+                        insert_typefood($Name_TypeFood);
+                    }
                 }
                 $getall_typefood = getall_type_food();
                 include_once "public/typefood.php";
@@ -73,7 +82,16 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                 if (isset($_POST['btnupdate'])) {
                     $ID = $_POST['ID'];
                     $Name_TypeFood = $_POST['Name_TypeFood'];
-                    update_typefood($ID, $Name_TypeFood);
+
+                    if (empty($Name_TypeFood) && empty($ID)) {
+                        $tb = "Vui lóng điền đầy đủ thông tin";
+                        include_once "public/updateformtypefood.php";
+                    }else if((strlen($Name_TypeFood)) < 3){
+                        $tb = "Tên loại món ăn phải nhiều hơn 5 ký tự";
+                        include_once "public/addtypefood.php";
+                    }else{
+                        update_typefood($ID, $Name_TypeFood);
+                    }
                 }
                 $getall_typefood = getall_type_food();
                 require_once('public/typefood.php');
@@ -245,9 +263,9 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                         include_once "public/statistic.php";
                         break;
         /* End Statistic */
+
         // Quản lý hóa đơn
                     case 'quanlibill':
-
                         $getall_qlbill = getall_qlbill();
                         include_once "public/quanlibill.php";
                         break;

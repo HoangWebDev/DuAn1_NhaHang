@@ -7,13 +7,19 @@
             <form action="index.php?pg=addtypefoodam" method="post" enctype="multipart/form-data">
                 <div class="group_input">
                     <label for="NameTypeFood">Tên Loại Món Ăn</label><hr>
-                    <input type="text" placeholder="Name Type Food" name="NameTypeFood">
+                    <input type="text" placeholder="Name Type Food" name="NameTypeFood" class="Name_Type_Food">
                 </div>
                 <div class="group_btn">
                     <button type="submit" class="btn" name="btnadd">Thêm</button>
                     <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                 </div>
             </form>
+            <!-- <div id="err_name_type_food"></div> -->
+            <?php
+            if(isset($tb) && ($tb != "")){
+                echo "<font color='red'>"  .$tb. "</font>";
+            }
+            ?>
         </div>  
     </div>
     <!-- End of Recent Orders -->

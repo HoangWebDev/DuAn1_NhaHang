@@ -39,7 +39,7 @@
                 </a>
                 <a href="index.php?pg=statistic">
                     <span class="material-icons-sharp">
-                        mail_outline
+                        signal_cellular_alt
                     </span>
                     <h3>Thống kê</h3>
                     <span class="message-count">28</span>
