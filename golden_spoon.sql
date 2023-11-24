@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2023 lúc 01:58 PM
+-- Thời gian đã tạo: Th10 24, 2023 lúc 09:51 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -32,17 +32,20 @@ CREATE TABLE `booking` (
   `ID_User` int(10) NOT NULL,
   `TableNumber` int(10) NOT NULL DEFAULT 0 COMMENT 'Số bàn',
   `Seats` int(10) NOT NULL DEFAULT 0 COMMENT 'Số ghế',
-  `DateTime` datetime NOT NULL,
+  `DateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `Guests` int(10) NOT NULL DEFAULT 0 COMMENT 'Số lượng khách',
-  `Deposit` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Tiền cọc'
+  `Deposit` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Tiền cọc',
+  `Status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `booking`
 --
 
-INSERT INTO `booking` (`ID`, `ID_User`, `TableNumber`, `Seats`, `DateTime`, `Guests`, `Deposit`) VALUES
-(1, 5, 5, 10, '0000-00-00 00:00:00', 50, 0.000);
+INSERT INTO `booking` (`ID`, `ID_User`, `TableNumber`, `Seats`, `DateTime`, `Guests`, `Deposit`, `Status`) VALUES
+(5, 5, 8, 16, '2023-11-21 19:58:34', 12, 56000.000, 'Thành công'),
+(6, 4, 8, 9, '2023-11-22 08:26:20', 7, 350000.000, 'Thành công'),
+(8, 5, 8, 9, '2023-11-23 12:32:23', 12, 12.000, 'Thành công');
 
 -- --------------------------------------------------------
 
@@ -56,8 +59,21 @@ CREATE TABLE `detailbooking` (
   `ID_Food` int(10) NOT NULL,
   `NumberDishes` int(10) NOT NULL DEFAULT 0 COMMENT 'Số lượng món ăn',
   `PriceDishes` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Giá món ăn',
-  `DateTime` datetime NOT NULL
+  `DateTime` datetime NOT NULL,
+  `Total` double(10,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `detailbooking`
+--
+
+INSERT INTO `detailbooking` (`ID`, `ID_Booking`, `ID_Food`, `NumberDishes`, `PriceDishes`, `DateTime`, `Total`) VALUES
+(1, 5, 18, 3, 20000.000, '2023-11-21 21:02:48', 60000.00),
+(2, 5, 8, 4, 25000.000, '2023-11-21 21:04:24', 100000.00),
+(3, 5, 9, 2, 50000.000, '2023-11-21 21:04:56', 100000.00),
+(4, 5, 19, 5, 20000.000, '2023-11-21 21:05:27', 10.00),
+(5, 5, 14, 1, 1000000.000, '2023-11-21 21:06:00', 1000000.00),
+(6, 6, 2, 5, 2000.000, '2023-11-22 09:26:40', 100000.00);
 
 -- --------------------------------------------------------
 
@@ -79,7 +95,6 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `FoodDescribe`) VALUES
-(1, 1, 'HENNESSY VSOP RED DRAGON ', 2800000.000, 'drink1.jpg', 'Kể từ năm 1765, Maison Hennessy đã hoàn thiện nghệ thuật làm rượu cognac, một truyền thống được duy trì qua tám thế hệ bậc thầy pha chế rượu cognac. Di sản của sự cởi mở về văn hóa đã giúp Maison Henn'),
 (2, 1, 'Camus V.S.O.P', 2100000.000, 'drink2.jpg', 'Camus vsop - Món quà tặng độc đáo, sang trọng cho dịp lễ, tết\r\n\r\nChỉ còn vài tháng nữa các dịp Lễ Tết sẽ xuất hiện rất nhiều, vấn đề mua gì để biếu sếp, biếu bố mẹ và gia đình vợ luôn được nh'),
 (3, 1, 'RÉMY MARTIN 1738 ', 2400000.000, 'drink3.jpg', 'Rémy Martin 1738 Limited Editon 2023 là một phiên bản kỉ niệm đặc biệt. Phiên bản này được trình làng năm 1738. Đây là thời điểm mà vua Louis ban cho nhà chưng nhất Remy đặc ân được mở rộng vườn nho c'),
 (4, 1, 'Chabot Armagnac Gold Goose Extra', 6400000.000, 'drink4.jpg', 'Armagnac là loại Brandy cao tuổi nhất ở Pháp. Theo các tài liệu còn lưu lại thì Armagnac được chưng cất từ đầu thế kỷ 15, là sản phẩm của vùng Tây-Nam nước Pháp. Nó sở hữu xuất xứ khác nhau theo 3 vùn'),
@@ -198,13 +213,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `food`
@@ -216,7 +231,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT cho bảng `type_food`
 --
 ALTER TABLE `type_food`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

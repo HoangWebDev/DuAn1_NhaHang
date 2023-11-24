@@ -44,11 +44,6 @@
                     $i++;
                 }
                 ?>
-                <!-- <td>Hoàng</td>
-                <td>12</td>
-                <td>Ha Noi</td>
-                <td>Single</td>
-                <td class="primary">Details</td> -->
             </tbody>
         </table>
         <?php
