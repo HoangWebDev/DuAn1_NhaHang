@@ -38,21 +38,46 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     include_once "view/login.php";
                 }
             }
-            if (isset($_POST['submit'])) {
-                $PhoneNumber = $_POST['PhoneNumber'];
-                $Username = $_POST['Username'];
-                $Password = $_POST['Password'];
+            
+            if(isset($_POST['submit'])){
+                $PhoneNumber=$_POST['PhoneNumber']; 
+                $Username=$_POST['Username'];
+                $Password=$_POST['Password'];
+                $check = user_checkPhoneNumber($PhoneNumber);
+                if($check)
+                    $tb = "Số điện thoại <strong>'$PhoneNumber'</strong> đá đăng ký";
+                else {
                 $ketqua = user_add($PhoneNumber, $Username, $Password);
-                $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>";
-                include_once "view/login.php";
-            }
+                    $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 
+                    include_once "view/login.php";  
+                }
+               }
             include_once "view/login.php";
             break;
-        case 'logout':
-            unset($_SESSION['user']);
-            header('Location:index.php');
-            break;
-        default:
+
+            case 'user_info':
+                if(isset($_POST['edit'])&&($_POST['edit'])){
+                    $PhoneNumber=$_POST['PhoneNumber']; 
+                    $Username=$_POST['Username'];
+                    $Password=$_POST['Password'];
+                    $Address = $_POST['Address'];
+                    $Email = $_POST['Email'];
+                    $ID=$_POST['id'];
+                    $kq=user_update( $PhoneNumber, $Username, $Password, $Address, $Email, $ID);
+                    if($kq){
+                        $tb = "Bạn đã cập nhật thành công số điện thoại mới là: <strong>'$PhoneNumber'</strong>";
+                    }
+                    $_SESSION['user'];
+                    header('Location:index.php?pg=user_info');  
+                }
+                include_once "view/user_info.php"; 
+                break;
+
+            case 'logout':
+                unset($_SESSION['user']);
+                header('Location:index.php');
+                break;
+            default:
             $food_3 = get_food_3(8);
             include_once "view/home.php";
             break;

@@ -11,21 +11,12 @@
           <input type="text" placeholder="Phone" name="PhoneNumber" id="PhoneNumber"> 
           <input type="text" placeholder="Name" name="Username" id="Username">
           <input type="password" placeholder="Password" name="Password" id="Password">
-          <!-- <a href="index.php?pg=dangky">Đăng Ký</a> -->
-          <!-- <button type="submit" name="submit" value="submit" >Đăng Ký</button>  -->
-          <input type="submit" name="submit" value="Đăng ký" >
+          <input type="submit" name="submit" value="Đăng ký">
           <?php
             if (isset($tb) && $tb != "") {
               echo "<font color='red'>"  .$tb. "</font>";
             }
             ?>
-          <!-- <a href="index.php?pg=dangky">Đăng ký</a> -->
-          <span>Đăng ký với</span>
-          <div class="social-container">
-            <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
-            <a href="#" class="social"><i class="lni lni-google"></i></a>
-            <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
-          </div>
         </form>
       </div>      
       <div class="form-container login-container">
@@ -48,12 +39,6 @@
         echo "<font color='red'>"  .$txt_erro. "</font>";
       }
       ?>
-          <span>Đăng nhập với</span>
-          <div class="social-container">
-            <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
-            <a href="#" class="social"><i class="lni lni-google"></i></a>
-            <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
-          </div>
         </form>
       </div>
       

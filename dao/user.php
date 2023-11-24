@@ -77,10 +77,17 @@ function user_getAll(){
     return pdo_query("SELECT * FROM user");
 }
 
-function user_checkPhoneNumber($Username){
-    return pdo_query_one("SELECT * FROM user WHERE Username=?,$Username");
+function user_update($PhoneNumber, $Username, $Password, $Address, $Email, $ID ){
+    pdo_execute("UPDATE user SET PhoneNumber=?,Username=?,Password=?, Address=?, Email=? WHERE ID=?", $PhoneNumber, $Username, $Password, $Address, $Email, $ID);
 }
 
-function user_add($PhoneNumber, $Username, $Password){
-    pdo_execute("INSERT INTO user(`PhoneNumber`,`Username`,`Password`) VALUE(?,?,?)", $PhoneNumber, $Username, $Password);
+function user_checkPhoneNumber($PhoneNumber){
+    return pdo_query_one("SELECT * FROM user WHERE PhoneNumber=?",$PhoneNumber);
+}
+// function user_update($ID, $PhoneNumber, $Username, $Password,){
+//     $sql = "UPDATE user SET FullName=?,Username=?,Password=?,PhoneNumber=?, WHERE ID=?";
+//     pdo_execute($sql, $PhoneNumber, $Username, $Password,$ID);
+// }
+function user_add( $PhoneNumber, $Username, $Password){
+    pdo_execute("INSERT INTO user( `PhoneNumber`,`Username`,`Password`) VALUE(?,?,?)", $PhoneNumber, $Username, $Password);
 }

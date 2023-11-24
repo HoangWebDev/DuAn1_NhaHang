@@ -70,6 +70,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Tài Khoản ,<?=$_SESSION['user']['FullName']?>
+                          
                         </a>
                         <ul class="dropdown-menu end-0" style="left:auto">
                             <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
@@ -83,6 +84,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item text-warning" href="index.php?pg=user_info">Tài khoản</a></li>
                             <li><a class="dropdown-item" href="?mod=user&pg=logout">Đăng xuất</a></li>
                         </ul>
                     </li>
