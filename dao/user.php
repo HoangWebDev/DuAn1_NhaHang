@@ -77,8 +77,8 @@ function user_getAll(){
     return pdo_query("SELECT * FROM user");
 }
 
-function user_update($Id_user, $PhoneNumber, $Username, $Password){
-    pdo_execute("UPDATE user SET ID=?, PhoneNumber=?,Username=?,Password=? Username=?", $Id_user, $PhoneNumber, $Username, $Password,);
+function user_update($PhoneNumber, $Username, $Password, $Address, $Email, $ID ){
+    pdo_execute("UPDATE user SET PhoneNumber=?,Username=?,Password=?, Address=?, Email=? WHERE ID=?", $PhoneNumber, $Username, $Password, $Address, $Email, $ID);
 }
 
 function user_checkPhoneNumber($PhoneNumber){

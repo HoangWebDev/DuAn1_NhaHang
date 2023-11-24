@@ -60,9 +60,14 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     $PhoneNumber=$_POST['PhoneNumber']; 
                     $Username=$_POST['Username'];
                     $Password=$_POST['Password'];
+                    $Address = $_POST['Address'];
+                    $Email = $_POST['Email'];
                     $ID=$_POST['id'];
-                    // $_SESSION['user'] = $kq;
-                    user_update($PhoneNumber, $Username, $Password,$ID );
+                    $kq=user_update( $PhoneNumber, $Username, $Password, $Address, $Email, $ID);
+                    if($kq){
+                        $tb = "Bạn đã cập nhật thành công số điện thoại mới là: <strong>'$PhoneNumber'</strong>";
+                    }
+                    $_SESSION['user'];
                     header('Location:index.php?pg=user_info');  
                 }
                 include_once "view/user_info.php"; 
