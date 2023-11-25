@@ -92,6 +92,7 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                     }else{
                         update_typefood($ID, $Name_TypeFood);
                     }
+                    
                 }
                 $getall_typefood = getall_type_food();
                 require_once('public/typefood.php');
