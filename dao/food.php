@@ -29,12 +29,21 @@ function getall_food(){
     return pdo_query($sql);
 }
 
+
 /* Get food khai vị */
-function get_food_3($limit){
+function get_food_type_1($limit){
+    $sql = "SELECT * FROM food WHERE ID_TypeFood = 1 ORDER BY ID DESC LIMIT ".$limit;
+    return pdo_query($sql);
+}
+function get_food_type_2($limit){
+    $sql = "SELECT * FROM food WHERE ID_TypeFood = 2 ORDER BY ID DESC LIMIT ".$limit;
+    return pdo_query($sql);
+}
+function get_food_type_3($limit){
     $sql = "SELECT * FROM food WHERE ID_TypeFood = 3 ORDER BY ID DESC LIMIT ".$limit;
     return pdo_query($sql);
 }
-function showsp($a) {
+function showfood($a) {
     $html_show = '';
     foreach ($a as $value) {
         extract($value);
@@ -49,13 +58,13 @@ function showsp($a) {
                                     <span class="text-primary">'.$FoodPrice.' VNĐ</span>
                                 </h5>
                             </div>
-                            <form action="" method="post">
-                                    <input type="hidden" name="name" value="">
-                                    <input type="hidden" name="img" value="">
-                                    <input type="hidden" name="price" value="">
+                            <form action="index.php?pg=addcart" method="post" class="add-to-cart-form">
+                                    <input type="hidden" name="name" value="'.$FoodName.'">
+                                    <input type="hidden" name="img" value="'.$FoodImage.'">
+                                    <input type="hidden" name="price" value="'.$FoodPrice.'">
                                     <input type="hidden" name="sl" value="">
                                     <button class="btn btn-primary py-2" type="submit" name="addcart" style="width: 100px;"><i class="fas fa-cart-plus fa-lg"></i></button>
-                                </form>
+                            </form>
                         </div>
                     </div>';
     }

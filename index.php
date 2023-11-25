@@ -11,13 +11,31 @@ include_once "view/header.php";
 if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
     switch ($_GET["pg"]) {
         case 'menu':
-            $food_3 = get_food_3(8);
+            // DATA
+            $food_type_1 = get_food_type_1(8);
+            $food_type_2 = get_food_type_2(8);
+            $food_type_3 = get_food_type_3(8);
             include_once "view/menu.php";
+            break;
+        case 'addcart':
+            if(isset($_POST['addcart'])){
+                $name = $_POST['name'];
+                $img = $_POST['img'];
+                $price = $_POST['price'];
+                $food = array("name"=>$name,"img"=>$img,"price"=>$price);
+                array_push($_SESSION['giohang'],$food);
+                header('Location: index.php?pg=booking');
+            }
             break;
         case 'about':
             include_once "view/about.php";
             break;
         case 'booking':
+            if(isset($_GET['del'])&&($_GET['del']>0)){
+                $i = $_GET['del'] - 1;
+                unset($_SESSION['giohang'][$i]);
+                header('Location: index.php?pg=booking');
+            }
             include_once "view/booking.php";
             break;
         case 'contact':
@@ -78,12 +96,16 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 header('Location:index.php');
                 break;
             default:
-            $food_3 = get_food_3(8);
+            $food_type_1 = get_food_type_1(8);
+                $food_type_2 = get_food_type_2(8);
+                $food_type_3 = get_food_type_3(8);
             include_once "view/home.php";
             break;
     }
 } else {
-    $food_3 = get_food_3(8);
+    $food_type_1 = get_food_type_1(8);
+    $food_type_2 = get_food_type_2(8);
+    $food_type_3 = get_food_type_3(8);
     include_once "view/home.php";
 }
 include_once "view/footer.php";

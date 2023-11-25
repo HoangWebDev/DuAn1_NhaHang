@@ -11,7 +11,7 @@ foreach ($getall_typefood as $item) {
     <div class="recent-orders">
         <h2>Thêm Món Ăn</h2>
         <div class="form_update__food">
-            <form action="index.php?pg=addfoodadmin" method="post" enctype="multipart/form-data">
+            <form action="index.php?pg=addfoodadmin" method="post" enctype="multipart/form-data" onsubmit="return checkFood();">
                 <div class="group_input">
                     <label for="topic-name">Loại Món Ăn</label>
                         <select name="ID_TypeFood">
@@ -20,11 +20,13 @@ foreach ($getall_typefood as $item) {
                 </div>
                 <div class="group_input">
                     <label for="FoodName">Tên Món Ăn</label><hr>
-                    <input type="text" placeholder="Food Name" name="FoodName">
+                    <input type="text" placeholder="Food Name" name="FoodName" id="FoodName">
+                    <div id="err_food_name" class="error"></div>
                 </div>
                 <div class="group_input">
                     <label for="FoodPrice">Giá Món Ăn</label><hr>
-                    <input type="text" placeholder="Food Price" name="FoodPrice">
+                    <input type="text" placeholder="Food Price" name="FoodPrice" id="FoodPrice">
+                    <div id="err_food_price" class="error"></div>
                 </div>
                 <div class="group_input">
                     <label for="Describe">Mô Tả</label><hr>
@@ -32,10 +34,11 @@ foreach ($getall_typefood as $item) {
                 </div>
                 <div class="group_input">
                     <label for="FoodImage">Hình Ảnh</label><hr>
-                    <input type="file" placeholder="Food Image" name="FoodImage">
+                    <input type="file" placeholder="Food Image" name="FoodImage" id="FoodImage">
+                    <div id="err_food_image" class="error"></div>
                 </div>
                 <div class="group_btn">
-                    <button type="submit" class="btn" name="btnadd">Thêm</button>
+                    <button type="submit" class="btn" name="btnadd" onclick="checkFood();">Thêm</button>
                     <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                 </div>
             </form>

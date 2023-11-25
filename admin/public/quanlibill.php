@@ -2,10 +2,9 @@
  <main>
     <!-- Recent Orders Table -->
     <div class="recent-orders">
-        <h2>Quản Lý Món Ăn</h2>
-        <!-- <a href="index.php?pg=add" class="addfood">Thêm Món Ăn</a> -->
+        <h2>Quản Lý Món Ăn</h2>        
         <table id="table_id" class="display" style="width:100%">
-            <thead>
+        <thead>
                 <tr>
                     <th scope="col">STT</th>
                     <th scope="col">Mã hóa đơn</th>
@@ -23,7 +22,6 @@
                 $i =1;
                 foreach ($getall_qlbill as $item) {
                     extract($item);
-                        $edit = "<a href='index.php?pg=editqlbill&id=" . $ID . "'>Sửa</a>";
                         $del = "<a href='index.php?pg=delqlbill&id=" . $ID . "'>Delete</a>";
                         $detail = "<a href='index.php?pg=detailbooking&id=" . $ID . "'>View</a>";
                     echo'
@@ -36,9 +34,7 @@
                         <td>'.$Guests.'</td>
                         <td>'.$Deposit.'</td>
                         <td>'.$Status.'</td>
-                        <td class="unblock">'.$edit.' - '.$del.'</td>
-                        <td class="primary">'.$detail.'</td> -->
-                        
+                        <td class="unblock">'.$detail.' - '.$del.'</td>                        
                     </tr>
                     ';
                     $i++;
@@ -46,9 +42,6 @@
                 ?>
             </tbody>
         </table>
-        <?php
-                if(isset($tb) && ($tb) != "") echo "<h3 style='color:red'>" . $tb . "</h3>";
-                ?>
         <a href="#">Show All</a>
     </div>
     <!-- End of Recent Orders -->

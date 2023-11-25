@@ -3,6 +3,7 @@
 
 :root{
     --color-primary: #6C9BCF;
+    --color-error: #DA1414;
     --color-danger: #FEA116 ;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
@@ -217,6 +218,10 @@ aside .sidebar .message-count{
 
 main{
     margin-top: 1.4rem;
+}
+
+main .error{
+    color: var(--color-error);
 }
 
 main .head_title{

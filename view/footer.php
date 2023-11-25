@@ -1,5 +1,5 @@
     <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
@@ -64,6 +64,18 @@
     <!-- Template Javascript -->
     <script src="layout/assets/js/main.js"></script>
     <script src="layout/assets/js/login.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Lấy tất cả các ô chứa đơn giá
+            var donGiaCells = document.querySelectorAll('td:nth-child(3)');
+            var tongCong = 0;
+            donGiaCells.forEach(function(cell) {
+                var donGia = parseFloat(cell.innerText.replace(' đ', '').replace(',', ''));
+                tongCong += donGia;
+            });
+            document.getElementById('tongCong').innerText = tongCong.toLocaleString() + ' đ';
+        });
+    </script>
 </body>
 
 </html>

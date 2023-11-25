@@ -62,32 +62,31 @@
                         <a href="index.php?pg=menu" class="nav-item nav-link">Thực Đơn</a>
                         <a href="index.php?pg=contact" class="nav-item nav-link">Liên Hệ</a>
                         <?php if( !isset($_SESSION['user']) ): ?>
-                        <li class="nav-item">
-                        <a href="index.php?pg=login" class="nav-item nav-link">Đăng Nhập</a>
-                    </li>
-                    <?php else: ?>
+                            <li class="nav-item">
+                                <a href="index.php?pg=login" class="nav-item nav-link">Đăng Nhập</a>
+                            </li>
+                        <?php else: ?>
                         <li class="nav-item dropdown ">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Tài Khoản ,<?=$_SESSION['user']['FullName']?>
-                          
-                        </a>
-                        <ul class="dropdown-menu end-0" style="left:auto">
-                            <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
-                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li> -->
-                            <?php if($_SESSION['user']['Role']>=1):?>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tài Khoản ,<?=$_SESSION['user']['FullName']?>
+                            </a>
+                            <ul class="dropdown-menu end-0" style="left:auto">
+                                <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
+                                <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li> -->
+                                <?php if($_SESSION['user']['Role']>=1):?>
+                                    <li>
+                                        <!-- <hr class="dropdown-divider"> -->
+                                    </li>
+                                    <li><a class="dropdown-item text-warning" href="admin">Admin</a></li>
+                                <?php endif; ?>
                                 <li>
-                                <!-- <hr class="dropdown-divider"> -->
-                            </li>
-                            <li><a class="dropdown-item text-warning" href="admin">Admin</a></li>
-                            <?php endif; ?>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-warning" href="index.php?pg=user_info">Tài khoản</a></li>
-                            <li><a class="dropdown-item" href="?mod=user&pg=logout">Đăng xuất</a></li>
-                        </ul>
-                    </li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-warning" href="index.php?pg=user_info">Tài khoản</a></li>
+                                <li><a class="dropdown-item" href="?mod=user&pg=logout">Đăng xuất</a></li>
+                            </ul>
+                        </li>
                     <?php endif;?>    
                     </div>
                     <a href="#" class="btn btn-primary py-2 px-4 me-4" data-bs-toggle="modal" data-bs-target="#cartModal">
@@ -99,8 +98,8 @@
             <!-- Navbar & Hero End -->
 
             
-            <!-- Modal -->
-            <div class="modal fade right" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+             <!-- Modal -->
+             <div class="modal fade right" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -108,92 +107,49 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="d-flex align-items-center mb-4">
-                                <img class="flex-shrink-0 img-fluid rounded" src="layout/assets/img/menu-1.jpg" alt="" style="width: 80px;">
-                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                    <h5 class="d-flex justify-content-between">
-                                        <span>Chicken Burger</span>
-                                        <span class="text-primary">$115</span>
-                                    </h5>
-                                    <div class="input-group d-flex justify-content-between">
-                                        <div class="input-group-content d-flex align-items-center">
-                                            <button class="btn btn-primary" type="button" id="decrementBtn">-</button>
-                                            <div class="col-3">
-                                                <input type="text" class="form-control text-center" value="1" id="quantityInput" readonly>
+                            <?php
+                            // Hiển thị sản phẩm trong giỏ hàng
+                            $show_modal = '';
+                            foreach ($_SESSION['giohang'] as $food) {
+                                extract($food);
+                                $show_modal .= '<div class="d-flex align-items-center mb-4">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="uploads/' . $img . '" alt="" style="width: 80px;">
+                                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                                <h5 class="d-flex justify-content-between">
+                                                    <span>' . $name . '</span>
+                                                    <span class="text-primary">' . $price . '</span>
+                                                </h5>
+                                                <div class="input-group d-flex justify-content-between">
+                                                    <div class="input-group-content d-flex align-items-center">
+                                                        <button class="btn btn-primary" type="button" id="decrementBtn">-</button>
+                                                        <div class="col-3">
+                                                            <input type="text" class="form-control text-center" value="1" id="quantityInput" readonly>
+                                                        </div>
+                                                        <button class="btn btn-primary" type="button" id="incrementBtn">+</button>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-danger" type="button" id="deleteBtn">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <button class="btn btn-primary" type="button" id="incrementBtn">+</button>
-                                        </div>
-                                        <!-- Nút thùng rác để xoá -->
-                                        <div class="input-group-append">
-                                            <button class="btn btn-danger" type="button" id="deleteBtn">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-4">
-                                <img class="flex-shrink-0 img-fluid rounded" src="layout/assets/img/menu-1.jpg" alt="" style="width: 80px;">
-                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                    <h5 class="d-flex justify-content-between">
-                                        <span>Chicken Burger</span>
-                                        <span class="text-primary">$115</span>
-                                    </h5>
-
-                                    <div class="input-group d-flex justify-content-between">
-                                        <div class="input-group-content d-flex align-items-center">
-                                            <button class="btn btn-primary" type="button" id="decrementBtn">-</button>
-                                            <div class="col-3">
-                                                <input type="text" class="form-control text-center" value="1" id="quantityInput" readonly>
-                                            </div>
-                                            <button class="btn btn-primary" type="button" id="incrementBtn">+</button>
-                                        </div>
-                                        <!-- Nút thùng rác để xoá -->
-                                        <div class="input-group-append">
-                                            <button class="btn btn-danger" type="button" id="deleteBtn">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-4">
-                                <img class="flex-shrink-0 img-fluid rounded" src="layout/assets/img/menu-1.jpg" alt="" style="width: 80px;">
-                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                    <h5 class="d-flex justify-content-between">
-                                        <span>Chicken Burger</span>
-                                        <span class="text-primary">$115</span>
-                                    </h5>
-
-                                    <div class="input-group d-flex justify-content-between">
-                                        <div class="input-group-content d-flex align-items-center">
-                                            <button class="btn btn-primary" type="button" id="decrementBtn">-</button>
-                                            <div class="col-3">
-                                                <input type="text" class="form-control text-center" value="1" id="quantityInput" readonly>
-                                            </div>
-                                            <button class="btn btn-primary" type="button" id="incrementBtn">+</button>
-                                        </div>
-                                        <!-- Nút thùng rác để xoá -->
-                                        <div class="input-group-append">
-                                            <button class="btn btn-danger" type="button" id="deleteBtn">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        </div>';
+                            }
+                            ?>
+                            <?= $show_modal ?>
                         </div>
                         <div class="modal-footer">
                             <div class="w-100 d-flex justify-content-between align-items-center">
                                 <span class="fw-bold">Tổng Tiền:</span>
-                                <span class="text-primary fw-bold" id="totalPrice">$345</span>
+                                <!-- Thêm logic tính tổng tiền ở đây -->
+                                <span class="text-primary fw-bold" id="totalPrice">VNĐ</span>
                             </div>
                             <a href="index.php?pg=booking"><button type="button" class="btn btn-primary">Xác Nhận</button></a>
                         </div>
                     </div>
                 </div>
             </div>
-
             <script>
                 // JavaScript để quản lý trạng thái của modal
                 $('#cartModal').on('show.bs.modal', function() {
@@ -208,52 +164,4 @@
                     $(this).addClass('hide');
                 });
             </script>
-            <!-- Add this script to your HTML file -->
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Get all relevant elements
-                    var decrementBtns = document.querySelectorAll('#decrementBtn');
-                    var incrementBtns = document.querySelectorAll('#incrementBtn');
-                    var deleteBtns = document.querySelectorAll('#deleteBtn');
-                    var quantityInputs = document.querySelectorAll('#quantityInput');
-                    var totalPriceElement = document.getElementById('totalPrice');
-
-                    // Update total price based on quantity changes
-                    function updateTotalPrice() {
-                        var total = 0;
-                        quantityInputs.forEach(function (input, index) {
-                            total += parseInt(input.value) * 115; // Assuming each item costs $115
-                        });
-                        totalPriceElement.textContent = '$' + total;
-                    }
-
-                    // Decrement button click handler
-                    decrementBtns.forEach(function (btn, index) {
-                        btn.addEventListener('click', function () {
-                            if (quantityInputs[index].value > 1) {
-                                quantityInputs[index].value--;
-                                updateTotalPrice();
-                            }
-                        });
-                    });
-
-                    // Increment button click handler
-                    incrementBtns.forEach(function (btn, index) {
-                        btn.addEventListener('click', function () {
-                            quantityInputs[index].value++;
-                            updateTotalPrice();
-                        });
-                    });
-
-                    // Delete button click handler
-                    deleteBtns.forEach(function (btn, index) {
-                        btn.addEventListener('click', function () {
-                            // Assuming the item cost is $115, adjust accordingly
-                            var itemTotal = parseInt(quantityInputs[index].value) * 115;
-                            totalPriceElement.textContent = '$' + (parseInt(totalPriceElement.textContent.slice(1)) - itemTotal);
-                            // Remove the corresponding item from the DOM
-                            btn.closest('.d-flex').remove();
-                        });
-                    });
-                });
-            </script>
+            

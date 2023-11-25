@@ -4,22 +4,17 @@
     <div class="recent-orders">
         <h2>Thêm Loại Món Ăn</h2>
         <div class="form_update__food">
-            <form action="index.php?pg=addtypefoodam" method="post" enctype="multipart/form-data">
+            <form action="index.php?pg=addtypefoodam" method="post" enctype="multipart/form-data" onsubmit="return checkNameTypeFood();">
                 <div class="group_input">
                     <label for="NameTypeFood">Tên Loại Món Ăn</label><hr>
-                    <input type="text" placeholder="Name Type Food" name="NameTypeFood" class="Name_Type_Food">
+                    <input type="text" placeholder="Name Type Food" name="NameTypeFood" id="Name_Type_Food">
+                    <div id="err_name_type_food" class="error"></div>
                 </div>
                 <div class="group_btn">
-                    <button type="submit" class="btn" name="btnadd">Thêm</button>
+                    <button type="submit" class="btn" name="btnadd" onclick="checkNameTypeFood();">Thêm</button>
                     <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                 </div>
             </form>
-            <!-- <div id="err_name_type_food"></div> -->
-            <?php
-            if(isset($tb) && ($tb != "")){
-                echo "<font color='red'>"  .$tb. "</font>";
-            }
-            ?>
         </div>  
     </div>
     <!-- End of Recent Orders -->

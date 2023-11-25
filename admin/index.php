@@ -44,16 +44,7 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
             case 'addtypefoodam':
                 if (isset($_POST['btnadd'])) {
                     $Name_TypeFood = $_POST['NameTypeFood'];
-                    // insert_typefood($Name_TypeFood);
-                    if (empty($Name_TypeFood)) {
-                        $tb = "Vui lóng điền đầy đủ thông tin";
-                        include_once "public/addtypefood.php";
-                    }else if((strlen($Name_TypeFood)) < 3){
-                        $tb = "Tên loại món ăn phải nhiều hơn 5 ký tự";
-                        include_once "public/addtypefood.php";
-                    }else{
-                        insert_typefood($Name_TypeFood);
-                    }
+                    insert_typefood($Name_TypeFood);
                 }
                 $getall_typefood = getall_type_food();
                 include_once "public/typefood.php";
@@ -176,9 +167,8 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                             move_uploaded_file($_FILES["FoodImage"]["tmp_name"], $target_file);
                             //Xóa hình đã có
                             $Image_Food = "../uploads/" . $_POST["Image"];
-                            if (file_exists($Image_Food)) {
+                            if (file_exists($Image_Food)) 
                                 unlink($Image_Food);
-                            }
                         }
                         //Cập nhật lên database
                         update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $FileImage);

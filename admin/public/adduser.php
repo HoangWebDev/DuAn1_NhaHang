@@ -5,38 +5,44 @@
         <h2>Thêm Tài Khoản</h2>
         <!-- Form Edit User -->
                 <div class="form_update__food modal">
-                    <form action="index.php?pg=adduseradmin" method="post" enctype="multipart/form-data">
+                    <form action="index.php?pg=adduseradmin" method="post" enctype="multipart/form-data" onsubmit="return checkUser();">
                         <div class="group_input">
                             <label for="Full Name">Họ Và Tên</label><hr>
-                            <input type="text" placeholder="Full Name" name="FullName">
+                            <input type="text" placeholder="Họ và tên" name="FullName" id="FullName">
+                            <div id="err_fullname" class="error"></div>
                         </div>
                         <div class="group_input">
                             <label for="Username">Tên Tài Khoản</label><hr>
-                            <input type="text" placeholder="Username" name="Username">
+                            <input type="text" placeholder="Tên tài khoản" name="Username" id="Username">
+                            <div id="err_username" class="error"></div>
                         </div>
                         <div class="group_input">
                             <label for="Password">Mật Khẩu</label><hr>
-                            <input type="text" placeholder="Password" name="Password">
+                            <input type="text" placeholder="Mật khẩu" name="Password" id="Password">
+                            <div id="err_password" class="error"></div>
                         </div>
                         <div class="group_input">
                             <label for="PhoneNumber">Số Điện Thoại</label><hr>
-                            <input type="text" placeholder="PhoneNumber" name="PhoneNumber">
+                            <input type="text" placeholder="Số điện thoại" name="PhoneNumber" id="PhoneNumber">
+                            <div id="err_phonenumber" class="error"></div>
                         </div>
                         <div class="group_input">
                             <label for="Address">Địa Chỉ</label><hr>
-                            <input type="text" placeholder="Address" name="Address">
+                            <input type="text" placeholder="Địa chỉ" name="Address" id="Address">
+                            <div id="err_address" class="error"></div>
                         </div>
                         <div class="group_input">
                             <label for="Email">Email</label><hr>
-                            <input type="text" placeholder="Email" name="Email">
+                            <input type="text" placeholder="Email" name="Email" id="Email">
+                            <div id="err_email" class="error"></div>
                         </div>
                         <div class="group_input">
                             <label for="Role">Role</label><hr>
-                            <input type="text" placeholder="Role = 1 => Admin || Role = 0 => User" name="Role">
+                            <input type="text" placeholder="Quản lí hoặc khách hàng" name="Role">
                         </div>
                         
                         <div class="group_btn">
-                            <button type="submit" class="btn" name="btnadd">Thêm</button>
+                            <button type="submit" class="btn" name="btnadd" onclick="checkUser();">Thêm</button>
                             <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                         </div>
                     </form>

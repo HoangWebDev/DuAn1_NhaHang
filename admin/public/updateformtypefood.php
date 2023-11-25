@@ -7,14 +7,15 @@
     <div class="recent-orders">
         <h2>Cập Nhật Loại Món Ăn</h2>
         <div class="form_update__food">
-            <form action="index.php?pg=updatetypefood" method="post" enctype="multipart/form-data">
+            <form action="index.php?pg=updatetypefood" method="post" enctype="multipart/form-data" onsubmit="return checkNameTypeFood();">
                 <div class="group_input">
                     <label for="NameTypeFood">Tên Loại Món Ăn</label><hr>
-                    <input type="text" placeholder="Name Type Food" value="<?= $Name_TypeFood ?>" name="Name_TypeFood">
+                    <input type="text" placeholder="Name Type Food" value="<?= $Name_TypeFood ?>" name="Name_TypeFood" id="Name_Type_Food">
+                    <div id="err_name_type_food" class="error"></div>
                 </div>
                 <div class="group_btn">
                     <input type="hidden" name="ID" value="<?= $ID ?>">
-                    <button type="submit" class="btn" name="btnupdate">Cập Nhật</button>
+                    <button type="submit" class="btn" name="btnupdate" onclick="checkNameTypeFood();">>Cập Nhật</button>
                     <button type="reset" class="btn btntp" name="reset">Nhập Lại</button>
                 </div>
             </form>
