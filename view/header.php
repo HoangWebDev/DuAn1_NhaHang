@@ -98,8 +98,8 @@
             <!-- Navbar & Hero End -->
 
             
-             <!-- Modal -->
-             <div class="modal fade right" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+              <!-- Modal -->
+            <div class="modal fade right" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
