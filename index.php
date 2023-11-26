@@ -1,6 +1,9 @@
 <?php
 session_start();
 ob_start();
+if(!isset($_SESSION['giohang'])){
+    $_SESSION['giohang'] = [];
+}
 include_once "dao/pdo.php";
 include_once "dao/food.php";
 include_once "dao/user.php";
