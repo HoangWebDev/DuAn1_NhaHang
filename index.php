@@ -41,6 +41,18 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             }
             include_once "view/booking.php";
             break;
+         case 'booking_add':
+            if(isset($_POST['submit'])){
+                $ID_User=$_POST['ID_User'];
+                $TableNumber=$_POST['TableNumber'];
+                $Guests=$_POST['Guests'];
+                $Note=$_POST['Note'];
+                booking_add($ID_User, $TableNumber, $Guests, $Note);
+                header('Location:index.php?pg=booking');
+            }
+
+                include_once "view/booking_add.php";
+                break;
         case 'contact':
             include_once "view/contact.php";
             break;
@@ -50,17 +62,20 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
         case 'login':
             if (isset($_POST['user']) && isset($_POST['pass'])) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
+                
+                $_SESSION['ID_User'] = $_SESSION['user']['ID'];
                 if ($kq) {
                     // đúng thì đăng nhập thành công
-                    $_SESSION['user'] = $kq;
+                    $_SESSION['user'] = $kq;           
                     header('Location:index.php');
                 } else {
                     $txt_erro = "Đăng nhập không thành công";
+                    $_SESSION['ID_Booking'] = $kq;
                     include_once "view/login.php";
                 }
             }
             
-            if(isset($_POST['submit'])){
+            if(isset($_POST['submit'])&&($_POST['submit'])){
                 $PhoneNumber=$_POST['PhoneNumber']; 
                 $Username=$_POST['Username'];
                 $Password=$_POST['Password'];
@@ -70,6 +85,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 else {
                 $ketqua = user_add($PhoneNumber, $Username, $Password);
                     $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 
+                    // $_SESSION['ID']
                     include_once "view/login.php";  
                 }
                }
@@ -87,6 +103,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     $kq=user_update( $PhoneNumber, $Username, $Password, $Address, $Email, $ID);
                     if($kq){
                         $tb = "Bạn đã cập nhật thành công số điện thoại mới là: <strong>'$PhoneNumber'</strong>";
+
                     }
                     $_SESSION['user'];
                     header('Location:index.php?pg=user_info');  

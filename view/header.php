@@ -69,7 +69,7 @@
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Tài Khoản ,<?=$_SESSION['user']['FullName']?>
+                                Tài Khoản ,<?=$_SESSION['user']['Username']?>
                             </a>
                             <ul class="dropdown-menu end-0" style="left:auto">
                                 <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
