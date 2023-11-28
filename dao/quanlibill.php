@@ -58,10 +58,15 @@ function getall_detailbooking($ID_Booking){
 
 // function getall_qlbill(){
 //     $sql = "SELECT * FROM booking ORDER BY ID ASC";
-//     return pdo_query($sql);
+//     return pdo_query($sql);z
 // }
+<<<<<<< HEAD
 function booking_add( $ID_User, $TableNumber, $Guests, $Note ){
     pdo_execute("INSERT INTO booking( `ID_User`,`TableNumber`,`Guests`,`Note` ) VALUES(?,?,?,?)", $ID_User,$TableNumber,$Guests,$Note);   
+=======
+function booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note){
+    pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);   
+>>>>>>> 3386095d3ff7f1cf61ca533a89bca89ccac9e09d
 }
 
 
