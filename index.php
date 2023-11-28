@@ -7,7 +7,7 @@ if(!isset($_SESSION['giohang'])){
 include_once "dao/pdo.php";
 include_once "dao/food.php";
 include_once "dao/user.php";
-
+include_once "dao/quanlibill.php";
 
 
 include_once "view/header.php";
@@ -39,20 +39,19 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 unset($_SESSION['giohang'][$i]);
                 header('Location: index.php?pg=booking');
             }
-            include_once "view/booking.php";
-            break;
-         case 'booking_add':
-            if(isset($_POST['submit'])){
-                $ID_User=$_POST['ID_User'];
-                $TableNumber=$_POST['TableNumber'];
+
+            if(isset($_POST['submit']) && ($_POST['submit']) ){
+                $ID_User=$_POST['ID'];
                 $Guests=$_POST['Guests'];
+                $Deposit=$_POST['Deposit'];
+                $DateTime=$_POST['DateTime'];
                 $Note=$_POST['Note'];
-                booking_add($ID_User, $TableNumber, $Guests, $Note);
+                booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note);
                 header('Location:index.php?pg=booking');
             }
 
-                include_once "view/booking_add.php";
-                break;
+            include_once "view/booking.php";
+            break;
         case 'contact':
             include_once "view/contact.php";
             break;
