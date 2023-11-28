@@ -105,8 +105,8 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3" type="submit">Đặt Ngay</button>
-                            <!-- <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay" > -->
+                            <!-- <button class="btn btn-primary w-100 py-3" type="submit">Đặt Ngay</button> -->
+                            <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay" >
                         </div>
                     </div>
                 </form>

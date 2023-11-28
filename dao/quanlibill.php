@@ -60,8 +60,8 @@ function getall_detailbooking($ID_Booking){
 //     $sql = "SELECT * FROM booking ORDER BY ID ASC";
 //     return pdo_query($sql);
 // }
-function booking_add($ID_User, $TableNumber, $Guests, $Note){
-    pdo_execute("INSERT INTO booking(`ID_User`,`TableNumber`,`Guests`,`Note`,) VALUES(?,?,?,?)", $ID_User,$TableNumber,$Guests,$Note);   
+function booking_add( $ID_User, $TableNumber, $Guests, $Note ){
+    pdo_execute("INSERT INTO booking( `ID_User`,`TableNumber`,`Guests`,`Note` ) VALUES(?,?,?,?)", $ID_User,$TableNumber,$Guests,$Note);   
 }
 
 
