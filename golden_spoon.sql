@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2023 lúc 09:51 AM
+-- Thời gian đã tạo: Th10 29, 2023 lúc 03:44 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -30,22 +30,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `booking` (
   `ID` int(10) NOT NULL,
   `ID_User` int(10) NOT NULL,
-  `TableNumber` int(10) NOT NULL DEFAULT 0 COMMENT 'Số bàn',
-  `Seats` int(10) NOT NULL DEFAULT 0 COMMENT 'Số ghế',
-  `DateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `DateTime` varchar(200) NOT NULL,
   `Guests` int(10) NOT NULL DEFAULT 0 COMMENT 'Số lượng khách',
   `Deposit` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Tiền cọc',
-  `Status` varchar(10) NOT NULL
+  `Status` varchar(10) NOT NULL,
+  `Note` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `booking`
 --
 
-INSERT INTO `booking` (`ID`, `ID_User`, `TableNumber`, `Seats`, `DateTime`, `Guests`, `Deposit`, `Status`) VALUES
-(5, 5, 8, 16, '2023-11-21 19:58:34', 12, 56000.000, 'Thành công'),
-(6, 4, 8, 9, '2023-11-22 08:26:20', 7, 350000.000, 'Thành công'),
-(8, 5, 8, 9, '2023-11-23 12:32:23', 12, 12.000, 'Thành công');
+INSERT INTO `booking` (`ID`, `ID_User`, `DateTime`, `Guests`, `Deposit`, `Status`, `Note`) VALUES
+(5, 5, '2023-11-22 02:58:34', 12, 56000.000, 'Thành công', ''),
+(6, 4, '2023-11-22 15:26:20', 7, 350000.000, 'Thành công', ''),
+(8, 5, '2023-11-23 19:32:23', 12, 12.000, 'Thành công', ''),
+(18, 4, '0000-00-00 00:00:00', 9, 500.000, '', 'k,jmhgn'),
+(19, 4, '0000-00-00 00:00:00', 10, 500.000, '', 'Hahahaaaa'),
+(24, 5, '11/28/2023 9:22 PM', 15, 500.000, '', 'Ba bàn đi');
 
 -- --------------------------------------------------------
 
@@ -59,7 +61,7 @@ CREATE TABLE `detailbooking` (
   `ID_Food` int(10) NOT NULL,
   `NumberDishes` int(10) NOT NULL DEFAULT 0 COMMENT 'Số lượng món ăn',
   `PriceDishes` double(10,3) NOT NULL DEFAULT 0.000 COMMENT 'Giá món ăn',
-  `DateTime` datetime NOT NULL,
+  `DateTime` varchar(200) NOT NULL,
   `Total` double(10,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -213,7 +215,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `detailbooking`

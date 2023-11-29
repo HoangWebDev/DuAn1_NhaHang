@@ -61,7 +61,7 @@ function getall_detailbooking($ID_Booking){
 //     return pdo_query($sql);
 // }
 function booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note){
-    pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);   
+    pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`, `Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);   
 }
 
 
