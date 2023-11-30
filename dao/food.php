@@ -59,6 +59,8 @@ function showfood($a) {
                                 </h5>
                             </div>
                             <form action="index.php?pg=addcart" method="post" class="add-to-cart-form">
+                                    
+                                    <input type="hidden" name="id" value="'.$ID.'">
                                     <input type="hidden" name="name" value="'.$FoodName.'">
                                     <input type="hidden" name="img" value="'.$FoodImage.'">
                                     <input type="hidden" name="price" value="'.$FoodPrice.'">

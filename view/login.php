@@ -5,13 +5,14 @@
     <div class="container" id="container-custom-login">
 
       <div class="form-container register-container">
-        <form action="index.php?pg=login" method="post">
+        <form action="index.php?pg=login" method="post" onsubmit="return checkUser();">
           <h1>Đăng Ký</h1>
           
           <input type="text" placeholder="Phone" name="PhoneNumber" id="PhoneNumber"> 
+          <div id="err_fullname" class="error"></div>
           <input type="text" placeholder="Name" name="Username" id="Username">
           <input type="password" placeholder="Password" name="Password" id="Password">
-          <input type="submit" name="submit" value="Đăng ký">
+          <input type="submit" name="submit" value="Đăng ký" onclick="checkUser();">
           <?php
             if (isset($tb) && $tb != "") {
               echo "<font color='red'>"  .$tb. "</font>";
@@ -67,4 +68,7 @@
 </div>
 
 </div>
+<script>
+<script src="./js/login.js"></script>
+</script>
 <!-- login -->

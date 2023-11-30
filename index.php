@@ -9,7 +9,6 @@ include_once "dao/food.php";
 include_once "dao/user.php";
 include_once "dao/quanlibill.php";
 
-
 include_once "view/header.php";
 if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
     switch ($_GET["pg"]) {
@@ -22,10 +21,11 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             break;
         case 'addcart':
             if(isset($_POST['addcart'])){
+                $id= $_POST['id'];
                 $name = $_POST['name'];
                 $img = $_POST['img'];
                 $price = $_POST['price'];
-                $food = array("name"=>$name,"img"=>$img,"price"=>$price);
+                $food = array("id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price);
                 array_push($_SESSION['giohang'],$food);
                 header('Location: index.php?pg=booking');
             }
@@ -39,19 +39,27 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 unset($_SESSION['giohang'][$i]);
                 header('Location: index.php?pg=booking');
             }
-
             if(isset($_POST['submit']) && ($_POST['submit']) ){
                 $ID_User=$_POST['ID'];
                 $Guests=$_POST['Guests'];
                 $Deposit=$_POST['Deposit'];
                 $DateTime=$_POST['DateTime'];
                 $Note=$_POST['Note'];
-                booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note);
+
+               $ID_Bill = booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note);
+               
+                    foreach($_SESSION['giohang'] as $cart) {
+                        extract($cart);
+                        booking_add_cart($ID_Bill,$id);
+                    }
                 header('Location:index.php?pg=booking');
             }
 
             include_once "view/booking.php";
             break;
+            case 'bill':
+                include_once "view/bill.php";
+                break;
         case 'contact':
             include_once "view/contact.php";
             break;
@@ -62,7 +70,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             if (isset($_POST['user']) && isset($_POST['pass'])) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
                 
-                $_SESSION['ID_User'] = $_SESSION['user']['ID'];
+                // $_SESSION['ID_User'] = $_SESSION['user']['ID'];
                 if ($kq) {
                     // đúng thì đăng nhập thành công
                     $_SESSION['user'] = $kq;           
@@ -80,7 +88,8 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $Password=$_POST['Password'];
                 $check = user_checkPhoneNumber($PhoneNumber);
                 if($check)
-                    $tb = "Số điện thoại <strong>'$PhoneNumber'</strong> đá đăng ký";
+                    // $tb = "Số điện thoại <strong>'$PhoneNumber'</strong> đá đăng ký"
+                    $tb = "Đăng ký không thành công";
                 else {
                 $ketqua = user_add($PhoneNumber, $Username, $Password);
                     $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 

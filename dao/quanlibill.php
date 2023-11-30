@@ -58,10 +58,16 @@ function getall_detailbooking($ID_Booking){
 
 // function getall_qlbill(){
 //     $sql = "SELECT * FROM booking ORDER BY ID ASC";
-//     return pdo_query($sql);
+//     return pdo_query($sql);z
 // }
+
 function booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note){
-    pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`, `Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);   
+    $sql = "INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)";  
+    return pdo_execute_return_lastInsertId($sql, $ID_User, $DateTime, $Guests, $Deposit, $Note);
+}
+
+function booking_add_cart($ID_Booking, $ID_Food){
+    pdo_execute("INSERT INTO detailbooking( `ID_Booking`, `ID_Food`) VALUES(?,?)",$ID_Booking, $ID_Food);   
 }
 
 
@@ -69,6 +75,3 @@ function booking_getAll(){
     return pdo_query("SELECT * FROM booking");
 }
 
-
-
-?>

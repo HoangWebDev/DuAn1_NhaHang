@@ -97,7 +97,7 @@
                         <div class="col-md-12">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="name" placeholder="Your Name" name="Address" value="<?=$Address?>">
-                                <label for="peopleCount">Địa chủ</label>
+                                <label for="peopleCount">Địa chỉ</label>
                             </div>
                         </div>
 
@@ -145,4 +145,5 @@
         </div>
     </div>
 </div>
+<script><script src="./js/login.js"></script></script>
 <!-- Reservation Start -->
