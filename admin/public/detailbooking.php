@@ -11,7 +11,7 @@
                 <tr>
                     <th scope="col">STT </th>
                     <th scope="col">Mã hóa đơn</th>
-                    <th scope="col"> Loại món ăn </th>
+                    <th scope="col"> Tên món ăn </th>
                     <th scope="col">Số lượng món ăn </th>
                     <th scope="col">Giá món ăn</th>
                     <th scope="col">Ngày đặt</th>   
