@@ -14,9 +14,17 @@
         $i++;
     }
     if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){
-       
-        $_SESSION['ID_User'] = $_SESSION['user']['ID'];
-        extract($_SESSION['user']);
+        $ID = $_SESSION['user']['ID'];
+        $FullName = $_SESSION['user']['FullName'];
+        $PhoneNumber = $_SESSION['user']['PhoneNumber'];
+        $Address = $_SESSION['user']['Address'];
+        $Email = $_SESSION['user']['Email'];
+    }else{
+        $ID = "";
+        $FullName = "";
+        $PhoneNumber = "";
+        $Address = "";
+        $Email = "";
     }
 
 ?>
@@ -64,48 +72,71 @@
                 <h1 class="text-white mb-4">Đặt Bàn</h1>
                 <form action="index.php?pg=booking" method="post">
                     <div class="row g-3">
+                        <!-- <div class="col-md-6">
+                            <div class="form-floating">
+                                </div>
+                            </div> -->
+
+                        <!-- Input ID User để add booking -->
+                        <input type="hidden" class="form-control" name="ID" value="<?=$ID?>">
+
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <!-- <input type="text" class="form-control" id="name" placeholder="Your Name"> -->
-                                <!-- <input type="text" class="form-control" name="id" value=""> -->
-                                <input type="text"class="form-control" name="ID_User" id="ID_User" value="<?=$ID?>">
-                                <label for="peopleCount">Tài khoản: <strong><?=$Username?></strong> </label>
-                                <?php
-                                // echo $_SESSION['ID_User'];
-                                ?>
-                                
-                                <!-- <label for="name">Nhập Tên</label> -->
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="FullName" value="<?=$FullName?>">
+                                <label for="peopleCount">Họ và tên</label>
                             </div>
                         </div>
+
                         <div class="col-md-6">
-                        <div class="form-floating">
-                                <input type="text" class="form-control" id="peopleCount" name="TableNumber" placeholder="Số bàn" min="1" max="10">
-                                <label for="peopleCount">Số Bàn</label>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="PhoneNumber" value="<?=$PhoneNumber?>">
+                                <label for="peopleCount">Số điện thoại</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="Address" value="<?=$Address?>">
+                                <label for="peopleCount">Địa chỉ</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="Email" value="<?=$Email?>">
+                                <label for="peopleCount">Email</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-floating date" id="date3"  data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <input type="datetime" class="form-control datetimepicker-input" id="datetime" name="DateTime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
                                 <label for="datetime">Ngày & Giờ</label>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
-                        <div class="form-floating">
+                            <div class="form-floating">
                                 <input type="text" class="form-control" id="peopleCount" name="Guests"  placeholder="Số Người" min="1" max="10">
                                 <label for="peopleCount">Số Người</label>
                             </div>
                         </div>
                     
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="peopleCount" name="Deposit" placeholder="Tiền Cọc" value="500.000đ" readonly>
+                                <label for="peopleCount">Tiền Cọc</label>
+                            </div>
+                        </div>
+
                         <div class="col-12">
                             <div class="form-floating">
                                 <input type="text" class="form-control" placeholder="Special Request" name="Note" id="message" style="height: 100px"></input>
                                 <label for="message">Ghi Chú</label>
                             </div>
                         </div>
+
                         <div class="col-12">
-                            <!-- <button class="btn btn-primary w-100 py-3" type="submit">Đặt Ngay</button> -->
                             <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay" >
                         </div>
                     </div>
@@ -114,4 +145,5 @@
         </div>
     </div>
 </div>
+<script><script src="./js/login.js"></script></script>
 <!-- Reservation Start -->
