@@ -43,16 +43,27 @@ function get_food_type_3($limit){
     $sql = "SELECT * FROM food WHERE ID_TypeFood = 3 ORDER BY ID DESC LIMIT ".$limit;
     return pdo_query($sql);
 }
+
+function get_detail_food($ID){
+    $sql = "SELECT * FROM food WHERE ID=?";
+    return pdo_query_one($sql, $ID);
+}
+
 function showfood($a) {
     $html_show = '';
     foreach ($a as $value) {
         extract($value);
+        $link = "index.php?pg=detail_food&&FoodID=".$ID;
         $html_show.='<div class="col-lg-6">
                         <div class="d-flex align-items-center">
+                        <a href="'.$link.'">
                             <img class="flex-shrink-0 img-fluid rounded" src="uploads/'.$FoodImage.'" alt="" style="width: 80px;">
+                        </a>
                             <div class="w-100 d-flex flex-column text-start ps-4 justify-content-between">
                                 <h5 class="d-flex justify-content-between">
-                                    <span class="mt-2">'.$FoodName.'</span>
+                                    <a href="'.$link.'">
+                                        <span class="mt-2">'.$FoodName.'</span>
+                                    </a>
                                 </h5>
                                 <h5 class="d-flex justify-content-between">
                                     <span class="text-primary">'.$FoodPrice.' VNĐ</span>

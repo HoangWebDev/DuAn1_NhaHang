@@ -52,7 +52,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                         extract($cart);
                         booking_add_cart($ID_Bill,$id);
                     }
-                header('Location:index.php?pg=booking');
+                header('Location:index.php?pg=payment');
             }
 
             include_once "view/booking.php";
@@ -124,6 +124,19 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 unset($_SESSION['user']);
                 header('Location:index.php');
                 break;
+
+            /* Detail Food */
+            case 'detail_food':
+                if(isset($_GET['FoodID'])&&($_GET['FoodID']>0)){
+                    $ID = $_GET['FoodID'];
+                    $detail = get_detail_food($ID);
+                    include_once "view/detail_food.php";
+                }
+                break;
+            /* Thanh toán */
+            // case 'payment':
+            //     include_once "view/payment.php";
+            //     break;
             default:
             $food_type_1 = get_food_type_1(8);
                 $food_type_2 = get_food_type_2(8);

@@ -26,7 +26,7 @@
                     <tr>
                         <td>'.$stt.'</td>
                         <td>'.$booking.'</td>
-                        <td>'.$food.'</td>
+                        <td>'.$foodName .'</td>
                         <td>'.$countNumber.'</td>
                         <td>'.$price.'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>

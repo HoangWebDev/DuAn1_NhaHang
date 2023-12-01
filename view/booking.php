@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay" >
+                            <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay">
                         </div>
                     </div>
                 </form>
@@ -145,5 +145,5 @@
         </div>
     </div>
 </div>
-<script><script src="./js/login.js"></script></script>
+<script src="./js/login.js"></script>
 <!-- Reservation Start -->
