@@ -145,5 +145,5 @@
         </div>
     </div>
 </div>
-<script><script src="./js/login.js"></script></script>
+<script src="./js/login.js"></script>
 <!-- Reservation Start -->
