@@ -8,10 +8,11 @@
         <form action="index.php?pg=login" method="post" onsubmit="return checkUser();">
           <h1>Đăng Ký</h1>
           
-          <input type="text" placeholder="Phone" name="PhoneNumber" id="PhoneNumber"> 
+          <input type="text" placeholder="Số điện thoại" name="PhoneNumber" id="PhoneNumber"> 
           <div id="err_fullname" class="error"></div>
-          <input type="text" placeholder="Name" name="Username" id="Username">
-          <input type="password" placeholder="Password" name="Password" id="Password">
+          <input type="text" placeholder="Họ và tên" name="FullName" id="PhoneNumber"> 
+          <input type="text" placeholder="Tên tài khoản" name="Username" id="Username">
+          <input type="password" placeholder="Mật khẩu" name="Password" id="Password">
           <input type="submit" name="submit" value="Đăng ký" onclick="checkUser();">
           <?php
             if (isset($tb) && $tb != "") {
@@ -23,8 +24,8 @@
       <div class="form-container login-container">
         <form method="post" action="index.php?pg=login">
           <h1>Đăng Nhập</h1>
-          <input type="text" placeholder="Username" name="user" >
-          <input type="password" placeholder="Password" name="pass" >
+          <input type="text" placeholder="Tên tài khoản" name="user" >
+          <input type="password" placeholder="Mật khẩu" name="pass" >
           <div class="content">
             <div class="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox">

@@ -47,7 +47,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $Note=$_POST['Note'];
 
                $ID_Bill = booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note);
-
+               
                     foreach($_SESSION['giohang'] as $cart) {
                         extract($cart);
                         booking_add_cart($ID_Bill,$id);
@@ -84,6 +84,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             
             if(isset($_POST['submit'])&&($_POST['submit'])){
                 $PhoneNumber=$_POST['PhoneNumber']; 
+                $FullName = $_POST['FullName'];
                 $Username=$_POST['Username'];
                 $Password=$_POST['Password'];
                 $check = user_checkPhoneNumber($PhoneNumber);
@@ -91,7 +92,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     // $tb = "Số điện thoại <strong>'$PhoneNumber'</strong> đá đăng ký"
                     $tb = "Đăng ký không thành công";
                 else {
-                $ketqua = user_add($PhoneNumber, $Username, $Password);
+                $ketqua = user_add($PhoneNumber,$FullName, $Username, $Password);
                     $tb = "Đã đăng ký thành công tài khoản <strong>'$Username'</strong>"; 
                     // $_SESSION['ID']
                     include_once "view/login.php";  

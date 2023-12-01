@@ -21,8 +21,8 @@ function delete_food($ID){
 
 /* Lấy tất cả món ăn show lên admin */
 function getone_food($id){
-    $sql = "SELECT * FROM food WHERE ID =".$id;
-    return pdo_query_one($sql);
+    $sql = "SELECT * FROM food WHERE ID =?";
+    return pdo_query_one($sql,$id);
 }
 function getall_food(){
     $sql = "SELECT * FROM food ORDER BY ID DESC";

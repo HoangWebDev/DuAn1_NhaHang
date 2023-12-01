@@ -8,8 +8,7 @@
                 <tr>
                     <th scope="col">STT</th>
                     <th scope="col">Mã hóa đơn</th>
-                    <th scope="col">Số bàn</th>
-                    <th scope="col">Số ghế</th>
+                    <th scope="col">Tên khách hàng</th>
                     <th scope="col">Ngày</th>
                     <th scope="col">Số lượng khách</th>
                     <th scope="col">Tiền cọc</th>
@@ -22,14 +21,14 @@
                 $i =1;
                 foreach ($getall_qlbill as $item) {
                     extract($item);
+                    $getone_user = getone_user($ID_User);
                         $del = "<a href='index.php?pg=delqlbill&id=" . $ID . "'>Delete</a>";
                         $detail = "<a href='index.php?pg=detailbooking&id=" . $ID . "'>View</a>";
                     echo'
                     <tr>
                         <td>'.$i.'</td>
                         <td>'.$ID.'</td>
-                        <td>'.$TableNumber.'</td>
-                        <td>'.$Seats.'</td>
+                        <td>'.$getone_user['FullName'].'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>
                         <td>'.$Guests.'</td>
                         <td>'.$Deposit.'</td>

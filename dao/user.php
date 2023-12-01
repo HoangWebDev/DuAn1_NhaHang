@@ -88,6 +88,6 @@ function user_checkPhoneNumber($PhoneNumber){
 //     $sql = "UPDATE user SET FullName=?,Username=?,Password=?,PhoneNumber=?, WHERE ID=?";
 //     pdo_execute($sql, $PhoneNumber, $Username, $Password,$ID);
 // }
-function user_add( $PhoneNumber, $Username, $Password){
-    pdo_execute("INSERT INTO user( `PhoneNumber`,`Username`,`Password`) VALUE(?,?,?)", $PhoneNumber, $Username, $Password);
+function user_add( $PhoneNumber,$FullName, $Username, $Password){
+    pdo_execute("INSERT INTO user( `PhoneNumber`,`FullName`,`Username`,`Password`) VALUE(?,?,?,?)", $PhoneNumber, $FullName, $Username, $Password);
 }

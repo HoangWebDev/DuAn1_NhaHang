@@ -62,8 +62,11 @@ function getall_detailbooking($ID_Booking){
 // }
 
 function booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note){
-    pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);  
-    return pdo_execute_return_lastInsertId();
+    // pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);  
+    // return pdo_execute_return_lastInsertId();
+    $sql = "INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)";  
+    return pdo_execute_return_lastInsertId($sql, $ID_User, $DateTime, $Guests, $Deposit, $Note);
+// 
 }
 
 function booking_add_cart($ID_Booking, $ID_Food){
@@ -75,4 +78,3 @@ function booking_getAll(){
     return pdo_query("SELECT * FROM booking");
 }
 
-?>
