@@ -30,7 +30,7 @@
                         <td>'.$ID.'</td>
                         <td>'.$getone_user['FullName'].'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>
-                        <td>'.$Guests.'</td>
+                        <td>'.$Guests.'</td>    
                         <td>'.$Deposit.'</td>
                         <td>'.$Status.'</td>
                         <td class="unblock">'.$detail.' - '.$del.'</td>                        

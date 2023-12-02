@@ -83,6 +83,16 @@ function showfood($a) {
     }
     return $html_show;
 }
+// function tongbill() {
+//     $tong=0; 
+//     $show_cart = '';
+//     $i=1;
+//     foreach ($_SESSION['giohang'] as $food) {
+//         $tong+=$ttien;
+//         extract($food);
+//     }
+//     return $tong;
+// }
 
 //Update sử lý file hình
 function update_food($ID, $ID_TypeFood, $FoodName, $FoodPrice, $FoodDescribe, $FileImage)

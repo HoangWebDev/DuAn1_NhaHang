@@ -1,18 +1,31 @@
 <?php 
     $show_cart = '';
+    $tong=0;
     $i=1;
+
+    
     foreach ($_SESSION['giohang'] as $food) {
+        $tong+=$ttien;
         extract($food);
         $show_cart .= '<tr>
                         <td>'.$i.'</td>
                         <td>'.$name.'</td>
                         <td>'.$price.' đ</td>
+                        <td>'.$soluong.'</td>
+                        <td>'.$ttien.' đ</td>
                         <td class="text-center">
                             <a href="index.php?pg=booking&&del='.$i.'"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>';
+                    
+                
         $i++;
     }
+        $show_cart.= '<tr>
+                        <td colspan="2" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
+                        <td id="tongtien" class="text-white border-bottom-0">'.$tong.' đ</td>
+                    </tr>';     
+    
     if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){
         $ID = $_SESSION['user']['ID'];
         $FullName = $_SESSION['user']['FullName'];
@@ -53,15 +66,15 @@
                             <th scope="col"></th>
                             <th scope="col">Sản Phẩm</th>
                             <th scope="col">Đơn Giá</th>
-                            <th scope="col"></th>
+                            <th scope="col">Số Lượng</th>
+                            <th scope="col">Thành tiền</th>
+
                         </tr>
                     </thead>
+                    
                     <tbody>
                         <?=$show_cart?>
-                        <tr>
-                            <td colspan="2" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
-                            <td id="tongCong" class="text-white border-bottom-0">0đ</td>
-                        </tr>
+                       
                     </tbody>
                 </table>       
             </div>

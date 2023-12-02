@@ -33,11 +33,19 @@
                     </div>
                 </div>
             </div>
+        <?php
+            if(isset($showbill)&&(is_array($showbill))){
+                extract($showbill);
+            }
+
+        ?>
+
+
             <div class="my-4" style="height: 1px; width: 100%; background-color: #ccc; "></div>
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <p class="fw-bold">Phương thức thanh toán: Tiền mặt</p>
-                    <p class="fw-bold">Mã hoá đơn: #777</p>
+                    <p class="fw-bold">Mã hoá đơn: <?=$showbill['ID_User'];?></p>
                 </div>
                 <div class="col-lg-6 text-center">
                     <p class="fw-bold">Ngày in: 22/10/2023</p>

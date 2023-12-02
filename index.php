@@ -25,7 +25,9 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $name = $_POST['name'];
                 $img = $_POST['img'];
                 $price = $_POST['price'];
-                $food = array("id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price);
+                $soluong=1;
+                $ttien=$soluong * $price;
+                $food = array("id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"soluong"=>$soluong,"ttien"=>$ttien);
                 array_push($_SESSION['giohang'],$food);
                 header('Location: index.php?pg=booking');
             }
@@ -45,20 +47,24 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $Deposit=$_POST['Deposit'];
                 $DateTime=$_POST['DateTime'];
                 $Note=$_POST['Note'];
+                // $tongbill=tongbill();
 
                $ID_Bill = booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note);
                
                     foreach($_SESSION['giohang'] as $cart) {
                         extract($cart);
-                        booking_add_cart($ID_Bill,$id);
+                        booking_add_cart($ID_Bill,$id,$soluong,$ttien);
                     }
-                header('Location:index.php?pg=payment');
-            }
+                   
+               header('Location:index.php?pg=payment');
+                 }
 
             include_once "view/booking.php";
             break;
-            case 'bill':
-                include_once "view/bill.php";
+            case 'payment':
+            // $showbill=showbill($ID_Bill);
+            
+                include_once "view/payment.php";
                 break;
         case 'contact':
             include_once "view/contact.php";
