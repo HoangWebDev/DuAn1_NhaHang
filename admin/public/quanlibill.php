@@ -42,6 +42,11 @@
             </tbody>
         </table>
         <a href="#">Show All</a>
+        <?php
+            if (isset($tb)) {
+                echo "<font color='red'>"  .$tb. "</font>";
+            }
+        ?>
     </div>
     <!-- End of Recent Orders -->
 </main>

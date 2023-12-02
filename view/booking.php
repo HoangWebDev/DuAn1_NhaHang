@@ -26,7 +26,7 @@
                         <td id="" class="text-white border-bottom-0">'.$tong.' đ</td>
                     </tr>';     
     
-    if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){
+    if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){        
         $ID = $_SESSION['user']['ID'];
         $FullName = $_SESSION['user']['FullName'];
         $PhoneNumber = $_SESSION['user']['PhoneNumber'];
@@ -74,7 +74,6 @@
                     
                     <tbody>
                         <?=$show_cart?>
-                       
                     </tbody>
                 </table>       
             </div>
@@ -89,9 +88,9 @@
                             <div class="form-floating">
                                 </div>
                             </div> -->
-
+                            
                         <!-- Input ID User để add booking -->
-                        <input type="hidden" class="form-control" name="ID" value="<?=$ID?>">
+                        <input type="hidden" class="form-control" id="name" name="ID" value="<?=$ID?>">
 
                         <div class="col-md-6">
                             <div class="form-floating">

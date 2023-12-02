@@ -49,7 +49,7 @@ function getall_qlbill(){
 // Chi tiet hoa don
 
 function getall_detailbooking($ID_Booking){
-    $sql = "SELECT detailbooking.ID as stt, detailbooking.ID_Booking as booking, detailbooking.ID_Food as food, detailbooking.NumberDishes as countNumber, detailbooking.PriceDishes as price, sum(detailbooking.PriceDishes*detailbooking.NumberDishes) as total, food.FoodName as foodN   ame";
+    $sql = "SELECT detailbooking.ID as stt, detailbooking.ID_Booking as booking, detailbooking.ID_Food as food, detailbooking.NumberDishes as countNumber, detailbooking.PriceDishes as price, sum(detailbooking.PriceDishes*detailbooking.NumberDishes) as total, food.FoodName as foodName";
     $sql .= " FROM detailbooking INNER JOIN food ON detailbooking.ID_Food = food.ID";
     // $sql .= " LEFT JOIN booking ON detailbooking.ID_Booking = booking.ID";
     $sql .= " Where detailbooking.ID_Booking =".$ID_Booking." GROUP BY detailbooking.ID";
@@ -61,7 +61,7 @@ function getall_detailbooking($ID_Booking){
 //     return pdo_query($sql);z
 // }
 
-function booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note){
+function booking_add_id($ID_User, $DateTime, $Guests, $Deposit, $Note){
     // pdo_execute("INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)", $ID_User, $DateTime, $Guests, $Deposit, $Note);  
     // return pdo_execute_return_lastInsertId();
     $sql = "INSERT INTO booking(`ID_User`, `DateTime`, `Guests`, `Deposit`,`Note`) VALUES(?,?,?,?,?)";  

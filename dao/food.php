@@ -62,11 +62,11 @@ function showfood($a) {
                             <div class="w-100 d-flex flex-column text-start ps-4 justify-content-between">
                                 <h5 class="d-flex justify-content-between">
                                     <a href="'.$link.'">
-                                        <span class="mt-2">'.$FoodName.'</span>
+                                        <span class="mt-2" style="color: black;">'.$FoodName.'</span>
                                     </a>
                                 </h5>
                                 <h5 class="d-flex justify-content-between">
-                                    <span class="text-primary">'.$FoodPrice.' VNĐ</span>
+                                    <span class="text-primary"> '.number_format($FoodPrice, 0, '.', '.').' VNĐ</span>
                                 </h5>
                             </div>
                             <form action="index.php?pg=addcart" method="post" class="add-to-cart-form">

@@ -42,22 +42,46 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 header('Location: index.php?pg=booking');
             }
             if(isset($_POST['submit']) && ($_POST['submit']) ){
-                $ID_User=$_POST['ID'];
+                
+                /* Lấy thông tin user khi chưa có thông tin */
+                $Username = "goldenspoon" . rand(1, 100);
+                $Password = "123456";
+                if (empty($_SESSION['user']))
+                {
+                    $FullName = $_POST['FullName'];
+                    $PhoneNumber = $_POST['PhoneNumber'];
+                    $Address = $_POST['Address'];
+                    $Email = $_POST['Email'];
+                    $ID_User = user_book_id($FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
+                }
+
+                if(isset($_SESSION['user']))
+                {
+                    $ID_User = $_SESSION['user']['ID'];
+                }
+
+                /* Lấy thông tin booking */
+                $ID_User;
                 $Guests=$_POST['Guests'];
                 $Deposit=$_POST['Deposit'];
                 $DateTime=$_POST['DateTime'];
                 $Note=$_POST['Note'];
                 // $tongbill=tongbill();
+                
+               $ID_Bill = booking_add_id($ID_User, $DateTime, $Guests, $Deposit, $Note);
 
-               $ID_Bill = booking_add($ID_User, $DateTime, $Guests, $Deposit, $Note);
-               
                     foreach($_SESSION['giohang'] as $cart) {
                         extract($cart);
                         booking_add_cart($ID_Bill,$id,$soluong,$ttien);
                     }
                    
+<<<<<<< HEAD
                   header('Location:index.php?pg=payment&&ID='.$ID_Bill);
+=======
+               header('Location:index.php?pg=payment&&ID='.$ID_Bill);
+>>>>>>> 9c393b662e166f05bda83732b5913d7662b4e7d9
                  }
+
 
             include_once "view/booking.php";
             break;
@@ -65,10 +89,14 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 if (isset($_GET['ID'])) {
                     $ID = $_GET['ID'];
                 }
+<<<<<<< HEAD
 
             $showbooking=showbooking($ID);
             $showbill=showbill($ID);
             
+=======
+                $showbill=showbill($ID);
+>>>>>>> 9c393b662e166f05bda83732b5913d7662b4e7d9
                 include_once "view/payment.php";
                 break;
         case 'contact':
@@ -144,10 +172,14 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     include_once "view/detail_food.php";
                 }
                 break;
+<<<<<<< HEAD
             /* Thanh toá    n */
             // case 'payment':
             //     include_once "view/payment.php";
             //     break;
+=======
+            
+>>>>>>> 9c393b662e166f05bda83732b5913d7662b4e7d9
             default:
             $food_type_1 = get_food_type_1(8);
                 $food_type_2 = get_food_type_2(8);
