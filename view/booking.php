@@ -23,7 +23,7 @@
     }
         $show_cart.= '<tr>
                         <td colspan="2" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
-                        <td id="tongtien" class="text-white border-bottom-0">'.$tong.' đ</td>
+                        <td id="" class="text-white border-bottom-0">'.$tong.' đ</td>
                     </tr>';     
     
     if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){

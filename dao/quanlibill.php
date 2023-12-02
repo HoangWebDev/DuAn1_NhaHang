@@ -78,6 +78,12 @@ function showbill($ID){
     return pdo_query_one($sql);
 }
 
+function showbooking($ID){
+    $sql = "SELECT * FROM booking WHERE ID =".$ID;
+    return pdo_query_one($sql);
+}
+
+
 function booking_getAll(){
     return pdo_query("SELECT * FROM booking");
 }

@@ -56,13 +56,18 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                         booking_add_cart($ID_Bill,$id,$soluong,$ttien);
                     }
                    
-               header('Location:index.php?pg=payment');
+                  header('Location:index.php?pg=payment&&ID='.$ID_Bill);
                  }
 
             include_once "view/booking.php";
             break;
             case 'payment':
-            // $showbill=showbill($ID_Bill);
+                if (isset($_GET['ID'])) {
+                    $ID = $_GET['ID'];
+                }
+
+            $showbooking=showbooking($ID);
+            $showbill=showbill($ID);
             
                 include_once "view/payment.php";
                 break;
@@ -139,7 +144,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     include_once "view/detail_food.php";
                 }
                 break;
-            /* Thanh toán */
+            /* Thanh toá    n */
             // case 'payment':
             //     include_once "view/payment.php";
             //     break;
