@@ -265,8 +265,11 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                                 $id = $_GET['id'];
                                 delete_qlbill($id);
+                                $getall_qlbill= getall_qlbill();
+                            }else{
+                                $tb = "Có dữ liệu không thể xoá";
+                                $getall_qlbill= getall_qlbill();
                             }
-                            $getall_qlbill= getall_qlbill();
                             include_once "public/quanlibill.php";
                             break;
         // Chi tiết hóa đơn

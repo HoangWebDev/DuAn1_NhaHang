@@ -22,7 +22,7 @@
             </div>
             <div class="col-lg-6">
                 <h2 class="section-title text-start ff-secondary text-primary fw-normal mb-4"><?=$FoodName?></h2>
-                <h4 class="text-start ff-secondary text-primary fw-normal mb-4"><strong>Giá:</strong><?=$FoodPrice?>VND</h4>
+                <h4 class="text-start ff-secondary text-primary fw-normal mb-4"><strong>Giá:</strong> <?=number_format($FoodPrice,0,'.','.')?>VND</h4>
                 <p class="mb-2"><strong>Mô Tả:</strong> <?=$FoodDescribe?></p>
                 <button class="btn btn-primary py-2 my-2" type="submit" name="addcart" style="width: 150px;"><i class="fas fa-cart-plus fa-lg"></i></button>
                 <div class="d-flex pt-2">

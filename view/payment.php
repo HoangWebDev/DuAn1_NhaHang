@@ -45,7 +45,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <p class="fw-bold">Phương thức thanh toán: Tiền mặt</p>
-                    <p class="fw-bold">Mã hoá đơn: <?=$showbill['ID_User'];?></p>
+                    <p class="fw-bold">Mã hoá đơn: <?=$ID?></p>
                 </div>
                 <div class="col-lg-6 text-center">
                     <p class="fw-bold">Ngày in: 22/10/2023</p>
