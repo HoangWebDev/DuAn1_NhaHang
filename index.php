@@ -75,12 +75,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                         booking_add_cart($ID_Bill,$id,$soluong,$ttien);
                     }
                    
-<<<<<<< HEAD
                   header('Location:index.php?pg=payment&&ID='.$ID_Bill);
-=======
-               header('Location:index.php?pg=payment&&ID='.$ID_Bill);
->>>>>>> 9c393b662e166f05bda83732b5913d7662b4e7d9
-                 }
 
 
             include_once "view/booking.php";
@@ -89,14 +84,9 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 if (isset($_GET['ID'])) {
                     $ID = $_GET['ID'];
                 }
-<<<<<<< HEAD
 
             $showbooking=showbooking($ID);
             $showbill=showbill($ID);
-            
-=======
-                $showbill=showbill($ID);
->>>>>>> 9c393b662e166f05bda83732b5913d7662b4e7d9
                 include_once "view/payment.php";
                 break;
         case 'contact':
