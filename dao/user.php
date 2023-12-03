@@ -93,6 +93,6 @@ function user_add($PhoneNumber,$FullName, $Username, $Password){
 }
 
 function user_book_id($FullName, $PhoneNumber, $Address, $Email, $Username, $Password){
-    pdo_execute_return_lastInsertId("INSERT INTO user (`FullName`,`PhoneNumber`,`Address`,`Email`,`Username`,`Password`) VALUE(?,?,?,?,?,?)", $FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
+    return pdo_execute_return_lastInsertId("INSERT INTO user (`FullName`,`PhoneNumber`,`Address`,`Email`,`Username`,`Password`) VALUE(?,?,?,?,?,?)", $FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
 }
     

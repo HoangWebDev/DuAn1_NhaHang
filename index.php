@@ -46,23 +46,20 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 /* Lấy thông tin user khi chưa có thông tin */
                 $Username = "goldenspoon" . rand(1, 100);
                 $Password = "123456";
-                if (empty($_SESSION['user']))
-                {
-                    $FullName = $_POST['FullName'];
-                    $PhoneNumber = $_POST['PhoneNumber'];
-                    $Address = $_POST['Address'];
-                    $Email = $_POST['Email'];
+                $FullName = $_POST['FullName'];
+                $PhoneNumber = $_POST['PhoneNumber'];
+                $Address = $_POST['Address'];
+                $Email = $_POST['Email'];
+
+                /* Kiểm tra $_SEESSION['user'] */
+                if(isset($_SESSION['user'])){
+                    $ID_User = $_POST['ID'];
+                }else{
                     $ID_User = user_book_id($FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
                 }
 
-                if(isset($_SESSION['user']))
-                {
-                    $ID_User = $_SESSION['user']['ID'];
-                }
-
                 /* Lấy thông tin booking */
-                $ID_User;
-                                $Guests=$_POST['Guests'];
+                $Guests=$_POST['Guests'];
                 $Deposit=$_POST['Deposit'];
                 $DateTime=$_POST['DateTime'];
                 $Note=$_POST['Note'];
@@ -74,11 +71,8 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                         extract($cart);
                         booking_add_cart($ID_Bill,$id,$soluong,$ttien);
                     }
-    header('Location:index.php?pg=payment&&ID='.$ID_Bill);
-            }
-            
-
-
+                header('Location:index.php?pg=payment&&ID='.$ID_Bill);
+                }
             include_once "view/booking.php";
             break;
             case 'payment':
