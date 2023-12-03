@@ -78,6 +78,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             }
             
 
+
             include_once "view/booking.php";
             break;
             case 'payment':
@@ -87,8 +88,6 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
 
             $showbooking=showbooking($ID);
             $showbill=showbill($ID);
-
-
                 include_once "view/payment.php";
                 break;
         case 'contact':
