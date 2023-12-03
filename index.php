@@ -162,14 +162,6 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     include_once "view/detail_food.php";
                 }
                 break;
-<<<<<<< HEAD
-            /* Thanh toá    n */
-            // case 'payment':
-            //     include_once "view/payment.php";
-            //     break;
-=======
-            
->>>>>>> 9c393b662e166f05bda83732b5913d7662b4e7d9
             default:
             $food_type_1 = get_food_type_1(8);
                 $food_type_2 = get_food_type_2(8);
