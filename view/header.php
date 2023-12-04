@@ -110,6 +110,7 @@
                             <?php
                             // Hiển thị sản phẩm trong giỏ hàng
                             $show_modal = '';
+                            $tong = 0;
                             foreach ($_SESSION['giohang'] as $food) {
                                 extract($food);
                                 $show_modal .= '<div class="d-flex align-items-center mb-4">
@@ -117,7 +118,7 @@
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between">
                                                     <span>' . $name . '</span>
-                                                    <span class="text-primary">' . $price . '</span>
+                                                    <span class="text-primary">' . number_format($price, 0, '.', '.') . '</span>
                                                 </h5>
                                                 <div class="input-group d-flex justify-content-between">
                                                     <div class="input-group-content d-flex align-items-center">
@@ -136,6 +137,9 @@
                                             </div>
                                         </div>';
                             }
+
+                            $ttien = $price * $soluong;
+                            $tong += $ttien;
                             ?>
                             <?= $show_modal ?>
                         </div>
@@ -143,7 +147,7 @@
                             <div class="w-100 d-flex justify-content-between align-items-center">
                                 <span class="fw-bold">Tổng Tiền:</span>
                                 <!-- Thêm logic tính tổng tiền ở đây -->
-                                <span class="text-primary fw-bold" id="totalPrice">VNĐ</span>
+                                <span class="text-primary fw-bold" id="totalPrice"><?= number_format($tong, 0, '.', '.') ?>VNĐ</span>
                             </div>
                             <a href="index.php?pg=booking"><button type="button" class="btn btn-primary">Xác Nhận</button></a>
                         </div>

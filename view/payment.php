@@ -11,9 +11,9 @@
         $show_cart .= '<tr>
                         <td>'.$i.'</td>
                         <td>'.$name.'</td>
-                        <td>'.$price.' đ</td>
+                        <td>'.number_format($price,0,'.','.').' đ</td>
                         <td>'.$soluong.'</td>
-                        <td>'.$ttien.' đ</td>
+                        <td>'.number_format($ttien,0,'.','.').' đ</td>
                     </tr>';
                     
                 
@@ -91,45 +91,42 @@
                     <p class="fw-bold"><?=$DateTime?></p>
                 </div>
             </div>
-            <div class="row g-0">
-        <div class="col-md-12 d-flex align-items-start">
-            <div class="p-5 w-100">
-                <table class="table table-hover">
-                    <thead style="background-color: #FEA116; color: white;">
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Sản Phẩm</th>
-                            <th scope="col">Đơn Giá</th>
-                            <th scope="col">Số Lượng</th>
-                            <th scope="col">Thành Tiền</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
+            
+            <div class="col-md-12 d-flex align-items-start">
+                <div class="p-5 w-100">
+                    <table class="table table-hover">
+                        <thead style="background-color: #FEA116; color: white;">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Sản Phẩm</th>
+                                <th scope="col">Đơn Giá</th>
+                                <th scope="col">Số Lượng</th>
+                                <th scope="col">Thành Tiền</th>
+                            </tr>
+                        </thead>
                         <tbody>
-                        <?=$show_cart?>
-                       
-                    </tbody>
-                            <!-- <td>1</td>
-                            <td>RÉMY MARTIN 1738 </td>
-                            <td>2400000 đ</td>
-                            <td>1</td>
-                            <td>2400000 đ</td>
-                        </tr>                                              
-                        <tr>
-                            <td colspan="4" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
-                            <td class="border-bottom-0 fw-bold">2000000 đ</td>
-                        </tr> -->
-                    </tbody>
-                </table>       
+                            <?=$show_cart?>
+                        </tbody>
+                                <!-- <td>1</td>
+                                <td>RÉMY MARTIN 1738 </td>
+                                <td>2400000 đ</td>
+                                <td>1</td>
+                                <td>2400000 đ</td>
+                            </tr>                                              
+                            <tr>
+                                <td colspan="4" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
+                                <td class="border-bottom-0 fw-bold">2000000 đ</td>
+                            </tr> -->
+                        </tbody>
+                    </table>       
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-end">
+            <div class="row justify-content-end">
                 <div class="col-lg-3 text-end">
                     <table class="table table-hover">
                         <tr>
                             <td>Tổng:</td>
-                            <td><?=$tong?>đ</td>
+                            <td><?=number_format($tong,0,'.','. ')?>đ</td>
                         </tr>
                         <tr>
                             <td>Tiền Cọc:</td>
@@ -138,7 +135,7 @@
                         <tfoot>
                             <tr>
                                 <td>Tổng cộng:</td>
-                                <td><?=$tongbill?> đ</td>
+                                <td><?=number_format($tongbill,0,'.','. ')?> đ</td>
                             </tr>
                         </tfoot>
                     </table>

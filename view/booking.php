@@ -10,9 +10,9 @@
         $show_cart .= '<tr>
                         <td>'.$i.'</td>
                         <td>'.$name.'</td>
-                        <td>'.$price.' đ</td>
+                        <td>'.number_format($price,0,'.','.').' đ</td>
                         <td>'.$soluong.'</td>
-                        <td>'.$ttien.' đ</td>
+                        <td>'.number_format($ttien,0,'.','.').' đ</td>
                         <td class="text-center">
                             <a href="index.php?pg=booking&&del='.$i.'"><i class="fas fa-trash"></i></a>
                         </td>
@@ -23,7 +23,7 @@
     }
         $show_cart.= '<tr>
                         <td colspan="2" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
-                        <td id="" class="text-white border-bottom-0">'.$tong.' đ</td>
+                        <td id="" class="text-white border-bottom-0">'.number_format($tong,0,'.','.').' đ</td>
                     </tr>';     
     
     if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){        
