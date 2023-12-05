@@ -76,6 +76,109 @@
             document.getElementById('tongCong').innerText = tongCong.toLocaleString() + ' đ';
         });
     </script>
+    <script>
+var PhoneNumber = document.querySelector(".PhoneNumber");
+
+let isPhonenumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
+
+var FullName = document.querySelector(".FullName");
+var Username1 = document.querySelector(".Username");
+var Username2 = document.querySelector(".Username2");
+var Password1 = document.querySelector(".Password");
+var Password2 = document.querySelector(".Password2");
+
+            // Kiểm tra from đăng ký
+            var checkUser = function () {
+                if (PhoneNumber.value == "") {
+                    document.getElementById("err_phonenumber").innerHTML = "Số điện thoại không được bỏ trống";
+                    PhoneNumber.focus();
+                    return false;
+                }else if(PhoneNumber.value.length < 5){
+                    document.getElementById("err_phonenumber").innerHTML = "Số điện thoại không được dưới 5 số";
+                    PhoneNumber.focus();
+                    return false;
+                }else if(!isPhonenumber.test(PhoneNumber.value)){
+                  document.getElementById("err_phonenumber").innerHTML = "Số điện thoại phải đúng định dạng";
+                  PhoneNumber.focus();
+                  return false;
+              }else{
+                    document.getElementById("err_phonenumber").innerHTML = "";
+                }
+            
+            // Kiem tra ho ten
+                if (FullName.value == "") {
+                    document.getElementById("err_fullname").innerHTML = " Họ và tên không được bỏ trống";
+                    FullName.focus();
+                    return false;
+                }else if(FullName.value.length < 5){
+                    document.getElementById("err_fullname").innerHTML = "Họ và tên không được dưới 5 số";
+                    FullName.focus();
+                    return false;
+                }else{
+                    document.getElementById("err_fullname").innerHTML = "";
+                }
+            
+                // Kiem tra username2
+                
+                if (Username1.value == "") {
+                    document.getElementById("err_username").innerHTML = " Tên tài khoản không được bỏ trống";
+                    Username1.focus();
+                    return false;
+                }else if(Username1.value.length < 5){
+                    document.getElementById("err_username").innerHTML = "Tên tài khoản không được dưới 5 số";
+                    Username1.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_username").innerHTML = "";
+                    }
+
+                    // Kiem tra password
+                    if (Password1.value == "") {
+                    document.getElementById("err_password").innerHTML = " Mật khẩu không được bỏ trống";
+                    Password1.focus();
+                    return false;
+                }else if(Password1.value.length < 5){
+                    document.getElementById("err_password").innerHTML = " Mật khẩu không được dưới 5 số";
+                    Password1.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_password").innerHTML = "";
+                    }
+                    return true;
+                }
+              
+                // Kiểm tra from đăng nhập
+                var checkUser_login = function (){
+                if (Username2.value == "") {
+                    document.getElementById("err_username2").innerHTML = " Tên tài khoản không được bỏ trống";
+                    Username2.focus();
+                    return false;
+                }else if(Username2.value.length < 5){
+                    document.getElementById("err_username2").innerHTML = "Tên tài khoản không được dưới 5 số";
+                    Username2.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_username2").innerHTML = "";
+                    }
+
+                    // Kiem tra password
+                 if (Password2.value == "") {
+                    document.getElementById("err_password2").innerHTML = " Mật khẩu không được bỏ trống";
+                    Password2.focus();
+                    return false;
+                }else if(Password2.value.length < 5){
+                    document.getElementById("err_password2").innerHTML = " Mật khẩu không được dưới 5 số";
+                    Password2.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_password2").innerHTML = "";
+                    }
+
+                return true;
+                }
+                
+
+    </script>
 </body>
 
 </html>
