@@ -8,11 +8,14 @@
         <form action="index.php?pg=login" method="post" onsubmit="return checkUser();">
           <h1>Đăng Ký</h1>
           
-          <input type="text" placeholder="Số điện thoại" name="PhoneNumber" id="PhoneNumber"> 
+          <input type="text" placeholder="Số điện thoại" name="PhoneNumber" class="PhoneNumber"> 
+          <div id="err_phonenumber" class="error"></div>
+          <input type="text" placeholder="Họ và tên" name="FullName" class="FullName"> 
           <div id="err_fullname" class="error"></div>
-          <input type="text" placeholder="Họ và tên" name="FullName" id="PhoneNumber"> 
-          <input type="text" placeholder="Tên tài khoản" name="Username" id="Username">
-          <input type="password" placeholder="Mật khẩu" name="Password" id="Password">
+          <input type="text" placeholder="Tên tài khoản" name="Username" class="Username">
+          <div id="err_username" class="error"></div>
+          <input type="password" placeholder="Mật khẩu" name="Password" class="Password">
+          <div id="err_password" class="error"></div>
           <input type="submit" name="submit" value="Đăng ký" onclick="checkUser();">
           <?php
             if (isset($tb) && $tb != "") {
@@ -21,11 +24,15 @@
             ?>
         </form>
       </div>      
-      <div class="form-container login-container">
-        <form method="post" action="index.php?pg=login">
+      <div class="form-container login-container" onsubmit="return checkUser_login();">
+        <form method="post" action="index.php?pg=login" >
           <h1>Đăng Nhập</h1>
-          <input type="text" placeholder="Tên tài khoản" name="user" >
-          <input type="password" placeholder="Mật khẩu" name="pass" >
+          <input type="text" placeholder="Tên tài khoản" name="user" class="Username2">
+          <div id="err_username2" class="error"></div>
+
+          <input type="password" placeholder="Mật khẩu" name="pass" class="Password2">
+          <div id="err_password2" class="error"></div>
+
           <div class="content">
             <div class="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox">
@@ -35,7 +42,7 @@
               <a href="#">Quên mật khẩu?</a>
             </div>
           </div>
-          <button type="submit">Đăng Nhập</button>
+          <button type="submit" onclick="checkUser_login();">Đăng Nhập</button>
           <?php 
       if(isset($txt_erro)&&($txt_erro!="")){
         echo "<font color='red'>"  .$txt_erro. "</font>";
@@ -70,6 +77,6 @@
 
 </div>
 <script>
-<script src="./js/login.js"></script>
+<script src="layout/js/login.js"></script>
 </script>
 <!-- login -->
