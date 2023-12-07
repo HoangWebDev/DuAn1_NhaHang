@@ -86,6 +86,10 @@ var Username1 = document.querySelector(".Username");
 var Username2 = document.querySelector(".Username2");
 var Password1 = document.querySelector(".Password");
 var Password2 = document.querySelector(".Password2");
+var FullName_booking= document.querySelector(".FullName_booking");
+var PhoneNumber_booking= document.querySelector(".PhoneNumber_booking");
+var Address_booking= document.querySelector(".Address_booking");
+var Email_booking= document.querySelector(".Email_booking");
 
             // Kiểm tra from đăng ký
             var checkUser = function () {
@@ -153,7 +157,7 @@ var Password2 = document.querySelector(".Password2");
                     document.getElementById("err_username2").innerHTML = " Tên tài khoản không được bỏ trống";
                     Username2.focus();
                     return false;
-                }else if(Username2.value.length < 5){
+                }else if(Username2.value.length < 3){
                     document.getElementById("err_username2").innerHTML = "Tên tài khoản không được dưới 5 số";
                     Username2.focus();
                     return false;
@@ -166,7 +170,7 @@ var Password2 = document.querySelector(".Password2");
                     document.getElementById("err_password2").innerHTML = " Mật khẩu không được bỏ trống";
                     Password2.focus();
                     return false;
-                }else if(Password2.value.length < 5){
+                }else if(Password2.value.length <3){
                     document.getElementById("err_password2").innerHTML = " Mật khẩu không được dưới 5 số";
                     Password2.focus();
                     return false;
@@ -177,6 +181,62 @@ var Password2 = document.querySelector(".Password2");
                 return true;
                 }
                 
+                var checkUser_booking = function (){
+                    if (FullName_booking.value == "") {
+                    document.getElementById("err_FullName_booking").innerHTML = " Tên tài khoản không được bỏ trống";
+                    FullName_booking.focus();
+                    return false;
+                }else if(FullName_booking.value.length < 5){
+                    document.getElementById("err_FullName_booking").innerHTML = "Tên tài khoản không được dưới 5 số";
+                    FullName_booking.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_FullName_booking").innerHTML = "";
+                    }
+
+                    // Kiem tra phonenumber
+                    if (PhoneNumber_booking.value == "") {
+                    document.getElementById("err_PhoneNumber_booking").innerHTML = " Số điện thoại không được bỏ trống";
+                    PhoneNumber_booking.focus();
+                    return false;
+                }else if(PhoneNumber_booking.value.length < 5){
+                    document.getElementById("err_PhoneNumber_booking").innerHTML = "Số điện thoại không được dưới 5 số";
+                    PhoneNumber_booking.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_PhoneNumber_booking").innerHTML = "";
+                    }
+
+                    //kiểm tra địa chỉ
+                    if (Address_booking.value == "") {
+                    document.getElementById("err_Address_booking").innerHTML = " Địa chỉ không được bỏ trống";
+                    Address_booking.focus();
+                    return false;
+                }else if(Address_booking.value.length < 5){
+                    document.getElementById("err_Address_booking").innerHTML = "Địa chỉ không được dưới 5 số";
+                    Address_booking.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_Address_booking").innerHTML = "";
+                    }
+
+                    //kiểm tra email
+
+                    if (Email_booking.value == "") {
+                    document.getElementById("err_Email_booking").innerHTML = " Địa chỉ không được bỏ trống";
+                    Email_booking.focus();
+                    return false;
+                }else if(Email_booking.value.length < 5){
+                    document.getElementById("err_Email_booking").innerHTML = "Địa chỉ không được dưới 5 số";
+                    Email_booking.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_Email_booking").innerHTML = "";
+                    }
+
+                return true;
+
+                }
 
     </script>
 </body>

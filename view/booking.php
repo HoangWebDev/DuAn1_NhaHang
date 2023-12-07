@@ -82,7 +82,7 @@
             <div class="p-5">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt Bàn</h5>
                 <h1 class="text-white mb-4">Đặt Bàn</h1>
-                <form action="index.php?pg=booking" method="post">
+                <form action="index.php?pg=booking" method="post" onsubmit="return checkUser_booking();">
                     <div class="row g-3">
                         <!-- <div class="col-md-6">
                             <div class="form-floating">
@@ -94,29 +94,34 @@
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="FullName" value="<?=$FullName?>">
+                                <input type="text" class="form-control FullName_booking" id="name" placeholder="Your Name" name="FullName" value="<?=$FullName?>">
                                 <label for="peopleCount">Họ và tên</label>
+                                <div id="err_FullName_booking" style="color: white" class="error"></div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="PhoneNumber" value="<?=$PhoneNumber?>">
+                                <input type="text" class="form-control PhoneNumber_booking" id="name" placeholder="Your Name" name="PhoneNumber" value="<?=$PhoneNumber?>">
                                 <label for="peopleCount">Số điện thoại</label>
+                                <div id="err_PhoneNumber_booking" style="color: white" class="error"></div>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="Address" value="<?=$Address?>">
+                                <input type="text" class="form-control Address_booking" id="name" placeholder="Your Name" name="Address" value="<?=$Address?>">
                                 <label for="peopleCount">Địa chỉ</label>
+                                <div id="err_Address_booking" style="color: white" class="error"></div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="Email" value="<?=$Email?>">
+                                <input type="text" class="form-control Email_booking" id="name" placeholder="Your Name" name="Email" value="<?=$Email?>">
                                 <label for="peopleCount">Email</label>
+                                <div id="err_Email_booking" style="color: white" class="error"></div>
+
                             </div>
                         </div>
 
@@ -149,7 +154,7 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay">
+                            <input type="submit" class="btn btn-primary w-100 py-3" name="submit" value="Đặt Ngay" onclick="checkUser_booking();">
                         </div>
                     </div>
                 </form>
