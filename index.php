@@ -92,9 +92,10 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             include_once "view/service.php";
             break;
         case 'login':
+            // đăng nhập
             if (isset($_POST['user']) && isset($_POST['pass'])) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
-                $check_admin = check_admin($_POST['user'], $_POST['pass']);
+                // $check_admin = check_admin($_POST['user'], $_POST['pass']);
                 $Role = $check_admin[0]['Role'];
                 if ($Role == 1) {
                     $_SESSION['Role'] = $Role;
@@ -111,7 +112,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     }
                 }
             }
-            
+            // đăng ký
             if(isset($_POST['submit'])&&($_POST['submit'])){
                 $PhoneNumber=$_POST['PhoneNumber']; 
                 $FullName = $_POST['FullName'];
