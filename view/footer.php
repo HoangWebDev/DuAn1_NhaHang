@@ -90,6 +90,11 @@ var FullName_booking= document.querySelector(".FullName_booking");
 var PhoneNumber_booking= document.querySelector(".PhoneNumber_booking");
 var Address_booking= document.querySelector(".Address_booking");
 var Email_booking= document.querySelector(".Email_booking");
+var PhoneNumber_info= document.querySelector(".PhoneNumber_info");
+var Username_info= document.querySelector(".Username_info");
+
+
+
 
             // Kiểm tra from đăng ký
             var checkUser = function () {
@@ -115,7 +120,7 @@ var Email_booking= document.querySelector(".Email_booking");
                     FullName.focus();
                     return false;
                 }else if(FullName.value.length < 5){
-                    document.getElementById("err_fullname").innerHTML = "Họ và tên không được dưới 5 số";
+                    document.getElementById("err_fullname").innerHTML = "Họ và tên không được dưới 5 ký tự";
                     FullName.focus();
                     return false;
                 }else{
@@ -142,7 +147,7 @@ var Email_booking= document.querySelector(".Email_booking");
                     Password1.focus();
                     return false;
                 }else if(Password1.value.length < 5){
-                    document.getElementById("err_password").innerHTML = " Mật khẩu không được dưới 5 số";
+                    document.getElementById("err_password").innerHTML = " Mật khẩu không được dưới 5 ký tự";
                     Password1.focus();
                     return false;
                 }else{
@@ -158,7 +163,7 @@ var Email_booking= document.querySelector(".Email_booking");
                     Username2.focus();
                     return false;
                 }else if(Username2.value.length < 3){
-                    document.getElementById("err_username2").innerHTML = "Tên tài khoản không được dưới 5 số";
+                    document.getElementById("err_username2").innerHTML = "Tên tài khoản không được dưới 5 ký tự";
                     Username2.focus();
                     return false;
                 }else{
@@ -171,7 +176,7 @@ var Email_booking= document.querySelector(".Email_booking");
                     Password2.focus();
                     return false;
                 }else if(Password2.value.length <3){
-                    document.getElementById("err_password2").innerHTML = " Mật khẩu không được dưới 5 số";
+                    document.getElementById("err_password2").innerHTML = " Mật khẩu không được dưới 5 ký tự";
                     Password2.focus();
                     return false;
                 }else{
@@ -181,13 +186,15 @@ var Email_booking= document.querySelector(".Email_booking");
                 return true;
                 }
                 
+
+                // check from booking
                 var checkUser_booking = function (){
                     if (FullName_booking.value == "") {
                     document.getElementById("err_FullName_booking").innerHTML = " Tên tài khoản không được bỏ trống";
                     FullName_booking.focus();
                     return false;
                 }else if(FullName_booking.value.length < 5){
-                    document.getElementById("err_FullName_booking").innerHTML = "Tên tài khoản không được dưới 5 số";
+                    document.getElementById("err_FullName_booking").innerHTML = "Tên tài khoản không được dưới 5 ký tự";
                     FullName_booking.focus();
                     return false;
                 }else{
@@ -213,7 +220,7 @@ var Email_booking= document.querySelector(".Email_booking");
                     Address_booking.focus();
                     return false;
                 }else if(Address_booking.value.length < 5){
-                    document.getElementById("err_Address_booking").innerHTML = "Địa chỉ không được dưới 5 số";
+                    document.getElementById("err_Address_booking").innerHTML = "Địa chỉ không được dưới 5 ký tự";
                     Address_booking.focus();
                     return false;
                 }else{
@@ -223,15 +230,48 @@ var Email_booking= document.querySelector(".Email_booking");
                     //kiểm tra email
 
                     if (Email_booking.value == "") {
-                    document.getElementById("err_Email_booking").innerHTML = " Địa chỉ không được bỏ trống";
+                    document.getElementById("err_Email_booking").innerHTML = "  Email không được bỏ trống";
                     Email_booking.focus();
                     return false;
                 }else if(Email_booking.value.length < 5){
-                    document.getElementById("err_Email_booking").innerHTML = "Địa chỉ không được dưới 5 số";
+                    document.getElementById("err_Email_booking").innerHTML = "Email không được dưới 5 ký tự";
                     Email_booking.focus();
                     return false;
                 }else{
                         document.getElementById("err_Email_booking").innerHTML = "";
+                    }
+
+                return true;
+
+                }
+
+
+
+                var checkUser_info = function(){
+                    // kiểm tra phonenumber
+                    if (PhoneNumber_info.value == "") {
+                    document.getElementById("err_PhoneNumber_info").innerHTML = " Số điện thoại không được bỏ trống";
+                    PhoneNumber_info.focus();
+                    return false;
+                }else if(PhoneNumber_info.value.length < 5){
+                    document.getElementById("err_PhoneNumber_info").innerHTML = "Số điện thoại không được dưới 5 số";
+                    PhoneNumber_info.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_PhoneNumber_info").innerHTML = "";
+                    }
+
+                    //kiểm tra username
+                    if (Username_info.value == "") {
+                    document.getElementById("err_Username_info").innerHTML = " Họ và tên không được bỏ trống";
+                    Username_info.focus();
+                    return false;
+                }else if(Username_info.value.length < 5){
+                    document.getElementById("err_Username_info").innerHTML = "Họ và tên không được dưới 5 số";
+                    Username_info.focus();
+                    return false;
+                }else{
+                        document.getElementById("err_Username_info").innerHTML = "";
                     }
 
                 return true;
