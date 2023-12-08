@@ -34,13 +34,28 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
         case 'about':
             include_once "view/about.php";
             break;
-            case 'booking':
-                if(isset($_GET['del'])&&($_GET['del']>=0)){
-                    $delIndex = $_GET['del'];
-                    if (isset($_SESSION['giohang'][$delIndex])) {
-                        unset($_SESSION['giohang'][$delIndex]);
-                        header('Location: index.php?pg=booking');
-                    }            
+        case 'booking':
+            if(isset($_GET['del'])&&($_GET['del']>0)){
+                $i = $_GET['del'];
+                unset($_SESSION['giohang'][$i]);
+                header('Location: index.php?pg=booking');
+            }
+            if(isset($_POST['submit']) && ($_POST['submit']) ){
+                
+                /* Lấy thông tin user khi chưa có thông tin */
+                $Username = "goldenspoon" . rand(1, 100);
+                $Password = "123456";
+                $FullName = $_POST['FullName'];
+                $PhoneNumber = $_POST['PhoneNumber'];
+                $Address = $_POST['Address'];
+                $Email = $_POST['Email'];
+
+                /* Kiểm tra $_SEESSION['user'] */
+                if(isset($_SESSION['user'])){
+                    $ID_User = $_POST['ID'];
+                }else{
+                    $ID_User = user_book_id($FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
+
                 }
                 if(isset($_POST['submit']) && ($_POST['submit']) ){
                     
@@ -74,6 +89,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                         }
                     header('Location:index.php?pg=payment&&ID='.$ID_Bill);
                     }
+                }
                 include_once "view/booking.php";
                 break;
             case 'payment':
@@ -96,6 +112,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
                 
                 // $_SESSION['ID_User'] = $_SESSION['user']['ID'];
+
                 if ($kq) {
                     // đúng thì đăng nhập thành công
                     $_SESSION['user'] = $kq;           

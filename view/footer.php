@@ -81,6 +81,8 @@ var PhoneNumber = document.querySelector(".PhoneNumber");
 
 let isPhonenumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
 
+let isEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+
 var FullName = document.querySelector(".FullName");
 var Username1 = document.querySelector(".Username");
 var Username2 = document.querySelector(".Username2");
@@ -237,6 +239,10 @@ var Username_info= document.querySelector(".Username_info");
                     document.getElementById("err_Email_booking").innerHTML = "Email không được dưới 5 ký tự";
                     Email_booking.focus();
                     return false;
+                }else if(!isEmail.test(Email_booking.value)){
+                  document.getElementById("err_Email_booking").innerHTML = "Địa chỉ email phải đúng định dạng";
+                  Email_booking.focus();
+                  return false;
                 }else{
                         document.getElementById("err_Email_booking").innerHTML = "";
                     }
