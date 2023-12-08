@@ -36,7 +36,7 @@
           <div class="content">
             <div class="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox">
-              <label>Remember me</label>
+              <label>Lưu mật khẩu</label>
             </div>
             <div class="pass-link">
               <a href="#">Quên mật khẩu?</a>
