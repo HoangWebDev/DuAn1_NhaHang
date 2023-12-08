@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 03:43 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 08, 2023 lúc 09:02 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `golden_spoon`
+-- Cơ sở dữ liệu: `golden_spoon`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Cấu trúc bảng cho bảng `booking`
 --
 
 CREATE TABLE `booking` (
@@ -38,7 +38,7 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `booking`
+-- Đang đổ dữ liệu cho bảng `booking`
 --
 
 INSERT INTO `booking` (`ID`, `ID_User`, `DateTime`, `Guests`, `Deposit`, `Status`, `Note`) VALUES
@@ -48,12 +48,32 @@ INSERT INTO `booking` (`ID`, `ID_User`, `DateTime`, `Guests`, `Deposit`, `Status
 (19, 4, '0000-00-00 00:00:00', 10, 500.000, '', 'Hahahaaaa'),
 (24, 5, '11/28/2023 9:22 PM', 15, 500.000, '', 'Ba bàn đi'),
 (75, 12, '11/29/2023 2:27 AM', 10, 500.000, '', 'qua met'),
-(76, 12, '12/02/2023 1:15 AM', 0, 500.000, '', 'ngon lannhf hết dum cai');
+(76, 12, '12/02/2023 1:15 AM', 0, 500.000, '', 'ngon lannhf hết dum cai'),
+(85, 5, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho'),
+(87, 5, '11/29/2023 9:25 PM', 100, 500.000, '', 'hhhhhhh'),
+(88, 21, '11/28/2023 9:22 PM', 9, 500.000, '', 'Cho'),
+(89, 21, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho'),
+(90, 22, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho 1 bàn'),
+(91, 23, '', 0, 500.000, '', ''),
+(92, 5, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho 1 ban'),
+(93, 6, '', 10, 500.000, '', 'Cho 1 ban'),
+(94, 6, '', 10, 500.000, '', 'Cho 1 ban'),
+(95, 6, '', 10, 500.000, '', 'Cho 1 ban'),
+(96, 6, '', 10, 500.000, '', 'Cho 1 ban'),
+(97, 6, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho 1 ban'),
+(98, 6, '11/28/2023 9:22 PM', 10, 500.000, '', 'HHHHHHH'),
+(99, 6, '12/08/2023 2:05 PM', 10, 500.000, '', 'Cho 1ban'),
+(100, 6, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho 1 ban'),
+(101, 6, '11/28/2023 9:22 PM', 10, 500.000, '', 'HHHHHHH'),
+(102, 6, '12/30/2023 2:11 PM', 10, 500.000, '', 'Cho 1 ban'),
+(103, 6, '11/28/2023 9:22 PM', 100, 500.000, '', 'hhhhhhh'),
+(104, 24, '11/28/2023 9:22 PM', 10, 500.000, '', 'HHHHHHH'),
+(105, 24, '11/28/2023 9:22 PM', 10, 500.000, '', 'Cho 10 ban');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailbooking`
+-- Cấu trúc bảng cho bảng `detailbooking`
 --
 
 CREATE TABLE `detailbooking` (
@@ -67,7 +87,7 @@ CREATE TABLE `detailbooking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detailbooking`
+-- Đang đổ dữ liệu cho bảng `detailbooking`
 --
 
 INSERT INTO `detailbooking` (`ID`, `ID_Booking`, `ID_Food`, `NumberDishes`, `PriceDishes`, `DateTime`, `Total`) VALUES
@@ -81,12 +101,27 @@ INSERT INTO `detailbooking` (`ID`, `ID_Booking`, `ID_Food`, `NumberDishes`, `Pri
 (133, 75, 26, 1, 2000000.000, '', 0.00),
 (134, 76, 9, 1, 2200000.000, '', 0.00),
 (135, 76, 26, 1, 2000000.000, '', 0.00),
-(136, 76, 8, 1, 3200000.000, '', 0.00);
+(136, 76, 8, 1, 3200000.000, '', 0.00),
+(143, 85, 7, 1, 4200000.000, '', 0.00),
+(145, 87, 7, 1, 4200000.000, '', 0.00),
+(146, 88, 7, 1, 4200000.000, '', 0.00),
+(147, 89, 7, 1, 4200000.000, '', 0.00),
+(148, 90, 9, 1, 2200000.000, '', 0.00),
+(149, 91, 3, 1, 2400000.000, '', 0.00),
+(150, 91, 9, 1, 2200000.000, '', 0.00),
+(151, 91, 9, 1, 2200000.000, '', 0.00),
+(152, 91, 8, 1, 3200000.000, '', 0.00),
+(153, 98, 9, 1, 0.000, '', 0.00),
+(154, 98, 26, 1, 0.000, '', 0.00),
+(155, 98, 5, 1, 2200000.000, '', 0.00),
+(157, 103, 25, 1, 500000.000, '', 0.00),
+(158, 104, 25, 1, 500000.000, '', 0.00),
+(159, 105, 25, 1, 500000.000, '', 0.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food`
+-- Cấu trúc bảng cho bảng `food`
 --
 
 CREATE TABLE `food` (
@@ -99,7 +134,7 @@ CREATE TABLE `food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `food`
+-- Đang đổ dữ liệu cho bảng `food`
 --
 
 INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `FoodDescribe`) VALUES
@@ -131,7 +166,7 @@ INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_food`
+-- Cấu trúc bảng cho bảng `type_food`
 --
 
 CREATE TABLE `type_food` (
@@ -141,7 +176,7 @@ CREATE TABLE `type_food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `type_food`
+-- Đang đổ dữ liệu cho bảng `type_food`
 --
 
 INSERT INTO `type_food` (`ID`, `Name_TypeFood`, `Img_TypeFood`) VALUES
@@ -152,7 +187,7 @@ INSERT INTO `type_food` (`ID`, `Name_TypeFood`, `Img_TypeFood`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -167,28 +202,32 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`ID`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Address`, `Email`, `Role`) VALUES
 (4, 'Golden Spoon', 'admin', '123456', 911367894, 'CVPM.Quan Trung, Q.12, TP.Hồ Chí Minh', 'goldenspoon@gmail.com', 1),
 (5, 'User1', 'user1', '123', 0, '', '', 0),
-(6, 'HTCPT', 'user3', '789', 9097508, 'Huyện Cành Lá, Xã Cành Cây', 'thichvacham@gmail.com', 0),
-(12, 'Lê Thanh Phú', 'Phu', '123', 123456, 'Long An', 'longan123@gmail.com', 0);
+(6, 'HTCPT', 'user3', '789', 9097508, 'TP.Hồ Chí Minh', 'usercheck@gmail.com', 0),
+(12, 'Lê Thanh Phú', 'Phu', '123', 123456, 'Long An', 'longan123@gmail.com', 0),
+(21, 'KhachHang', 'goldenspoon83', '123456', 123456789, 'Huyện Cành Lá, Xã Cành Cây', 'h@gmail.vn', 0),
+(22, 'KhachHang2', 'goldenspoon78', '123456', 9097508, 'Ở Đây', 'h@gmail.vn', 0),
+(23, '', 'goldenspoon71', '123456', 0, '', '', 0),
+(24, 'User4', 'user4', '123456789', 988789995, 'Q.12, TP.Hồ Chí Minh', 'user4@gmail.com', 0);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `booking`
+-- Chỉ mục cho bảng `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_booking_user` (`ID_User`);
 
 --
--- Indexes for table `detailbooking`
+-- Chỉ mục cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
   ADD PRIMARY KEY (`ID`),
@@ -196,77 +235,77 @@ ALTER TABLE `detailbooking`
   ADD KEY `fk_detailbooking_food` (`ID_Food`);
 
 --
--- Indexes for table `food`
+-- Chỉ mục cho bảng `food`
 --
 ALTER TABLE `food`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_monan_loaimonan` (`ID_TypeFood`);
 
 --
--- Indexes for table `type_food`
+-- Chỉ mục cho bảng `type_food`
 --
 ALTER TABLE `type_food`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `booking`
+-- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
--- AUTO_INCREMENT for table `detailbooking`
+-- AUTO_INCREMENT cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
--- AUTO_INCREMENT for table `food`
+-- AUTO_INCREMENT cho bảng `food`
 --
 ALTER TABLE `food`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `type_food`
+-- AUTO_INCREMENT cho bảng `type_food`
 --
 ALTER TABLE `type_food`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `booking`
+-- Các ràng buộc cho bảng `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID`);
 
 --
--- Constraints for table `detailbooking`
+-- Các ràng buộc cho bảng `detailbooking`
 --
 ALTER TABLE `detailbooking`
   ADD CONSTRAINT `fk_detailbooking_booking` FOREIGN KEY (`ID_Booking`) REFERENCES `booking` (`ID`),
   ADD CONSTRAINT `fk_detailbooking_food` FOREIGN KEY (`ID_Food`) REFERENCES `food` (`ID`);
 
 --
--- Constraints for table `food`
+-- Các ràng buộc cho bảng `food`
 --
 ALTER TABLE `food`
   ADD CONSTRAINT `fk_food_typefood` FOREIGN KEY (`ID_TypeFood`) REFERENCES `type_food` (`ID`);
