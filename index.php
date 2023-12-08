@@ -19,69 +19,70 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             $food_type_3 = get_food_type_3(8);
             include_once "view/menu.php";
             break;
-        case 'addcart':
-            if(isset($_POST['addcart'])){
-                $id= $_POST['id'];
-                $name = $_POST['name'];
-                $img = $_POST['img'];
-                $price = $_POST['price'];
-                $soluong=1;
-                $ttien=$soluong * $price;
-                $food = array("id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"soluong"=>$soluong,"ttien"=>$ttien);
-                array_push($_SESSION['giohang'],$food);
-                header('Location: index.php?pg=booking');
-            }
-            break;
+            case 'addcart':
+                if(isset($_POST['addcart'])){
+                    $id= $_POST['id'];
+                    $name = $_POST['name'];
+                    $img = $_POST['img'];
+                    $price = $_POST['price'];
+                    $soluong = $_POST['soluong'];
+                    $food = array("id"=>$id,"name"=>$name,"img"=>$img,"price"=>$price,"soluong"=>$soluong,"ttien"=>$ttien);
+                    array_push($_SESSION['giohang'],$food);
+                    header('Location: index.php?pg=booking');
+                }
+                break;
         case 'about':
             include_once "view/about.php";
             break;
-        case 'booking':
-            if(isset($_GET['del'])&&($_GET['del']>0)){
-                $i = $_GET['del'] - 1;
-                unset($_SESSION['giohang'][$i]);
-                header('Location: index.php?pg=booking');
-            }
-            if(isset($_POST['submit']) && ($_POST['submit']) ){
-                
-                /* Lấy thông tin user khi chưa có thông tin */
-                $Username = "goldenspoon" . rand(1, 100);
-                $Password = "123456";
-                $FullName = $_POST['FullName'];
-                $PhoneNumber = $_POST['PhoneNumber'];
-                $Address = $_POST['Address'];
-                $Email = $_POST['Email'];
-
-                /* Kiểm tra $_SEESSION['user'] */
-                if(isset($_SESSION['user'])){
-                    $ID_User = $_POST['ID'];
-                }else{
-                    $ID_User = user_book_id($FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
+            case 'booking':
+                if(isset($_GET['del'])&&($_GET['del']>=0)){
+                    $delIndex = $_GET['del'];
+                    if (isset($_SESSION['giohang'][$delIndex])) {
+                        unset($_SESSION['giohang'][$delIndex]);
+                        header('Location: index.php?pg=booking');
+                    }            
                 }
-
-                /* Lấy thông tin booking */
-                $Guests=$_POST['Guests'];
-                $Deposit=$_POST['Deposit'];
-                $DateTime=$_POST['DateTime'];
-                $Note=$_POST['Note'];
-                // $tongbill=tongbill();
-
-               $ID_Bill = booking_add_id($ID_User, $DateTime, $Guests, $Deposit, $Note);
-               
-                    foreach($_SESSION['giohang'] as $cart) {
-                        extract($cart);
-                        booking_add_cart($ID_Bill,$id,$soluong,$ttien);
+                if(isset($_POST['submit']) && ($_POST['submit']) ){
+                    
+                    /* Lấy thông tin user khi chưa có thông tin */
+                    $Username = "goldenspoon" . rand(1, 100);
+                    $Password = "123456";
+                    $FullName = $_POST['FullName'];
+                    $PhoneNumber = $_POST['PhoneNumber'];
+                    $Address = $_POST['Address'];
+                    $Email = $_POST['Email'];
+    
+                    /* Kiểm tra $_SEESSION['user'] */
+                    if(isset($_SESSION['user'])){
+                        $ID_User = $_POST['ID'];
+                    }else{
+                        $ID_User = user_book_id($FullName, $PhoneNumber, $Address, $Email, $Username, $Password);
                     }
-                header('Location:index.php?pg=payment&&ID='.$ID_Bill);
-                }
-            include_once "view/booking.php";
-            break;
+    
+                    /* Lấy thông tin booking */
+                    $Guests=$_POST['Guests'];
+                    $Deposit=$_POST['Deposit'];
+                    $DateTime=$_POST['DateTime'];
+                    $Note=$_POST['Note'];
+                    // $tongbill=tongbill();
+    
+                   $ID_Bill = booking_add_id($ID_User, $DateTime, $Guests, $Deposit, $Note);
+                   
+                        foreach($_SESSION['giohang'] as $cart) {
+                            extract($cart);
+                            booking_add_cart($ID_Bill,$id,$soluong,$ttien);
+                        }
+                    header('Location:index.php?pg=payment&&ID='.$ID_Bill);
+                    }
+                include_once "view/booking.php";
+                break;
             case 'payment':
                 if (isset($_GET['ID'])) {
                     $ID = $_GET['ID'];
                 }
 
-            $showbooking=showbooking($ID);
-            $showbill=showbill($ID);
+                $showbooking=showbooking($ID);
+                $showbill=showbill($ID);
                 include_once "view/payment.php";
                 break;
         case 'contact':
@@ -158,9 +159,9 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 }
                 break;
             /* Thanh toá    n */
-            case 'payment':
-                include_once "view/payment.php";
-                break;
+            // case 'payment':
+            //     include_once "view/payment.php";
+            //     break;
 
             default:
             $food_type_1 = get_food_type_1(8);

@@ -1,27 +1,28 @@
 <?php 
     $show_cart = '';
-    $tong=0;
-    $i=1;
-
-    
-    foreach ($_SESSION['giohang'] as $food) {
-        $tong+=$ttien;
-        $tongbill=$tong-500000 ;
+    $tong = 0;
+    foreach ($_SESSION['giohang'] as $key => $food) {
         extract($food);
+        $ttien = $soluong * $price;
+        $tong += $ttien;
+        $tongbill = $tong - 500000;
         $show_cart .= '<tr>
-                        <td>'.$i.'</td>
+                        <td>'.($key + 1).'</td>
                         <td>'.$name.'</td>
                         <td>'.number_format($price,0,'.','.').' đ</td>
                         <td>'.$soluong.'</td>
                         <td>'.number_format($ttien,0,'.','.').' đ</td>
+                        <td class="text-center">
+                            <a href="index.php?pg=booking&&del='.$key.'"><i class="fas fa-trash"></i></a>
+                        </td>
                     </tr>';
-                    
-                
-        $i++;
     }
-           
+        $show_cart.= '<tr>
+                        <td colspan="4" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
+                        <td id="" class="text-black border-bottom-0">'.number_format($tong,0,'.','.').' đ</td>
+                    </tr>';     
     
-    if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){
+    if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){        
         $ID = $_SESSION['user']['ID'];
         $FullName = $_SESSION['user']['FullName'];
         $PhoneNumber = $_SESSION['user']['PhoneNumber'];
@@ -34,6 +35,7 @@
         $Address = "";
         $Email = "";
     }
+
 ?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
@@ -102,6 +104,7 @@
                                 <th scope="col">Đơn Giá</th>
                                 <th scope="col">Số Lượng</th>
                                 <th scope="col">Thành Tiền</th>
+                                <th scope="col">Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody>
