@@ -136,7 +136,7 @@
                     
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="peopleCount" name="Deposit" placeholder="Tiền Cọc" value="500000" readonly>VNĐ
+                                <input type="text" class="form-control" id="peopleCount" name="Deposit" placeholder="Tiền Cọc" value="500000" readonly>
                                 <label for="peopleCount">Tiền Cọc</label>
                             </div>
                         </div>

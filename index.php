@@ -94,21 +94,15 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
         case 'login':
             if (isset($_POST['user']) && isset($_POST['pass'])) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
-                $check_admin = check_admin($_POST['user'], $_POST['pass']);
-                $Role = $check_admin[0]['Role'];
-                if ($Role == 1) {
-                    $_SESSION['Role'] = $Role;
-                    header('Location:admin/index.php');
-                } else{
-                    if ($kq) {
-                        // đúng thì đăng nhập thành công
-                        $_SESSION['user'] = $kq;           
-                        header('Location:index.php');
-                    } else {
-                        $txt_erro = "Đăng nhập không thành công";
-                        $_SESSION['ID_Booking'] = $kq;
-                        include_once "view/login.php";
-                    }
+
+                if ($kq) {
+                    // đúng thì đăng nhập thành công
+                    $_SESSION['user'] = $kq;           
+                    header('Location:index.php');
+                } else {
+                    $txt_erro = "Đăng nhập không thành công";
+                    $_SESSION['ID_Booking'] = $kq;
+                    include_once "view/login.php";
                 }
             }
             
