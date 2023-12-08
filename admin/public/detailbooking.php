@@ -20,17 +20,19 @@
             </thead>
             <tbody>
                 <?php
+                $tong = 0;
                 foreach ($getall_detailbooking as $item) {
                     extract($item);
+                    $tong += $total;
                     echo'
                     <tr>
                         <td>'.$stt.'</td>
                         <td>'.$booking.'</td>
                         <td>'.$foodName .'</td>
                         <td>'.$countNumber.'</td>
-                        <td>'.$price.'</td>
+                        <td>'.number_format($price,0,'.','.').'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>
-                        <td>'.$total.'</td>
+                        <td>'.number_format($total,0,'.','.').'</td>
                     </tr>
                     ';
                 }
@@ -47,6 +49,18 @@
                 ?>
         <a href="#">Show All</a>
     </div>
+    <div class="row justify-content-end">
+                <div class="col-lg-3 text-end">
+                    <table class="table table-hover">
+                        <tfoot>
+                            <tr>
+                                <td>Tổng cộng:</td>
+                                <td><?=number_format($tong,0,'.','.')?>VNĐ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
     <!-- End of Recent Orders -->
 </main>
 <!-- End of Main Content -->

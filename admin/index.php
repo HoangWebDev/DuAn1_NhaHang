@@ -9,7 +9,7 @@ require_once '../dao/quanlibill.php';
 require_once 'public/header.php';
 require_once 'public/nav.php';
 
-if (isset($_SESSION['user']['Role']) && ($_SESSION['user']['Role'] == 1)) {
+if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
     include_once "public/header.php";
     if(isset($_GET['pg'])&&($_GET['pg']!="")){
         switch ($_GET["pg"]) {

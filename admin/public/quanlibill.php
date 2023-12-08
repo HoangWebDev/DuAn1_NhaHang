@@ -31,7 +31,7 @@
                         <td>'.$getone_user['FullName'].'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>
                         <td>'.$Guests.'</td>    
-                        <td>'.$Deposit.'</td>
+                        <td>'.number_format($Deposit,0,'.','.').'</td>
                         <td>'.$Status.'</td>
                         <td class="unblock">'.$detail.' - '.$del.'</td>                        
                     </tr>
