@@ -37,7 +37,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             break;
         case 'booking':
             if(isset($_GET['del'])&&($_GET['del']>0)){
-                $i = $_GET['del'] - 1;
+                $i = $_GET['del'];
                 unset($_SESSION['giohang'][$i]);
                 header('Location: index.php?pg=booking');
             }
@@ -95,6 +95,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
                 
                 // $_SESSION['ID_User'] = $_SESSION['user']['ID'];
+
                 if ($kq) {
                     // đúng thì đăng nhập thành công
                     $_SESSION['user'] = $kq;           
