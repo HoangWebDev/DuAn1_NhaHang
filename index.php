@@ -158,9 +158,9 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 }
                 break;
             /* Thanh toá    n */
-            // case 'payment':
-            //     include_once "view/payment.php";
-            //     break;
+            case 'payment':
+                include_once "view/payment.php";
+                break;
 
             default:
             $food_type_1 = get_food_type_1(8);
