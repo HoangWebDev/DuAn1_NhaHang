@@ -76,7 +76,6 @@
 </div>
 
 </div>
-<script>
 <script src="layout/js/login.js"></script>
-</script>
+
 <!-- login -->
