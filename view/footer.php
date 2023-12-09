@@ -77,6 +77,13 @@
         });
     </script>
     <script>
+        
+        $('#successModal').on('hidden.bs.modal', function () {
+            // Tải lại trang
+            location.reload();
+        });
+        </script>
+    <script>
 var PhoneNumber = document.querySelector(".PhoneNumber");
 
 let isPhonenumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
