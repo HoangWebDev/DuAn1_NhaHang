@@ -54,8 +54,8 @@
                     <table class="table table-hover">
                         <tfoot>
                             <tr>
-                                <td>Tổng cộng:</td>
-                                <td><?=number_format($tong,0,'.','.')?>VNĐ</td>
+                                <td><h1>Tổng cộng:</h1></td>
+                                <td><h1><?=number_format($tong,0,'.','.')?>VNĐ</h1></td>
                             </tr>
                         </tfoot>
                     </table>
