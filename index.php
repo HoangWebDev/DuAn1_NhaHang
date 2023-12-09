@@ -92,9 +92,9 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
             include_once "view/service.php";
             break;
         case 'login':
+            // đăng nhập
             if (isset($_POST['user']) && isset($_POST['pass'])) {
                 $kq = user_login($_POST['user'], $_POST['pass']);
-
                 if ($kq) {
                     // đúng thì đăng nhập thành công
                     $_SESSION['user'] = $kq;           
@@ -105,7 +105,7 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                     include_once "view/login.php";
                 }
             }
-            
+            // đăng ký
             if(isset($_POST['submit'])&&($_POST['submit'])){
                 $PhoneNumber=$_POST['PhoneNumber']; 
                 $FullName = $_POST['FullName'];
@@ -113,7 +113,6 @@ if (isset($_GET['pg']) && ($_GET['pg'] != "")) {
                 $Password=$_POST['Password'];
                 $check = user_checkPhoneNumber($PhoneNumber);
                 if($check)
-                    // $tb = "Số điện thoại <strong>'$PhoneNumber'</strong> đá đăng ký"
                     $tb = "Đăng ký không thành công";
                 else {
                 $ketqua = user_add($PhoneNumber,$FullName, $Username, $Password);

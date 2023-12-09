@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 08, 2023 lúc 01:14 PM
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.1.25
+-- Host: 127.0.0.1
+-- Generation Time: Dec 09, 2023 at 12:29 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `golden_spoon`
+-- Database: `golden_spoon`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `booking`
+-- Table structure for table `booking`
 --
 
 CREATE TABLE `booking` (
@@ -38,16 +38,17 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `booking`
+-- Dumping data for table `booking`
 --
 
 INSERT INTO `booking` (`ID`, `ID_User`, `DateTime`, `Guests`, `Deposit`, `Status`, `Note`) VALUES
-(107, 25, '01/02/2024 7:12 PM', 10, 500000, '', 'Cho 1 bàn');
+(107, 25, '01/02/2024 7:12 PM', 10, 500000, '', 'Cho 1 bàn'),
+(108, 12, '12/01/2023 1:44 AM', 3, 500000, '', 'aaa');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `detailbooking`
+-- Table structure for table `detailbooking`
 --
 
 CREATE TABLE `detailbooking` (
@@ -61,18 +62,19 @@ CREATE TABLE `detailbooking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `detailbooking`
+-- Dumping data for table `detailbooking`
 --
 
 INSERT INTO `detailbooking` (`ID`, `ID_Booking`, `ID_Food`, `NumberDishes`, `PriceDishes`, `DateTime`, `Total`) VALUES
 (161, 107, 9, 5, 2200000, '', 0),
 (162, 107, 7, 1, 10000000, '', 0),
-(163, 107, 22, 5, 4200000, '', 0);
+(163, 107, 22, 5, 4200000, '', 0),
+(164, 108, 3, 2, 8400000, '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `food`
+-- Table structure for table `food`
 --
 
 CREATE TABLE `food` (
@@ -85,7 +87,7 @@ CREATE TABLE `food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `food`
+-- Dumping data for table `food`
 --
 
 INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `FoodDescribe`) VALUES
@@ -96,10 +98,10 @@ INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `
 (7, 1, 'Courvoisier Extra Initiale', 4200000, 'drink7.jpg', 'Đây là một sự pha trộn đáng chú ý của eaux-de-vie cực kỳ lâu đời từ Grande Champagne và Borderies crus.'),
 (9, 1, 'Bisquit & Dubouche XO', 2200000, 'drink6.jpg', 'Một hương vị mượt mà và xa hoa dành cho những người yêu thích rượu cognac thực sự.'),
 (11, 2, 'Sushi hải sản', 200000, 'specials-1.png', 'Món sushi, một biểu tượng của ẩm thực Nhật Bản, là một tuyệt tác nghệ thuật ẩm thực kết hợp giữa hương vị, màu sắc và sự tinh tế. '),
-(14, 2, 'Mực ống', 300000, 'khaivi5.jpg', 'Món mực ống là một món biểu tượng trong ẩm thực, nổi tiếng với hương vị đặc trưng và cách chế biến độc đáo.'),
-(15, 2, 'Đậu que chiên', 300000, 'khaivi6.jpg', 'Món đậu que chiên là một món ăn nhẹ phổ biến, thơm ngon và giòn rụm, thường được thưởng thức trong các buổi gặp gỡ bạn bè hoặc làm món nhẹ trước bữa chính. Món đậu que chiên không chỉ là một món ăn ng'),
-(16, 2, 'Nộm sứa', 300000, 'khaivi7.jpg', 'Nộm sứa là một món ăn truyền thống phổ biến trong ẩm thực Việt Nam, nổi tiếng với hương vị tươi mới, ngon miệng và chất dinh dưỡng từ sứa biển. Nộm sứa không chỉ là một món ăn hấp dẫn về hương vị mà c'),
-(17, 2, 'Nộm củ quả', 300000, 'khaivi8.jpg', 'Nộm củ quả là một món ăn truyền thống rất phổ biến trong ẩm thực nhiều quốc gia, nổi tiếng với sự tươi mới, ngon miệng, và đa dạng về nguyên liệu. Nộm củ quả không chỉ là một món ăn ngon miệng mà còn '),
+(14, 2, 'Mực ống', 300000, 'download (1).jpg', 'Món mực ống là một món biểu tượng trong ẩm thực, nổi tiếng với hương vị đặc trưng và cách chế biến độc đáo.'),
+(15, 2, 'Đậu que chiên', 300000, 'hq720.jpg', 'Món đậu que chiên là một món ăn nhẹ phổ biến, thơm ngon và giòn rụm, thường được thưởng thức trong các buổi gặp gỡ bạn bè hoặc làm món nhẹ trước bữa chính. Món đậu que chiên không chỉ là một món ăn ng'),
+(16, 2, 'Nộm sứa', 300000, 'download (2).jpg', 'Nộm sứa là một món ăn truyền thống phổ biến trong ẩm thực Việt Nam, nổi tiếng với hương vị tươi mới, ngon miệng và chất dinh dưỡng từ sứa biển. Nộm sứa không chỉ là một món ăn hấp dẫn về hương vị mà c'),
+(17, 2, 'Nộm củ quả', 300000, 'cach-lam-nom-su-hao-ca-rot-gion-gion-san-sat-an-mai-chang-ngan-202006261411347923.jpg', 'Nộm củ quả là một món ăn truyền thống rất phổ biến trong ẩm thực nhiều quốc gia, nổi tiếng với sự tươi mới, ngon miệng, và đa dạng về nguyên liệu. Nộm củ quả không chỉ là một món ăn ngon miệng mà còn '),
 (18, 3, 'Ba chỉ bò Mỹ', 500000, 'food1.jpg', 'Ba chỉ bò Mỹ là một loại thịt bò được lấy từ vùng cạnh bụng, giữa phần thăn và phần sườn của con bò Mỹ. Đây là một phần thịt nạc, mỡ vừa đủ và thường được ưa chuộng trong nhiều món ăn do hương vị thơm'),
 (20, 3, 'Cá lăng nướng muối ớt', 500000, 'food3.jpg', 'Cá lăng nướng muối ớt là một món ăn biển phổ biến và ngon miệng, kết hợp hương vị tinh tế của cá lăng với hương thơm của muối và ớt. Món cá lăng nướng muối ớt thường mang đến hương vị biển mặn mặn, ng'),
 (21, 3, 'Gan ngỗng áp chão', 500000, 'food4.jpg', 'Gan ngỗng áp chảo là một món ăn ngon miệng, thường được chế biến nhanh chóng trên chảo để giữ được độ mềm và hương vị tốt nhất.  Món gan ngỗng áp chảo thường mang lại hương vị ngon miệng, đậm đà và có'),
@@ -111,7 +113,7 @@ INSERT INTO `food` (`ID`, `ID_TypeFood`, `FoodName`, `FoodPrice`, `FoodImage`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `type_food`
+-- Table structure for table `type_food`
 --
 
 CREATE TABLE `type_food` (
@@ -121,7 +123,7 @@ CREATE TABLE `type_food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `type_food`
+-- Dumping data for table `type_food`
 --
 
 INSERT INTO `type_food` (`ID`, `Name_TypeFood`, `Img_TypeFood`) VALUES
@@ -132,7 +134,7 @@ INSERT INTO `type_food` (`ID`, `Name_TypeFood`, `Img_TypeFood`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -147,7 +149,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`ID`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Address`, `Email`, `Role`) VALUES
@@ -158,18 +160,18 @@ INSERT INTO `user` (`ID`, `FullName`, `Username`, `Password`, `PhoneNumber`, `Ad
 (25, 'Khách Hàng 1', 'goldenspoon23', '123456', 987654321, 'TP.Hồ Chí Minh', 'user1@gmail.com', 0);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `booking`
+-- Indexes for table `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_booking_user` (`ID_User`);
 
 --
--- Chỉ mục cho bảng `detailbooking`
+-- Indexes for table `detailbooking`
 --
 ALTER TABLE `detailbooking`
   ADD PRIMARY KEY (`ID`),
@@ -177,77 +179,77 @@ ALTER TABLE `detailbooking`
   ADD KEY `fk_detailbooking_food` (`ID_Food`);
 
 --
--- Chỉ mục cho bảng `food`
+-- Indexes for table `food`
 --
 ALTER TABLE `food`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_monan_loaimonan` (`ID_TypeFood`);
 
 --
--- Chỉ mục cho bảng `type_food`
+-- Indexes for table `type_food`
 --
 ALTER TABLE `type_food`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `booking`
+-- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
--- AUTO_INCREMENT cho bảng `detailbooking`
+-- AUTO_INCREMENT for table `detailbooking`
 --
 ALTER TABLE `detailbooking`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
--- AUTO_INCREMENT cho bảng `food`
+-- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT cho bảng `type_food`
+-- AUTO_INCREMENT for table `type_food`
 --
 ALTER TABLE `type_food`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `booking`
+-- Constraints for table `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID`);
 
 --
--- Các ràng buộc cho bảng `detailbooking`
+-- Constraints for table `detailbooking`
 --
 ALTER TABLE `detailbooking`
   ADD CONSTRAINT `fk_detailbooking_booking` FOREIGN KEY (`ID_Booking`) REFERENCES `booking` (`ID`),
   ADD CONSTRAINT `fk_detailbooking_food` FOREIGN KEY (`ID_Food`) REFERENCES `food` (`ID`);
 
 --
--- Các ràng buộc cho bảng `food`
+-- Constraints for table `food`
 --
 ALTER TABLE `food`
   ADD CONSTRAINT `fk_food_typefood` FOREIGN KEY (`ID_TypeFood`) REFERENCES `type_food` (`ID`);
