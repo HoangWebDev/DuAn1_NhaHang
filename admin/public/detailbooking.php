@@ -16,21 +16,26 @@
                     <th scope="col">Giá món ăn</th>
                     <th scope="col">Ngày đặt</th>   
                     <th scope="col">Tổng cộng</th>
+                    <th scope="col">Quản lí</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                $tong = 0;
                 foreach ($getall_detailbooking as $item) {
                     extract($item);
+                    $del = "<a href='index.php?pg=deldetailbooking&id=" . $stt . "'>Delete</a>";
+                    $tong += $total;
                     echo'
                     <tr>
                         <td>'.$stt.'</td>
                         <td>'.$booking.'</td>
                         <td>'.$foodName .'</td>
                         <td>'.$countNumber.'</td>
-                        <td>'.$price.'</td>
+                        <td>'.number_format($price,0,'.','.').'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>
-                        <td>'.$total.'</td>
+                        <td>'.number_format($total,0,'.','.').'</td>
+                        <td class="unblock">'.$del.'</td>        
                     </tr>
                     ';
                 }
@@ -47,6 +52,18 @@
                 ?>
         <a href="#">Show All</a>
     </div>
+    <div class="row justify-content-end">
+                <div class="col-lg-3 text-end">
+                    <table class="table table-hover">
+                        <tfoot>
+                            <tr>
+                                <td>Tổng cộng:</td>
+                                <td><?=number_format($tong,0,'.','.')?>VNĐ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
     <!-- End of Recent Orders -->
 </main>
 <!-- End of Main Content -->

@@ -52,18 +52,6 @@
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Báo Cáo</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        settings
-                    </span>
-                    <h3>Cài Đặt</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
                         add
                     </span>
                     <h3>Thêm</h3>

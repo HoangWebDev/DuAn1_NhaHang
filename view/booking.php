@@ -1,28 +1,23 @@
 <?php 
     $show_cart = '';
-    $tong=0;
-    $i=1;
-
-    
-    foreach ($_SESSION['giohang'] as $food) {
-        $tong+=$ttien;
+    $tong = 0;
+    foreach ($_SESSION['giohang'] as $key => $food) {
         extract($food);
+        $ttien = $soluong * $price;
+        $tong += $ttien;
         $show_cart .= '<tr>
-                        <td>'.$i.'</td>
+                        <td>'.($key + 1).'</td>
                         <td>'.$name.'</td>
                         <td>'.number_format($price,0,'.','.').' đ</td>
                         <td>'.$soluong.'</td>
                         <td>'.number_format($ttien,0,'.','.').' đ</td>
                         <td class="text-center">
-                            <a href="index.php?pg=booking&&del='.$i.'"><i class="fas fa-trash"></i></a>
+                            <a href="index.php?pg=booking&&del='.$key.'"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>';
-                    
-                
-        $i++;
     }
         $show_cart.= '<tr>
-                        <td colspan="2" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
+                        <td colspan="4" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
                         <td id="" class="text-white border-bottom-0">'.number_format($tong,0,'.','.').' đ</td>
                     </tr>';     
     
@@ -141,7 +136,7 @@
                     
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="peopleCount" name="Deposit" placeholder="Tiền Cọc" value="500.000đ" readonly>
+                                <input type="text" class="form-control" id="peopleCount" name="Deposit" placeholder="Tiền Cọc" value="500000" readonly>
                                 <label for="peopleCount">Tiền Cọc</label>
                             </div>
                         </div>

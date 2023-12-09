@@ -1,27 +1,28 @@
 <?php 
     $show_cart = '';
-    $tong=0;
-    $i=1;
-
-    
-    foreach ($_SESSION['giohang'] as $food) {
-        $tong+=$ttien;
-        $tongbill=$tong-500000 ;
+    $tong = 0;
+    foreach ($_SESSION['giohang'] as $key => $food) {
         extract($food);
+        $ttien = $soluong * $price;
+        $tong += $ttien;
+        $tongbill = $tong - 500000;
         $show_cart .= '<tr>
-                        <td>'.$i.'</td>
+                        <td>'.($key + 1).'</td>
                         <td>'.$name.'</td>
                         <td>'.number_format($price,0,'.','.').' đ</td>
                         <td>'.$soluong.'</td>
                         <td>'.number_format($ttien,0,'.','.').' đ</td>
+                        <td class="text-center">
+                            <a href="index.php?pg=booking&&del='.$key.'"><i class="fas fa-trash"></i></a>
+                        </td>
                     </tr>';
-                    
-                
-        $i++;
     }
-           
+        $show_cart.= '<tr>
+                        <td colspan="4" class="text-end text-primary border-bottom-0"><strong>Tổng Cộng:</strong></td>
+                        <td id="" class="text-black border-bottom-0">'.number_format($tong,0,'.','.').' đ</td>
+                    </tr>';     
     
-    if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){
+    if(isset($_SESSION['user']) && (is_array($_SESSION['user']))){        
         $ID = $_SESSION['user']['ID'];
         $FullName = $_SESSION['user']['FullName'];
         $PhoneNumber = $_SESSION['user']['PhoneNumber'];
@@ -34,6 +35,7 @@
         $Address = "";
         $Email = "";
     }
+
 ?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
@@ -62,7 +64,7 @@
                 </div>
                 <div class="col-lg-6 text-center">
                     <div class="">
-                        <h2 class="section-title ff-secondary text-primary fw-normal mb-4">Khách Hàng</h2>
+<h2 class="section-title ff-secondary text-primary fw-normal mb-4">Khách Hàng</h2>
                         <h3 class="ff-secondary text-primary fw-normal mb-4"><?=$FullName?></h3>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i><?=$Address?></p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i><?=$Email?></p>
@@ -102,6 +104,7 @@
                                 <th scope="col">Đơn Giá</th>
                                 <th scope="col">Số Lượng</th>
                                 <th scope="col">Thành Tiền</th>
+                                <th scope="col">Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,24 +125,50 @@
                 </div>
             </div>
             <div class="row justify-content-end">
-                <div class="col-lg-3 text-end">
+<div class="col-lg-3 text-end">
                     <table class="table table-hover">
                         <tr>
                             <td>Tổng:</td>
-                            <td><?=number_format($tong,0,'.','. ')?>đ</td>
+                            <td><?=number_format($tong,0,'.','. ')?>VNĐ</td>
                         </tr>
                         <tr>
                             <td>Tiền Cọc:</td>
-                            <td>500.000 đ</td>
+                            <td>500.000VNĐ</td>
                         </tr>
                         <tfoot>
                             <tr>
                                 <td>Tổng cộng:</td>
-                                <td><?=number_format($tongbill,0,'.','. ')?> đ</td>
+                                <td><?=number_format($tongbill,0,'.','. ')?>VNĐ</td>
                             </tr>
                         </tfoot>
                     </table>
-                    <img src="/layout/assets/img/signature.png" alt="">
+                    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                          <h3 class="modal-title text-primary section-title text-start" id="successModalLabel">Thành Công</h3>
+
+                            <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-md-12 text-center mb-2">
+                                  <i class="fas fa-check-circle fa-4x text-success"></i>
+                                </h3>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                  <h3>Cảm ơn quý khách!</h3>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                      <button type="button" class="btn btn-primary text-end" data-bs-toggle="modal" data-bs-target="#successModal">Xác Nhận</button>
+                    <img src="/layout/assets/img/signature.png" class="img-fluid" alt="">
                 </div>
             </div>
         </section>

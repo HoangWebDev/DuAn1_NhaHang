@@ -54,7 +54,6 @@
 
         var FoodName = document.getElementById("FoodName");
         var FoodPrice = document.getElementById("FoodPrice");
-        var FoodImage = document.getElementById("FoodImage");
 
         let isFoodPrice =  /^([1-9])\d+$/;
 
@@ -90,16 +89,6 @@
                     return false;
                 }else{
                     document.getElementById("err_food_price").innerHTML = "";
-                }
-
-            /* Food Image */
-
-                if (FoodImage.value == "") {
-                    document.getElementById("err_food_image").innerHTML = "Hình ảnh món ăn không được để trống";
-                    FoodImage.focus();
-                    return false;
-                }else{
-                    document.getElementById("err_food_image").innerHTML = "";
                 }
 
                 return true;

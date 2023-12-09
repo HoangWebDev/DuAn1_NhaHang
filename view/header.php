@@ -74,11 +74,11 @@
                             <ul class="dropdown-menu end-0" style="left:auto">
                                 <!-- <li><a class="dropdown-item" href="#"> Thông tin tài khoảng</a></li>
                                 <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li> -->
-                                <?php if($_SESSION['user']['Role']>=1):?>
-                                    <li>
-                                        <!-- <hr class="dropdown-divider"> -->
-                                    </li>
-                                    <li><a class="dropdown-item text-warning" href="admin">Admin</a></li>
+                                <?php if($_SESSION['user']['Role']>=1):
+                                    echo'
+                                        <li><a class="dropdown-item text-warning" href="admin">Admin</a></li>
+                                    ';
+                                    ?>
                                 <?php endif; ?>
                                 <li>
                                     <hr class="dropdown-divider">
