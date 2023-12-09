@@ -16,6 +16,7 @@
                     <th scope="col">Giá món ăn</th>
                     <th scope="col">Ngày đặt</th>   
                     <th scope="col">Tổng cộng</th>
+                    <th scope="col">Quản lí</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                 $tong = 0;
                 foreach ($getall_detailbooking as $item) {
                     extract($item);
+                    $del = "<a href='index.php?pg=deldetailbooking&id=" . $stt . "'>Delete</a>";
                     $tong += $total;
                     echo'
                     <tr>
@@ -33,6 +35,7 @@
                         <td>'.number_format($price,0,'.','.').'</td>
                         <td>'.date("Y-m-d H:i:s").'</td>
                         <td>'.number_format($total,0,'.','.').'</td>
+                        <td class="unblock">'.$del.'</td>        
                     </tr>
                     ';
                 }

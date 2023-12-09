@@ -27,6 +27,17 @@ function delete_qlbill($ID){
         pdo_execute($sql, $ID);
     }
 }
+function delete_detailbooking($ID){
+    $sql = "DELETE FROM detailbooking WHERE ID=?";
+    if(is_array($ID)){
+        foreach ($ID as $ma) {
+            pdo_execute($sql, $ma);
+        }
+    }
+    else{
+        pdo_execute($sql, $ID);
+    }
+}
 // /**
 //  * Truy vấn tất cả các loại
 //  * @return array mảng loại truy vấn được

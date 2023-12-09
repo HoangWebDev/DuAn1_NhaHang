@@ -281,6 +281,18 @@ if (isset($_SESSION['Role']) && ($_SESSION['Role'] == 1)) {
                             $getall_detailbooking = getall_detailbooking($ID);
                             include_once "public/detailbooking.php";
                             break;
+           // Xóa hóa đơn
+           case 'deldetailbooking':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id = $_GET['id'];
+                delete_detailbooking($id);
+                $getall_detailbooking= getall_detailbooking($id);
+            }else{
+                $tb = "Có dữ liệu không thể xoá";
+            }
+            $getall_detailbooking= getall_detailbooking($id);
+            include_once "public/detailbooking.php";
+            break;                 
         // End hóa đơn
 
             /* Thoát admin */
